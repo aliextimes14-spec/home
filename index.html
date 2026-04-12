@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="أي ام سبيشل (I am Special) - الخيار الأول لضيافة الأطفال داخل المجمعات التجارية في الرياض. تسوقي براحة بينما يستمتع طفلك في بيئة آمنة وحركية.">
-<meta name="keywords" content="ضيافة أطفال, ألعاب أطفال, الرياض, حضانة أطفال في المول, أي ام سبيشل, I am Special, الرياض جاليري, ذا فيو مول, مركز المملكة, شرق بلازا, القصر مول, سلام مول">
+<meta name="description" content="أي ام سبيشل (I am Special) - الخيار الأول لضيافة وحضانة الأطفال داخل المجمعات التجارية في الرياض. تسوقي براحة بينما يستمتع طفلك في بيئة آمنة وحركية.">
+<meta name="keywords" content="ضيافة أطفال, ألعاب أطفال, الرياض, حضانة أطفال في المول, أي ام سبيشل, I am Special, الرياض جاليري, ذا فيو مول, مركز المملكة, شرق بلازا, القصر مول, سلام مول, رعاية اطفال وقت التسوق">
 <title>أي ام سبيشل | I am Special</title>
 <link rel="icon" href="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" type="image/png">
 
@@ -18,21 +18,15 @@
   "@type": "LocalBusiness",
   "name": "أي ام سبيشل | I am Special",
   "image": "2A3521A9-7E2C-47C5-A13C-349CC090A87B.png",
-  "description": "الخيار الأول للضيافة الترفيهية داخل المجمعات التجارية في الرياض.",
+  "description": "الخيار الأول للضيافة الترفيهية وحضانة الأطفال داخل المجمعات التجارية في الرياض.",
+  "telephone": "0537333567",
+  "openingHours": "Mo-Su 14:00-23:00",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Riyadh",
     "addressRegion": "Riyadh Province",
     "addressCountry": "SA"
-  },
-  "department": [
-    { "@type": "LocalBusiness", "name": "فرع الرياض جاليري" },
-    { "@type": "LocalBusiness", "name": "فرع مركز المملكة" },
-    { "@type": "LocalBusiness", "name": "فرع ذا فيو مول" },
-    { "@type": "LocalBusiness", "name": "فرع سلام مول" },
-    { "@type": "LocalBusiness", "name": "فرع القصر مول" },
-    { "@type": "LocalBusiness", "name": "فرع شرق بلازا" }
-  ]
+  }
 }
 </script>
 
@@ -48,11 +42,8 @@
     --blue:    #5BB8FF;
     --blue-light: #D6EEFF;
     --blue-dark:  #2E8ED6;
-    
-    /* ألوان زاهية وساطعة للشعار حسب الطلب */
     --logo-red:   #FF1A33; 
     --logo-yellow:#FFCC00; 
-
     --red:     #FF6B7A;
     --red-light:  #FFE0E3;
     --red-dark:   #E84A5A;
@@ -73,38 +64,67 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', sans-serif; overflow-x: hidden; cursor: none; }
 
-  /* تنسيق الشعار النصي الجديد (أفقي، ألوان زاهية، مسافات مريحة، بدون حد أبيض) */
+  /* الشعار والتأكد من بقائه على سطر واحد */
   .brand-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    direction: ltr; /* لضمان ترتيب: عربي - صورة - إنجليزي */
+    gap: 8px;
+    direction: ltr;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
   .brand-logo-container .cl-ar {
     font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', cursive;
     font-weight: 800;
-    word-spacing: 4px;
+    word-spacing: 2px;
     direction: rtl;
+    flex-shrink: 0;
   }
   .brand-logo-container .cl-en {
     font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', cursive;
     font-weight: 800;
-    letter-spacing: 1.5px;
-    word-spacing: 2px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    flex-shrink: 0;
   }
   .brand-logo-img {
     object-fit: contain;
     animation: pulseLogo 3s infinite;
+    flex-shrink: 0;
   }
   .cl-red { color: var(--logo-red); }
   .cl-yellow { color: var(--logo-yellow); }
 
-  .cursor { width:14px;height:14px;background:var(--logo-red);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:background 0.3s; display: block;}
-  .cursor-trail { width:38px;height:38px;border:2px solid var(--logo-yellow);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.2s ease;opacity:0.6; display: block;}
+  /* مؤشر الماوس للكمبيوتر */
+  .cursor-emoji {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 24px;
+    transform: translate(-50%, -50%);
+    display: block;
+    user-select: none;
+  }
+
+  /* تأثير النقر/اللمس للجوال */
+  .touch-emoji {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+    animation: touchFade 0.6s ease-out forwards;
+  }
+  @keyframes touchFade {
+    0% { transform: translate(-50%, -50%) scale(0.5) translateY(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; }
+  }
 
   .floating-shapes { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
-  /* دوران مستمر وسرعة مناسبة */
   .shape { position:absolute;border-radius:50%;opacity:0.07;animation:floatShape linear infinite; }
   .shape:nth-child(1){width:220px;height:220px;background:var(--blue);top:5%;left:8%;animation-duration:12s;}
   .shape:nth-child(2){width:130px;height:130px;background:var(--red);top:20%;right:5%;animation-duration:9s;animation-direction:reverse;}
@@ -117,23 +137,24 @@
     100% { transform: translateY(0) rotate(360deg); }
   }
 
-  nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:12px 40px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--blue),var(--red),var(--green),var(--yellow)) 1;box-shadow:0 4px 20px rgba(91,184,255,0.12); }
+  /* تعديلات الهيدر (أسود شفاف) */
+  nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:12px 40px;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);border-bottom:2px solid rgba(255,255,255,0.1); box-shadow:0 4px 20px rgba(0,0,0,0.3); }
   .nav-logo-wrap { text-decoration: none; display: flex; align-items: center; }
   @keyframes pulseLogo { 0%, 100% {transform: scale(1);} 50% {transform: scale(1.05);} }
   
   .nav-links { display:flex;gap:8px;list-style:none; }
-  .nav-links a { color:var(--text);text-decoration:none;font-size:16px;font-weight:700;padding:7px 16px;border-radius:20px;transition:all 0.2s; }
-  .nav-links li:nth-child(1) a:hover{background:var(--blue-light);color:var(--blue-dark)}
-  .nav-links li:nth-child(2) a:hover{background:var(--red-light);color:var(--red-dark)}
-  .nav-links li:nth-child(3) a:hover{background:var(--green-light);color:var(--green-dark)}
-  .nav-links li:nth-child(4) a:hover{background:var(--yellow-light);color:var(--yellow-dark)}
-  .nav-links li:nth-child(5) a:hover{background:var(--blue-light);color:var(--blue-dark)}
-  .nav-cta { background:linear-gradient(135deg,var(--logo-red),var(--logo-yellow));color:var(--white);text-decoration:none;font-size:15px;font-weight:800;padding:10px 22px;border-radius:24px;box-shadow:0 4px 12px rgba(230,25,43,0.3);transition:all 0.2s;display:flex;align-items:center;gap:6px; cursor: pointer; white-space: nowrap;}
+  .nav-links a { color:var(--white);text-decoration:none;font-size:16px;font-weight:700;padding:7px 16px;border-radius:20px;transition:all 0.2s; }
+  .nav-links li:nth-child(1) a:hover{background:rgba(255,255,255,0.2)}
+  .nav-links li:nth-child(2) a:hover{background:rgba(255,255,255,0.2)}
+  .nav-links li:nth-child(3) a:hover{background:rgba(255,255,255,0.2)}
+  .nav-links li:nth-child(4) a:hover{background:rgba(255,255,255,0.2)}
+  .nav-links li:nth-child(5) a:hover{background:rgba(255,255,255,0.2)}
+  
+  .nav-cta { background:linear-gradient(135deg,var(--logo-red),var(--logo-yellow));color:var(--text);text-decoration:none;font-size:15px;font-weight:800;padding:10px 22px;border-radius:24px;box-shadow:0 4px 12px rgba(230,25,43,0.3);transition:all 0.2s;display:flex;align-items:center;gap:6px; cursor: pointer; white-space: nowrap;}
   .nav-cta:hover { transform:translateY(-2px);box-shadow:0 8px 20px rgba(230,25,43,0.4); }
 
   .load-screen { position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,var(--blue-light),var(--red-light),var(--yellow-light),var(--green-light));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity 0.6s,transform 0.6s; }
   .load-screen.hidden { opacity:0;pointer-events:none;transform:scale(1.04); }
-  @keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-20px)}}
   .load-sub { font-size:20px; color:var(--text); font-weight:700; text-align: center; padding: 0 20px;}
   .load-bar-wrap { width:260px;height:10px;background:rgba(0,0,0,0.08);border-radius:10px;overflow:hidden; }
   .load-bar { height:100%;border-radius:10px;background:linear-gradient(90deg,var(--logo-red),var(--logo-yellow),var(--green),var(--blue));background-size:200% 100%;animation:loadProg 2s cubic-bezier(0.4,0,0.2,1) forwards,shimmer 1.5s linear infinite; }
@@ -164,11 +185,11 @@
   .hero-actions a { padding:14px 24px;border-radius:28px;font-size:17px;font-weight:bold;text-decoration:none;transition:all 0.2s;box-shadow:0 6px 18px rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:center;gap:8px; cursor: pointer; flex: 1 1 auto; text-align: center;}
   .hero-actions a:hover { transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.15); }
   .btn-blue{background:var(--blue);color:var(--white)}.btn-red{background:var(--logo-red);color:var(--white)}.btn-green{background:var(--green);color:var(--white)}.btn-yellow{background:var(--logo-yellow);color:var(--text)}
-  .hero-big-emoji { position:absolute;right:40px;bottom:0;font-size:clamp(120px,22vw,300px);line-height:1;user-select:none;z-index:1;opacity:0.06; }
+  
   .scroll-hint { display:flex;flex-direction:column;align-items:center;gap:6px;position:absolute;bottom:20px;left:50%;transform:translateX(-50%); }
   .scroll-hint span { font-size:14px;font-weight:700;color:var(--muted); }
-  .scroll-arrow { font-size:22px;animation:arrowBounce 1.2s infinite; }
-  @keyframes arrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+  .scroll-kid { font-size:32px;animation:tumble 1.5s infinite linear; }
+  @keyframes tumble{ 0% {transform: rotate(0deg)} 100% {transform: rotate(360deg)} }
 
   .rainbow-bar { height:10px;background:linear-gradient(90deg,var(--blue) 0%,var(--green) 25%,var(--logo-yellow) 50%,var(--logo-red) 75%,var(--blue) 100%);background-size:200% 100%;animation:rainbowMove 3s linear infinite; }
   @keyframes rainbowMove{0%{background-position:0% 0}100%{background-position:200% 0}}
@@ -189,8 +210,7 @@
   .about-badge-wrap span { font-size:15px; font-weight:bold; color:var(--blue-dark); }
   .tag-pill { display:inline-block;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:800;margin:4px; }
   .tag-blue{background:var(--blue-light);color:var(--blue-dark)}.tag-red{background:var(--red-light);color:var(--logo-red)}.tag-green{background:var(--green-light);color:var(--green-dark)}.tag-yellow{background:var(--yellow-light);color:var(--yellow-dark)}
-  .section-eyebrow { font-size:14px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px; }
-  .section-eyebrow.blue{color:var(--blue-dark)}.section-eyebrow.red{color:var(--logo-red)}.section-eyebrow.green{color:var(--green-dark)}.section-eyebrow.yellow{color:var(--yellow-dark)}
+  
   .section-h2 { font-size:clamp(32px,5vw,50px);line-height:1.2;margin-bottom:16px; }
   .section-p { font-size:16px;line-height:1.8;color:var(--muted);margin-bottom:24px; }
   .btn-big { display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:32px;font-size:18px; font-weight:bold; text-decoration:none;transition:all 0.2s;box-shadow:0 8px 24px rgba(0,0,0,0.12);margin-top:20px; cursor: pointer; text-align: center; justify-content: center;}
@@ -235,14 +255,30 @@
   .enroll-feature-emoji { font-size:24px;flex-shrink:0; }
   .enroll-feature-text strong { display:block;font-size:15px;font-weight:800;color:var(--text); }
   .enroll-feature-text span { font-size:13px;color:var(--muted); }
-  .enroll-visual { background:var(--white);border-radius:40px;padding:30px;text-align:center;box-shadow:0 20px 60px rgba(255,107,122,0.15);position:relative;overflow:hidden; }
-  .enroll-big-emoji { width:80px; height:80px; display:inline-block; animation:bounce 1s infinite alternate; }
+  
+  .enroll-visual { background:var(--white);border-radius:40px;padding:40px 30px;text-align:center;box-shadow:0 20px 60px rgba(255,107,122,0.15);position:relative;overflow:hidden; z-index:1;}
+  /* الشعار الراقص في الخلفية بوضوح منخفض */
+  .enroll-bg-logo { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width: 250px; opacity:0.05; z-index:-1; animation: tumble 10s infinite linear;}
+  
   .enroll-price-tag { position:absolute;top:20px;left:20px;background:var(--green);color:var(--white);font-size:14px; font-weight:bold; padding:6px 14px;border-radius:20px; }
 
-  .partners-section { padding:80px 48px;background:var(--green-light);overflow:hidden; }
-  .partners-scroll { display:flex;gap:0;animation:marquee 25s linear infinite;white-space:nowrap; }
-  .partner-pill { display:inline-flex;align-items:center;gap:8px;background:var(--white);border-radius:20px;padding:10px 24px;margin:0 10px;font-size:16px; font-weight:bold; color:var(--text);box-shadow:0 4px 12px rgba(0,0,0,0.06);white-space:nowrap;transition:all 0.2s;cursor:pointer; text-decoration: none;}
-  .partner-pill:hover{transform:scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+  /* تنسيق الفروع الجديدة (المربعة) */
+  .partners-section { padding:80px 48px;background:var(--green-light);overflow:hidden; text-align: center; }
+  .partners-scroll { display:flex;gap:15px;animation:marquee 30s linear infinite;white-space:nowrap; margin-top:30px; padding: 10px 0;}
+  .partner-square { display:inline-flex;align-items:center;justify-content:center; flex-direction:column; background:var(--white); border-radius:20px; width:160px; height:160px; font-size:18px; font-weight:bold; color:var(--text); box-shadow:0 6px 16px rgba(0,0,0,0.08); transition:all 0.2s; cursor:pointer; text-decoration: none; border: 3px solid transparent;}
+  .partner-square:hover { transform:translateY(-8px); box-shadow:0 12px 24px rgba(0,0,0,0.12); border-color:var(--green);}
+
+  /* التسعير الديناميكي */
+  .location-box { background: var(--white); border-radius: 20px; padding: 30px; margin-top: 30px; box-shadow: var(--shadow); }
+  .loc-btn { background: var(--logo-red); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; transition: all 0.3s; font-family: 'Baloo Bhaijaan 2', sans-serif;}
+  .loc-btn:hover { background: #d01024; transform: scale(1.05); }
+  .prices-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; display: none; }
+  .price-card { background: var(--bg); border: 2px solid var(--blue-light); border-radius: 15px; padding: 20px; text-align: center; transition: all 0.3s;}
+  .price-card.closest { border-color: var(--green); background: var(--green-light); transform: scale(1.05); box-shadow: 0 10px 20px rgba(93, 216, 122, 0.2); position: relative;}
+  .price-card.closest::before { content: 'الفرع الأقرب 📍'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--green-dark); color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; white-space: nowrap;}
+  .pc-name { font-size: 18px; font-weight: bold; color: var(--blue-dark); margin-bottom: 5px;}
+  .pc-price { font-size: 28px; font-weight: 800; color: var(--logo-red); }
+  .pc-currency { font-size: 14px; color: var(--text); }
 
   .testimonials-section { padding:80px 48px;background:linear-gradient(160deg,var(--yellow-light),var(--blue-light)); }
   .testimonials-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px; }
@@ -267,81 +303,46 @@
   .gallery-cell:nth-child(5){background:var(--blue-light);grid-column:3;grid-row:2}
   .gallery-cell:nth-child(6){background:var(--red-light);grid-column:4;grid-row:2}
   .gallery-cell-label { position:absolute;bottom:10px;left:14px;font-size:13px;font-weight:800;color:var(--muted); }
-  .social-pill { display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:24px;text-decoration:none;font-size:15px; font-weight:bold; transition:all 0.2s; cursor:pointer; flex: 1 1 auto; justify-content: center;}
-  .social-pill:hover{transform:translateY(-3px)}
-  .sp-blue{background:var(--blue-light);color:var(--blue-dark);border:2px solid var(--blue)}.sp-red{background:var(--red-light);color:var(--logo-red);border:2px solid var(--logo-red)}.sp-green{background:var(--green-light);color:var(--green-dark);border:2px solid var(--green)}.sp-yellow{background:var(--yellow-light);color:var(--yellow-dark);border:2px solid var(--yellow)}
+  
+  /* قسم SEO مخفي بصرياً بشكل لائق لتلتقطه العناكب */
+  .seo-text-block { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
 
   footer { background:var(--text);color:var(--white);padding:64px 48px 32px;position:relative;overflow:hidden; }
   footer::before { content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,var(--blue),var(--logo-red),var(--green),var(--logo-yellow)); }
-  .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px; }
-  .footer-desc { font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7; font-family: 'Baloo Bhaijaan 2', sans-serif; margin-top: 15px;}
+  .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:20px; }
+  .footer-desc { font-size:15px;color:rgba(255,255,255,0.8);line-height:1.7; font-family: 'Baloo Bhaijaan 2', sans-serif; margin-top: 15px;}
   .footer-col h4 { font-size:18px; margin-bottom:14px; }
   .footer-col.c-blue h4{color:var(--blue)}.footer-col.c-red h4{color:var(--logo-red)}.footer-col.c-green h4{color:var(--green)}
-  .footer-col a { display:block;color:rgba(255,255,255,0.6);text-decoration:none;font-size:15px;font-weight:600;margin-bottom:8px;transition:color 0.2s; cursor:pointer;}
+  .footer-col a { display:block;color:rgba(255,255,255,0.8);text-decoration:none;font-size:15px;font-weight:600;margin-bottom:10px;transition:color 0.2s; cursor:pointer;}
   .footer-col.c-blue a:hover{color:var(--blue)}.footer-col.c-red a:hover{color:var(--logo-red)}.footer-col.c-green a:hover{color:var(--green)}
   .footer-bottom { border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px; }
-  .footer-copy { font-size:13px;color:rgba(255,255,255,0.5); }
+  .footer-copy { font-size:13px;color:rgba(255,255,255,0.6); }
 
   .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
   .fade-up.visible{opacity:1;transform:none}
 
-  /* إصلاح النافذة المنبثقة للآيفون والجوالات */
-  .modal-overlay { 
-    position: fixed; 
-    top: 0; left: 0; right: 0; bottom: 0; /* تغطية الشاشة بالكامل */
-    background: rgba(0,0,0,0.65); 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 3000; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    padding: 20px; 
-    opacity: 0; 
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s; 
-  }
-  .modal-overlay.active { 
-    opacity: 1; 
-    visibility: visible;
-  }
-  .modal-box { 
-    background: var(--white); 
-    border-radius: 30px; 
-    width: 100%; 
-    max-width: 450px; 
-    max-height: 90vh; /* منع الخروج عن الشاشة */
-    overflow-y: auto; /* إضافة تمرير إذا كان المحتوى طويلاً */
-    padding: 40px 30px; 
-    position: relative; 
-    transform: translateY(30px) scale(0.95); 
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3); 
-    text-align: center; 
-  }
-  .modal-overlay.active .modal-box { 
-    transform: translateY(0) scale(1); 
-  }
+  /* النوافذ المنبثقة */
+  .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+  .modal-overlay.active { opacity: 1; visibility: visible; }
+  .modal-box { background: var(--white); border-radius: 30px; width: 100%; max-width: 450px; max-height: 90vh; overflow-y: auto; padding: 40px 30px; position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; }
+  .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
   .modal-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; color: var(--text); border: none; font-weight: bold; transition: all 0.2s; }
   .modal-close:hover { background: var(--red-light); color: var(--logo-red); }
   .modal-icon { font-size: 50px; margin-bottom: 15px; }
   .modal-title { font-size: 24px; color: var(--blue-dark); margin-bottom: 15px; }
   .modal-body { font-size: 16px; color: var(--muted); line-height: 1.6; font-family: 'Baloo Bhaijaan 2', sans-serif;}
 
-  /* ---------------- استجابة شاشات الآيفون والجوال ---------------- */
+  /* استجابة شاشات الآيفون والجوال */
   @media (max-width: 768px) {
-    .cursor, .cursor-trail { display: none; } /* إخفاء المؤشر في الجوال */
-    
-    nav { padding: 12px 15px; flex-direction: column; gap: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
+    nav { padding: 12px 15px; flex-direction: column; gap: 12px; }
     .nav-links { overflow-x: auto; width: 100%; padding-bottom: 5px; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
     .nav-links a { font-size: 14px; padding: 6px 12px; white-space: nowrap; }
     
-    .brand-logo-container .cl-ar { font-size: 22px; }
-    .brand-logo-container .cl-en { font-size: 16px; }
-    .brand-logo-img { width: 40px; height: 40px; }
+    .brand-logo-container .cl-ar { font-size: 18px; }
+    .brand-logo-container .cl-en { font-size: 14px; }
+    .brand-logo-img { width: 32px; height: 32px; }
 
     .hero { padding: 180px 20px 60px; text-align: center; }
-    .hero-big-emoji { display: none; } /* إخفاء الإيموجي الكبير في الجوال للمساحة */
     .hero-badge { margin: 0 auto 20px; }
     .hero-actions { justify-content: center; gap: 10px; flex-direction: row; }
     .hero-actions a { flex: 1 1 45%; font-size: 15px; padding: 12px 10px; }
@@ -359,8 +360,6 @@
     
     .enroll-features { grid-template-columns: 1fr; text-align: right; }
     
-    .testimonials-grid { grid-template-columns: 1fr; }
-    
     .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
     .gallery-cell { grid-column: span 1 !important; grid-row: span 1 !important; height: 140px; font-size: 40px; }
 
@@ -372,8 +371,7 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-trail" id="cursorTrail"></div>
+<div class="cursor-emoji" id="cursorEmoji"></div>
 
 <div class="floating-shapes">
   <div class="shape"></div><div class="shape"></div>
@@ -382,9 +380,9 @@
 
 <div class="load-screen" id="loadScreen">
   <div class="brand-logo-container fade-up visible">
-    <div class="cl-ar" style="font-size: 36px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
-    <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 70px; height: 70px;">
-    <div class="cl-en" style="font-size: 28px;"><span class="cl-red">I</span>&nbsp;<span class="cl-yellow">am</span>&nbsp;<span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
+    <div class="cl-ar" style="font-size: 32px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
+    <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 60px; height: 60px;">
+    <div class="cl-en" style="font-size: 24px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
   </div>
   <div class="load-sub">✨ تسوق براحة، ودع المرح لنا ✨</div>
   <div class="load-bar-wrap"><div class="load-bar"></div></div>
@@ -394,9 +392,9 @@
 <nav>
   <a href="#home" class="nav-logo-wrap">
     <div class="brand-logo-container">
-      <div class="cl-ar" style="font-size: 24px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
-      <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 45px; height: 45px;">
-      <div class="cl-en" style="font-size: 20px;"><span class="cl-red">I</span>&nbsp;<span class="cl-yellow">am</span>&nbsp;<span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
+      <div class="cl-ar" style="font-size: 22px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
+      <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 40px; height: 40px;">
+      <div class="cl-en" style="font-size: 18px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
     </div>
   </a>
   <ul class="nav-links">
@@ -416,11 +414,10 @@
     <span class="star">✨</span><span class="star">🎈</span>
     <span class="star">🌸</span><span class="star">🦋</span>
   </div>
-  <div class="hero-big-emoji">🎪</div>
 
   <div class="hero-badge fade-up">
     <div class="badge-dot"></div>
-    <span>هدية مجانية لكل طفل عند الخروج 🎁</span>
+    <span>هدية لكل طفل عند الخروج 🎁</span>
   </div>
 
   <div class="hero-title fade-up" style="transition-delay:0.1s">
@@ -431,18 +428,18 @@
   </div>
 
   <div class="hero-subtitle fade-up" style="transition-delay:0.2s">
-    🛍️ الخيار الأول لضيافة الأطفال في أرقى المجمعات التجارية 💛
+    🛍️ الخيار الأول لضيافة وحضانة الأطفال في أرقى المجمعات التجارية 💛
   </div>
 
   <div class="hero-actions fade-up" style="transition-delay:0.3s">
-    <a onclick="openPage('🎫 أسعار الدخول', 'صفحة الأسعار النموذجية. يمكنك هنا استعراض الباقات اليومية والشهرية.')" class="btn-blue">🎫 أسعار الدخول</a>
+    <a href="#enrollment" class="btn-blue">🎫 أسعار الدخول</a>
     <a href="#partners" class="btn-red">📍 فروعنا بالمولات</a>
     <a href="#programs" class="btn-green">🎯 اكتشف الألعاب</a>
   </div>
 
   <div class="scroll-hint">
     <span>اكتشف المزيد</span>
-    <div class="scroll-arrow">⬇️</div>
+    <div class="scroll-kid">🤸</div>
   </div>
 </section>
 
@@ -478,9 +475,8 @@
     <div class="about-badge-wrap"><span>🏅 أمان وثقة</span></div>
   </div>
   <div class="fade-up" style="transition-delay:0.15s">
-    <div class="section-eyebrow blue">لماذا نحن؟</div>
     <h2 class="section-h2">أنت <span style="color:var(--blue-dark)">تتسوقين</span>.. وهم <span style="color:var(--logo-red)">يستمتعون</span></h2>
-    <p class="section-p">نحن الوجهة المفضلة للأمهات والآباء داخل المجمعات التجارية! نوفر بيئة حركية وترفيهية آمنة تتيح للأطفال تفريغ طاقاتهم والاستمتاع بوقتهم، مع نظام استلام وتسليم صارم يضمن لكِ راحة البال التامة أثناء التسوق.</p>
+    <p class="section-p">نحن الوجهة المفضلة للأمهات والآباء داخل المجمعات التجارية! نوفر بيئة حركية وترفيهية وحضانة آمنة تتيح للأطفال تفريغ طاقاتهم، مع نظام استلام وتسليم صارم يضمن لكِ راحة البال التامة أثناء التسوق.</p>
     <div style="margin-bottom:24px">
       <span class="tag-pill tag-blue">🎫 استلام بالفاتورة فقط</span>
       <span class="tag-pill tag-red">🛡️ إشراف دائم</span>
@@ -507,8 +503,7 @@
 </div>
 
 <section class="programs-section" id="programs">
-  <div class="section-eyebrow red fade-up">مناطق اللعب</div>
-  <h2 class="section-h2 fade-up" style="transition-delay:0.1s">أركان متنوعة تناسب <span style="color:var(--logo-red)">جميع أعمارهم</span> 🎪</h2>
+  <h2 class="section-h2 fade-up">أركان متنوعة تناسب <span style="color:var(--logo-red)">جميع أعمارهم</span> 🎪</h2>
   <div class="programs-grid">
     <a class="program-card p-blue fade-up" onclick="openPage('🏰 منطقة الرمل', 'صور وتفاصيل منطقة الرمل والكرات اللينة. منطقة آمنة ومعقمة بشكل يومي.')"><div class="program-emoji">🏰</div><span class="program-title">منطقة الرمل والكرات</span><p class="program-desc">مساحة آمنة ونظيفة للاستمتاع بالرمل واللعب بالكرات الملونة</p><span class="program-btn">شاهد الصور ←</span></a>
     <a class="program-card p-red fade-up" onclick="openPage('🍳 ركن المهن', 'استكشف ركن المطبخ الصغير والمحاكاة لتعزيز خيال الطفل وتنمية مهاراته.')" style="transition-delay:0.1s"><div class="program-emoji">🍳</div><span class="program-title">ركن المهن والمطبخ</span><p class="program-desc">ألعاب تخيلية تنمي مهارات التفاعل واللعب الجماعي</p><span class="program-btn">شاهد الصور ←</span></a>
@@ -518,8 +513,7 @@
 </section>
 
 <section class="activities-section" id="activities">
-  <div class="section-eyebrow green fade-up">فعالياتنا المستمرة</div>
-  <h2 class="section-h2 fade-up" style="transition-delay:0.1s">مرح <span style="color:var(--green-dark)">لا يتوقف</span> طوال اليوم 🎯</h2>
+  <h2 class="section-h2 fade-up">مرح <span style="color:var(--green-dark)">لا يتوقف</span> طوال اليوم 🎯</h2>
   <div class="activities-grid">
     <div class="activity-card fade-up" onclick="openPage('🎨 أشغال يدوية', 'ورش عمل فنية لتنمية إبداع الطفل.')"><span class="activity-emoji">🎨</span><div class="activity-name">أشغال يدوية</div><div class="activity-time">متوفر دائماً</div><div class="activity-bar"></div></div>
     <div class="activity-card fade-up" style="transition-delay:0.05s" onclick="openPage('💃 رقص وحركة', 'فعاليات مسرحية تفاعلية.')"><span class="activity-emoji">💃</span><div class="activity-name">رقص وحركة</div><div class="activity-time">مسابقات على المسرح</div><div class="activity-bar"></div></div>
@@ -547,50 +541,51 @@
 
 <section class="enrollment-section" id="enrollment">
   <div class="fade-up">
-    <div class="section-eyebrow red">أسعار التذاكر</div>
     <h2 class="section-h2">متعة غير محدودة <span style="color:var(--logo-red)">بأسعار</span> رائعة! ✨</h2>
-    <p class="section-p">اختر الباقة التي تناسبك، واستمتع بالتسوق براحة بال. أسعارنا تشمل الوصول لجميع أركان اللعب.</p>
-    <div class="enroll-features">
-      <div class="enroll-feature"><span class="enroll-feature-emoji">🎫</span><div class="enroll-feature-text"><strong>الدخول اليومي</strong><span>65 - 89 ريال (حسب الفرع واليوم)</span></div></div>
-      <div class="enroll-feature"><span class="enroll-feature-emoji">⭐</span><div class="enroll-feature-text"><strong>الاشتراك الشهري</strong><span>1800 ريال لمتعة يومية (8 ساعات)</span></div></div>
-      <div class="enroll-feature"><span class="enroll-feature-emoji">⏰</span><div class="enroll-feature-text"><strong>وقت اللعب</strong><span>وقت مفتوح وممتع طوال اليوم</span></div></div>
-      <div class="enroll-feature"><span class="enroll-feature-emoji">🎁</span><div class="enroll-feature-text"><strong>هدية مجانية</strong><span>لكل طفل عند انتهاء وقت اللعب</span></div></div>
+    <p class="section-p">تسوقي براحة بال تامة واقضِ كل مشاويرك بدون أي قلق، فوقت اللعب لدينا مفتوح وغير محدود ليستمتع طفلك لأقصى درجة!</p>
+    
+    <div class="location-box">
+      <h3 style="color:var(--blue-dark); margin-bottom: 10px;">ابحث عن الفرع الأقرب لك 📍</h3>
+      <p style="font-size: 14px; color:var(--muted); margin-bottom: 20px;">الأسعار تختلف حسب المول. اسمح لنا بتحديد موقعك لنعرض لك الفرع الأقرب وأسعاره.</p>
+      <button class="loc-btn" onclick="fetchLocationAndPrices()">تحديد موقعي والأسعار</button>
+      
+      <div class="prices-results" id="pricesGrid">
+        </div>
     </div>
-    <p style="font-size:14px; margin-top:15px; color:var(--text); font-family: 'Baloo Bhaijaan 2', sans-serif;">* يسمح بدخول المربيات. لأسباب تتعلق بالسلامة والنظافة، يمنع إدخال المأكولات والمشروبات لساحة اللعب.</p>
+    
   </div>
   <div class="enroll-visual fade-up" style="transition-delay:0.15s">
+    <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo BG" class="enroll-bg-logo">
     <div class="enroll-price-tag">🎫 دخول فوري!</div>
-    <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Icon" class="enroll-big-emoji">
-    <div style="margin-top:20px">
+    <div style="font-size:80px; margin: 20px 0;">🧸</div>
+    <div style="margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
       <span class="tag-pill tag-blue">عمر 1 - 10 سنوات</span>
-      <span class="tag-pill tag-red">مربيات مسموح</span>
-      <span class="tag-pill tag-green">هدية مضمونة</span>
+      <span class="tag-pill tag-red">المرافقين مجانا</span>
+      <span class="tag-pill tag-green">هدية لكل طفل</span>
     </div>
     <div style="margin-top:20px;font-size:22px;font-weight:bold;color:var(--text)">لا يلزم حجز مسبق 🏃‍♂️💨</div>
   </div>
 </section>
 
 <section class="partners-section" id="partners">
-  <div class="section-eyebrow blue fade-up" style="text-align:center">فروعنا الجغرافية</div>
-  <h2 class="section-h2 fade-up" style="text-align:center;transition-delay:0.1s">متواجدون في <span style="color:var(--blue-dark)">كبرى المولات بالرياض</span> 📍</h2>
-  <div style="overflow:hidden;margin-top:40px">
+  <h2 class="section-h2 fade-up" style="text-align:center;">متواجدون في <span style="color:var(--blue-dark)">كبرى المولات بالرياض</span> 📍</h2>
+  <div style="overflow:hidden;">
     <div class="partners-scroll">
-      <a href="https://www.google.com/maps/search/?api=1&query=Riyadh+Gallery+Mall" target="_blank" class="partner-pill">📍 الرياض جاليري</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Salaam+Mall+Riyadh" target="_blank" class="partner-pill">📍 سلام مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=The+View+Mall+Riyadh" target="_blank" class="partner-pill">📍 ذا فيو مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Kingdom+Centre+Riyadh" target="_blank" class="partner-pill">📍 مركز المملكة</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=East+Plaza+Riyadh" target="_blank" class="partner-pill">📍 شرق بلازا</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Al+Qasr+Mall+Riyadh" target="_blank" class="partner-pill">📍 القصر مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Riyadh+Gallery+Mall" target="_blank" class="partner-pill">📍 الرياض جاليري</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Salaam+Mall+Riyadh" target="_blank" class="partner-pill">📍 سلام مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=The+View+Mall+Riyadh" target="_blank" class="partner-pill">📍 ذا فيو مول</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Riyadh+Gallery+Mall" target="_blank" class="partner-square">الرياض جاليري</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Salaam+Mall+Riyadh" target="_blank" class="partner-square">سلام مول</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=The+View+Mall+Riyadh" target="_blank" class="partner-square">ذا فيو مول</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Kingdom+Centre+Riyadh" target="_blank" class="partner-square">مركز المملكة</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=East+Plaza+Riyadh" target="_blank" class="partner-square">شرق بلازا</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Al+Qasr+Mall+Riyadh" target="_blank" class="partner-square">القصر مول</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Riyadh+Gallery+Mall" target="_blank" class="partner-square">الرياض جاليري</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Salaam+Mall+Riyadh" target="_blank" class="partner-square">سلام مول</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=The+View+Mall+Riyadh" target="_blank" class="partner-square">ذا فيو مول</a>
     </div>
   </div>
 </section>
 
 <section class="testimonials-section">
-  <div class="section-eyebrow yellow fade-up" style="text-align:center">آراء عملائنا</div>
-  <h2 class="section-h2 fade-up" style="text-align:center;transition-delay:0.1s">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا 💬</h2>
+  <h2 class="section-h2 fade-up" style="text-align:center;">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا 💬</h2>
   <div class="testimonials-grid">
     <div class="testimonial-card fade-up" style="transition-delay:0.1s">
       <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
@@ -611,8 +606,7 @@
 </section>
 
 <section class="gallery-section">
-  <div class="section-eyebrow blue fade-up">معرض الصور</div>
-  <h2 class="section-h2 fade-up" style="transition-delay:0.1s">أوقات <span style="color:var(--blue-dark)">لا تُنسى</span> من المرح 📸</h2>
+  <h2 class="section-h2 fade-up">أوقات <span style="color:var(--blue-dark)">لا تُنسى</span> من المرح 📸</h2>
   <div class="gallery-grid">
     <div class="gallery-cell" onclick="openPage('صور ركن الرمل', 'سيتم هنا عرض ألبوم صور لأطفال يستمتعون باللعب في ركن الرمل الآمن.')">🏰<div class="gallery-cell-label">ركن الرمل الممتع</div></div>
     <div class="gallery-cell" onclick="openPage('صور مضمار الدراجات', 'ألبوم صور يوضح حيوية ونشاط الأطفال في مضمار الدراجات.')">🚴<div class="gallery-cell-label">مضمار الدراجات</div></div>
@@ -620,12 +614,6 @@
     <div class="gallery-cell" onclick="openPage('ألعاب المهارات', 'لقطات لتفاعل الأطفال مع الألعاب الذهنية وألعاب التركيب.')">🧩<div class="gallery-cell-label">ألعاب المهارات</div></div>
     <div class="gallery-cell" onclick="openPage('المطبخ الصغير', 'أطفال يلعبون أدوار الطهاة بابتسامات بريئة.')">🍳<div class="gallery-cell-label">المطبخ الصغير</div></div>
     <div class="gallery-cell" onclick="openPage('ركن الهدايا', 'فرحة الأطفال باستلام هداياهم عند الخروج.')">🎁<div class="gallery-cell-label">ركن الهدايا</div></div>
-  </div>
-  <div style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap">
-    <a onclick="openPage('فيسبوك', 'سيتم توجيهك إلى صفحتنا الرسمية على فيسبوك.')" class="social-pill sp-blue">📘 فيسبوك</a>
-    <a onclick="openPage('انستغرام', 'سيتم توجيهك إلى حسابنا على انستغرام لمتابعة أحدث التغطيات.')" class="social-pill sp-red">📸 انستغرام</a>
-    <a onclick="openPage('سناب شات', 'أضفنا على سناب شات ليوميات مليئة بالمرح!')" class="social-pill sp-green">▶️ سناب شات</a>
-    <a onclick="openPage('تيك توك', 'شاهد أمتع الفيديوهات القصيرة على حسابنا في تيك توك.')" class="social-pill sp-yellow">📱 تيك توك</a>
   </div>
 </section>
 
@@ -646,49 +634,48 @@
   <div class="footer-grid">
     <div>
       <div class="footer-logo">
-        <div class="brand-logo-container">
-          <div class="cl-ar" style="font-size:22px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
-          <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 45px; height: 45px;">
-          <div class="cl-en" style="font-size:16px;"><span class="cl-red">I</span>&nbsp;<span class="cl-yellow">am</span>&nbsp;<span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
+        <div class="brand-logo-container" style="justify-content: flex-start;">
+          <div class="cl-ar" style="font-size:20px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
+          <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 35px; height: 35px;">
+          <div class="cl-en" style="font-size:15px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
         </div>
       </div>
       <p class="footer-desc">الخيار الأول للضيافة الترفيهية داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات تجربة تسوق هادئة ومريحة.</p>
-      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap">
-        <span class="tag-pill tag-blue" style="font-size:14px">🛡️ أمان وثقة</span>
-        <span class="tag-pill tag-green" style="font-size:14px">✅ متواجدون في المولات</span>
+      
+      <div class="seo-text-block">
+        نحن نقدم أفضل حضانة أطفال داخل المولات في الرياض. إذا كنت تبحث عن ضيافة أطفال في مولات الرياض، ورعاية اطفال وقت التسوق في أماكن مثل الرياض جاليري، ذا فيو مول، أو مركز المملكة، فإن أي ام سبيشل هي خيارك الأمثل لترك طفلك يلعب بأمان تام.
       </div>
     </div>
+    
     <div class="footer-col c-blue">
       <h4>روابط سريعة</h4>
       <a href="#home">🏠 الرئيسية</a>
       <a href="#programs">🎯 مناطق اللعب</a>
       <a href="#activities">🎁 الأنشطة والهدايا</a>
       <a onclick="openPage('التوظيف', 'انضم لفريقنا الرائع! صفحة نموذجية للتقديم على الوظائف الشاغرة.')">👩‍🏫 التوظيف</a>
-      <a onclick="openPage('معرض الصور', 'تصفح أحدث الصور والمقاطع الحية من داخل الفروع.')">📸 المعرض</a>
     </div>
+    
     <div class="footer-col c-red">
-      <h4>خدماتنا وفروعنا</h4>
-      <a href="#enrollment">🎫 أسعار التذاكر</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Riyadh+Gallery+Mall" target="_blank">📍 الرياض جاليري</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=The+View+Mall+Riyadh" target="_blank">📍 ذا فيو مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Kingdom+Centre+Riyadh" target="_blank">📍 مركز المملكة</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=East+Plaza+Riyadh" target="_blank">📍 شرق بلازا</a>
+      <h4>فروعنا</h4>
+      <a href="#enrollment">📍 الرياض جاليري</a>
+      <a href="#enrollment">📍 ذا فيو مول</a>
+      <a href="#enrollment">📍 مركز المملكة</a>
+      <a href="#enrollment">📍 شرق بلازا</a>
+      <a href="#enrollment">📍 القصر مول</a>
+      <a href="#enrollment">📍 سلام مول</a>
     </div>
+    
     <div class="footer-col c-green">
       <h4>تواصل معنا</h4>
-      <a onclick="openPage('اتصل بنا', 'يمكنك الاتصال على الرقم الموحد 920-000-1234 خلال أوقات العمل.')">📞 920-000-1234</a>
-      <a onclick="openPage('راسلنا', 'أرسل استفسارك على الإيميل: info@iamspecial.sa وسنقوم بالرد في أسرع وقت.')">📧 info@iamspecial.sa</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Salaam+Mall+Riyadh" target="_blank">📍 فرع سلام مول</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Al+Qasr+Mall+Riyadh" target="_blank">📍 فرع القصر مول</a>
+      <a href="tel:0537333567" style="font-size: 18px; font-weight: 800;">📞 0537333567</a>
+      <a style="cursor: default;">🎧 (في خدمتكم من 2 مساءً حتى 11:00 مساءً)</a>
+      <a onclick="openPage('راسلنا', 'أرسل استفسارك على الإيميل: info@iamspecial.sa وسنقوم بالرد في أسرع وقت.')" style="margin-top: 15px;">📧 info@iamspecial.sa</a>
     </div>
   </div>
+  
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 أي ام سبيشل (I am Special) للضيافة الترفيهية — جميع الحقوق محفوظة</span>
     <span style="font-size:20px">❤️💛💚💙</span>
-    <div style="display:flex;gap:16px">
-      <a onclick="openPage('سياسة الاستلام والتسليم', 'نعطي أولوية قصوى لسلامة أطفالكم. صفحة السياسات النموذجية.')" style="color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none">سياسة الاستلام والتسليم</a>
-      <a onclick="openPage('الشروط والأحكام', 'يرجى قراءة الشروط والأحكام العامة للضيافة واللعب. صفحة نموذجية.')" style="color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none">الشروط والأحكام</a>
-    </div>
   </div>
 </footer>
 
@@ -703,19 +690,36 @@
 </div>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  const trail  = document.getElementById('cursorTrail');
-  const colors = ['#FF1A33','#FFCC00','#5DD87A','#5BB8FF'];
-  let ci = 0;
+  // ---- مؤشر الماوس الطفولي المتغير وتأثير اللمس ----
+  const cursorEmoji = document.getElementById('cursorEmoji');
+  const emojisList = ['🎈', '🧸', '🚗', '🤸', '🎨', '🧩', '🍭', '⚽', '🌟', '🦄'];
+  let currentEmojiIndex = 0;
   
-  // تفعيل المؤشر التفاعلي في الشاشات الكبيرة فقط لتخفيف الحمل على الجوال
-  if(window.innerWidth > 768) {
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px';
-      setTimeout(() => { trail.style.left = e.clientX + 'px'; trail.style.top = e.clientY + 'px'; }, 80);
-    });
-    setInterval(() => { cursor.style.background = colors[ci % 4]; trail.style.borderColor = colors[(ci+1) % 4]; ci++; }, 600);
-  }
+  // تحديث المؤشر عند حركة الماوس للكمبيوتر
+  document.addEventListener('mousemove', e => {
+    if(window.innerWidth > 768) {
+      cursorEmoji.style.left = e.clientX + 'px';
+      cursorEmoji.style.top = e.clientY + 'px';
+    }
+  });
+
+  // تغيير الإيموجي عند النقر للكمبيوتر، أو إظهار إيموجي يتلاشى للجوال
+  document.addEventListener('pointerdown', e => {
+    currentEmojiIndex = (currentEmojiIndex + 1) % emojisList.length;
+    
+    if(window.innerWidth > 768) {
+      cursorEmoji.innerText = emojisList[currentEmojiIndex];
+    } else {
+      // تأثير التلاشي السريع للجوال
+      let touchEl = document.createElement('div');
+      touchEl.className = 'touch-emoji';
+      touchEl.innerText = emojisList[currentEmojiIndex];
+      touchEl.style.left = e.clientX + 'px';
+      touchEl.style.top = e.clientY + 'px';
+      document.body.appendChild(touchEl);
+      setTimeout(() => touchEl.remove(), 600);
+    }
+  });
 
   // التحكم بشاشة التحميل
   setTimeout(() => { document.getElementById('loadBtn').classList.add('show'); }, 2000);
@@ -734,22 +738,91 @@
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // دوال فتح وإغلاق النوافذ المنبثقة بشكل صحيح ومريح
+  // النوافذ المنبثقة
   function openPage(title, desc) {
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalDesc').innerText = desc;
     document.getElementById('pageModal').classList.add('active');
-    document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية عند فتح النافذة
+    document.body.style.overflow = 'hidden';
   }
   function closePage() {
     document.getElementById('pageModal').classList.remove('active');
-    document.body.style.overflow = ''; // استعادة التمرير
+    document.body.style.overflow = '';
   }
-  
-  // إغلاق النافذة عند الضغط خارج المربع الأبيض
   document.getElementById('pageModal').addEventListener('click', function(e) {
       if (e.target === this) { closePage(); }
   });
+
+  // ---- حساب المسافات وعرض الأسعار ديناميكياً ----
+  const branchesData = [
+    { name: "مركز المملكة", price: 99, lat: 24.7114, lon: 46.6745 },
+    { name: "ذا فيو مول", price: 79, lat: 24.7570, lon: 46.7323 },
+    { name: "الرياض جاليري", price: 75, lat: 24.7435, lon: 46.6575 },
+    { name: "شرق بلازا", price: 75, lat: 24.7533, lon: 46.8174 },
+    { name: "سلام مول", price: 65, lat: 24.5828, lon: 46.6782 },
+    { name: "القصر مول", price: 55, lat: 24.6030, lon: 46.6853 }
+  ];
+
+  function getDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // نصف قطر الأرض بالكيلومتر
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }
+
+  function fetchLocationAndPrices() {
+    const btn = document.querySelector('.loc-btn');
+    btn.innerText = "جاري تحديد الموقع...";
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLat = position.coords.latitude;
+          const userLon = position.coords.longitude;
+          
+          // حساب المسافات
+          branchesData.forEach(branch => {
+            branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon);
+          });
+          
+          // ترتيب الفروع حسب الأقرب
+          branchesData.sort((a, b) => a.distance - b.distance);
+          renderPrices();
+          btn.style.display = 'none'; // إخفاء الزر بعد النجاح
+        },
+        (error) => {
+          // في حال رفض المستخدم أو حدوث خطأ، نعرض الأسعار بالترتيب الافتراضي
+          alert("تعذر تحديد موقعك بدقة، سنعرض لك جميع أسعار الفروع.");
+          renderPrices(false);
+          btn.style.display = 'none';
+        }
+      );
+    } else {
+      renderPrices(false);
+      btn.style.display = 'none';
+    }
+  }
+
+  function renderPrices(isLocationKnown = true) {
+    const grid = document.getElementById('pricesGrid');
+    grid.innerHTML = '';
+    grid.style.display = 'grid';
+    
+    branchesData.forEach((branch, index) => {
+      const isClosest = (index === 0 && isLocationKnown);
+      const card = document.createElement('div');
+      card.className = `price-card ${isClosest ? 'closest' : ''}`;
+      card.innerHTML = `
+        <div class="pc-name">${branch.name}</div>
+        <div class="pc-price">${branch.price} <span class="pc-currency">ريال / للطفل</span></div>
+      `;
+      grid.appendChild(card);
+    });
+  }
 </script>
 </body>
 </html>
