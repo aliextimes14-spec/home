@@ -57,16 +57,15 @@
     --bg:      #FAFCFF;
     --text:    #3A3A5C;
     --muted:   #8E8EAA;
-    --shadow:  0 4px 15px rgba(0,0,0,0.04); /* ظل خفيف جداً للتصميم */
+    --shadow:  0 4px 15px rgba(0,0,0,0.04);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', sans-serif; overflow-x: hidden; cursor: none; box-shadow: inset 0 0 50px rgba(0,0,0,0.02); }
   
-  img { max-width: 100%; height: auto; } /* لضمان اتساق الصور في الايفون */
+  img { max-width: 100%; height: auto; }
 
-  /* الشعار والتأكد من بقائه على سطر واحد */
   .brand-logo-container {
     display: flex;
     align-items: center;
@@ -98,7 +97,6 @@
   .cl-red { color: var(--logo-red); }
   .cl-yellow { color: var(--logo-yellow); }
 
-  /* مؤشر الماوس للكمبيوتر */
   .cursor-emoji {
     position: fixed;
     top: 0;
@@ -111,7 +109,6 @@
     user-select: none;
   }
 
-  /* تأثير النقر/اللمس للجوال */
   .touch-emoji {
     position: fixed;
     font-size: 30px;
@@ -126,7 +123,6 @@
     100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; }
   }
 
-  /* خلفية حركية عشوائية بالايموجيات والشعار */
   .floating-shapes { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
   @keyframes floatRand {
     0% { transform: translate(0, 0) rotate(0deg); }
@@ -135,7 +131,6 @@
     100% { transform: translate(0, 0) rotate(360deg); }
   }
 
-  /* تعديلات الهيدر (أبيض مع مستطيل بيضاوي أسود شفاف للشعار) */
   nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:10px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
   
   .nav-logo-wrap { 
@@ -191,7 +186,6 @@
   .hero-actions a:hover { transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.15); }
   .btn-blue{background:var(--blue);color:var(--white)}.btn-red{background:var(--logo-red);color:var(--white)}.btn-green{background:var(--green);color:var(--white)}.btn-yellow{background:var(--logo-yellow);color:var(--text)}
   
-  /* تسلسل الايموجي المتحرك */
   .hero-seq-container { position: absolute; bottom: 30px; left: 0; right: 0; height: 60px; overflow: hidden; z-index: 1; pointer-events: none; }
   #heroSeqAnim { position: absolute; font-size: 50px; right: -80px; }
   @keyframes runAcross { 0% { right: -80px; } 100% { right: 110vw; } }
@@ -200,12 +194,21 @@
   .rainbow-bar { height:10px;background:linear-gradient(90deg,var(--blue) 0%,var(--green) 25%,var(--logo-yellow) 50%,var(--logo-red) 75%,var(--blue) 100%);background-size:200% 100%;animation:rainbowMove 3s linear infinite; }
   @keyframes rainbowMove{0%{background-position:0% 0}100%{background-position:200% 0}}
 
-  .marquee-wrap { overflow:hidden;background:var(--blue);padding:14px 0; }
+  /* تعديل خطوط التمرير لتتجه جميعها من اليسار إلى اليمين */
+  .marquee-wrap { overflow:hidden;background:var(--blue);padding:14px 0; direction: ltr; }
   .marquee-wrap.red{background:var(--logo-red)}.marquee-wrap.green{background:var(--green)}.marquee-wrap.yellow{background:var(--logo-yellow)}
-  .marquee-track { display:flex;gap:0;animation:marquee 22s linear infinite;white-space:nowrap; }
-  .marquee-item { font-size:18px; font-weight:bold; color:var(--white); padding:0 30px; display:flex; align-items:center; gap:15px; }
+  .marquee-track { display:flex;gap:0;animation:marqueeLTR 22s linear infinite;white-space:nowrap; width: max-content; }
+  .marquee-item { font-size:18px; font-weight:bold; color:var(--white); padding:0 30px; display:flex; align-items:center; gap:15px; direction: rtl; }
   .marquee-wrap.yellow .marquee-item { color:var(--text); }
-  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes marqueeLTR {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+  }
+
+  /* مضاعفة سرعة خطوط التمرير في الجوال */
+  @media (max-width: 768px) {
+      .marquee-track { animation: marqueeLTR 11s linear infinite; }
+  }
 
   .about-section { padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:var(--white); }
   .about-img-wrap { position:relative;height:400px;border-radius:40px;overflow:hidden;background:linear-gradient(135deg,var(--blue-light),var(--green-light));display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow); }
@@ -263,7 +266,6 @@
   .enroll-feature-text span { font-size:13px;color:var(--muted); }
   
   .enroll-visual { background:var(--white);border-radius:40px;padding:40px 30px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden; z-index:1;}
-  /* الشعار الراقص في الخلفية بوضوح منخفض */
   .enroll-bg-logo { position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width: 250px; opacity:0.05; z-index:-1; animation: tumble 10s infinite linear;}
   
   .enroll-price-tag { position:absolute;top:20px;left:20px;background:var(--green);color:var(--white);font-size:14px; font-weight:bold; padding:6px 14px;border-radius:20px; }
@@ -271,27 +273,50 @@
   /* الفروع والخريطة المدمجة */
   .partners-section { padding:80px 48px;background:var(--green-light); text-align: center; }
   .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 40px; }
-  .branch-card { position: relative; height: 160px; border-radius: 20px; overflow: hidden; background-image: url('2A3521A9-7E2C-47C5-A13C-349CC090A87B.png'); background-size: cover; background-position: center; cursor: pointer; border: 3px solid transparent; transition: all 0.3s; box-shadow:var(--shadow);}
+  .branch-card { display:block; text-decoration: none; position: relative; height: 160px; border-radius: 20px; overflow: hidden; background-image: url('2A3521A9-7E2C-47C5-A13C-349CC090A87B.png'); background-size: cover; background-position: center; cursor: pointer; border: 3px solid transparent; transition: all 0.3s; box-shadow:var(--shadow);}
   .branch-card:hover { transform: translateY(-5px); border-color: var(--green); box-shadow: 0 12px 24px rgba(0,0,0,0.12);}
   .branch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.1)); pointer-events: none; }
   .branch-info { position: absolute; bottom: 15px; right: 15px; color: white; text-align: right; pointer-events: none;}
   .branch-name { font-size: 18px; font-weight: bold; }
   .branch-dist { font-size: 13px; color: var(--yellow); margin-top: 4px; display: inline-block;}
-  .branch-card.active-branch { border-color: var(--green); box-shadow: 0 0 0 4px var(--green-light); }
 
-  .map-container { margin-top: 40px; background: var(--white); padding: 20px; border-radius: 30px; box-shadow: var(--shadow); display: none;}
+  .map-container { margin-top: 40px; background: var(--white); padding: 20px; border-radius: 30px; box-shadow: var(--shadow); display: block;}
 
-  .testimonials-section { padding:80px 0;background:linear-gradient(160deg,var(--yellow-light),var(--blue-light)); overflow: hidden;}
-  .testimonials-track { display:flex; gap:20px; animation:marquee 40s linear infinite; white-space:nowrap; padding: 20px 48px; }
-  .testimonials-track:hover { animation-play-state: paused; }
-  .testimonial-link { text-decoration: none; color: inherit; display: inline-block; white-space: normal; width: 350px; flex-shrink: 0;}
-  .testimonial-card { background:var(--white);border-radius:28px;padding:24px;box-shadow:var(--shadow);transition:transform 0.25s; height: 100%;}
-  .testimonial-card:hover{transform:translateY(-6px)}
-  .testimonial-stars { font-size:18px;margin-bottom:10px; }
-  .testimonial-text { font-size:15px;line-height:1.7;color:var(--text);margin-bottom:16px;font-weight:600;font-style:italic; }
-  .testimonial-author { display:flex;align-items:center;gap:12px; }
+  /* بطاقات المراجعات المتراكبة */
+  .testimonials-section { padding:80px 0;background:linear-gradient(160deg,var(--yellow-light),var(--blue-light)); overflow: hidden; }
+  .testimonials-track { 
+      position: relative; 
+      height: 250px; 
+      width: 100%; 
+      max-width: 450px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: center; 
+      perspective: 1000px;
+      touch-action: none;
+  }
+  .testimonial-card-stacked { 
+      position: absolute; 
+      background: var(--white);
+      border-radius: 28px;
+      padding: 30px;
+      width: 90%;
+      box-shadow: var(--shadow);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s, z-index 0s;
+      cursor: grab;
+      user-select: none;
+      will-change: transform;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  .testimonial-card-stacked:active { cursor: grabbing; }
+  
+  .testimonial-stars { font-size:18px;margin-bottom:10px; pointer-events: none;}
+  .testimonial-text { font-size:15px;line-height:1.7;color:var(--text);margin-bottom:16px;font-weight:600;font-style:italic; pointer-events: none;}
+  .testimonial-author { display:flex;align-items:center;gap:12px; pointer-events: none;}
   .testimonial-avatar { width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px; }
-  .ta-blue{background:var(--blue-light)}.ta-red{background:var(--red-light)}.ta-green{background:var(--green-light)}
+  .ta-blue{background:var(--blue-light)}.ta-red{background:var(--red-light)}.ta-green{background:var(--green-light)}.ta-yellow{background:var(--yellow-light)}
   .testimonial-name { font-size:14px;font-weight:800;color:var(--text); }
   .testimonial-role { font-size:12px;color:var(--muted); }
 
@@ -307,7 +332,6 @@
   .gallery-cell:nth-child(6){background:var(--red-light);grid-column:4;grid-row:2}
   .gallery-cell-label { position:absolute;bottom:10px;left:14px;font-size:13px;font-weight:800;color:var(--muted); }
   
-  /* قسم SEO مخفي بصرياً بشكل لائق لتلتقطه العناكب */
   .seo-text-block { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
 
   footer { background:var(--text);color:var(--white);padding:64px 48px 32px;position:relative;overflow:hidden; }
@@ -329,13 +353,16 @@
   .modal-overlay.active { opacity: 1; visibility: visible; }
   .modal-box { background: var(--white); border-radius: 30px; width: 100%; max-width: 450px; max-height: 90vh; overflow-y: auto; padding: 40px 30px; position: relative; transform: translateY(30px) scale(0.95); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 60px rgba(0,0,0,0.1); text-align: center; border: 1px solid rgba(0,0,0,0.05);}
   .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
-  .modal-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; color: var(--text); border: none; font-weight: bold; transition: all 0.2s; }
+  .modal-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; color: var(--text); border: none; font-weight: bold; transition: all 0.2s; z-index: 10;}
   .modal-close:hover { background: var(--red-light); color: var(--logo-red); }
   .modal-icon { font-size: 50px; margin-bottom: 15px; }
   .modal-title { font-size: 24px; color: var(--blue-dark); margin-bottom: 15px; }
   .modal-body { font-size: 16px; color: var(--muted); line-height: 1.6; font-family: 'Baloo Bhaijaan 2', sans-serif;}
 
-  /* استجابة شاشات الآيفون والجوال */
+  /* نافذة الفروع المخصصة */
+  #directionsModalBox { max-width: 700px; padding: 40px 20px; }
+  .modal-branch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.0)); pointer-events: none; }
+
   @media (max-width: 768px) {
     nav { padding: 10px 15px; flex-direction: column; gap: 10px; }
     .nav-logo-wrap { padding: 4px 15px; }
@@ -378,7 +405,7 @@
 <div class="cursor-emoji" id="cursorEmoji"></div>
 
 <div class="floating-shapes" id="bgShapes">
-  </div>
+</div>
 
 <div class="load-screen" id="loadScreen">
   <div class="brand-logo-container fade-up visible">
@@ -406,7 +433,7 @@
     <li><a href="#partners">فروعنا</a></li>
     <li><a href="#enrollment">الأسعار</a></li>
   </ul>
-  <a onclick="openPage('🎫 حجز التذاكر', 'مرحباً بك في صفحة حجز التذاكر النموذجية! هنا سيتمكن الآباء من اختيار الباقة المناسبة ودفع التذاكر إلكترونياً لضمان دخول أسرع.')" class="nav-cta">🎫 احجز تذكرتك!</a>
+  <a onclick="handleDirectionsClick()" class="nav-cta">📍 الاتجاهات</a>
 </nav>
 
 <section class="hero" id="home">
@@ -488,8 +515,8 @@
   </div>
 </section>
 
-<div class="marquee-wrap red" style="direction:ltr">
-  <div class="marquee-track" style="animation-direction:reverse">
+<div class="marquee-wrap red">
+  <div class="marquee-track">
     <div class="marquee-item">🛒 تسوق براحة <span>🌸</span></div>
     <div class="marquee-item">🛡️ أمان واستلام موثق <span>🌸</span></div>
     <div class="marquee-item">🏃 تفريغ طاقة <span>🌸</span></div>
@@ -574,23 +601,19 @@
 
 <section class="partners-section" id="partners">
   <h2 class="section-h2 fade-up" style="text-align:center;">متواجدون في <span style="color:var(--blue-dark)">كبرى مولات الرياض</span> 📍</h2>
-  <p class="section-p fade-up" style="text-align:center;" id="locationStatusText">يتم ترتيب الفروع تلقائياً لتظهر الأقرب لموقعك أولاً.</p>
 
-  <div class="branches-grid fade-up" id="branchesGrid">
+  <div class="branches-grid fade-up" id="mainBranchesGrid">
     </div>
 
   <div class="map-container fade-up" id="mapContainer">
-    <h3 id="selectedBranchName" style="margin-bottom:15px; color:var(--blue-dark); font-size:20px;"></h3>
-    <iframe id="mapFrame" width="100%" height="300" style="border:0; border-radius: 20px; box-shadow: var(--shadow);" loading="lazy" src=""></iframe>
-    <div style="text-align:center; margin-top:20px;">
-      <a id="mapDirBtn" class="btn-big blue" style="display:inline-flex;" href="#" target="_blank"> الاتجاهات</a>
-    </div>
+    <h3 style="margin-bottom:15px; color:var(--blue-dark); font-size:20px;">مواقع فروعنا في الرياض 🗺️</h3>
+    <iframe id="mapFrame" width="100%" height="350" style="border:0; border-radius: 20px; box-shadow: var(--shadow);" loading="lazy" src="https://maps.google.com/maps?q=الرياض&hl=ar&z=10&output=embed"></iframe>
   </div>
 </section>
 
 <section class="testimonials-section">
-  <h2 class="section-h2 fade-up" style="text-align:center; padding: 0 20px;">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا 💬</h2>
-  <div class="testimonials-track" id="testimonialsTrack">
+  <h2 class="section-h2 fade-up" style="text-align:center; padding: 0 20px; position:relative; z-index:20;">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا 💬</h2>
+  <div class="testimonials-track fade-up" id="testimonialsTrack">
     </div>
 </section>
 
@@ -606,8 +629,8 @@
   </div>
 </section>
 
-<div class="marquee-wrap yellow" style="direction:ltr">
-  <div class="marquee-track" style="animation-direction:reverse">
+<div class="marquee-wrap yellow">
+  <div class="marquee-track">
     <div class="marquee-item">⭐ أي ام سبيشل | I am Special <span>🌟</span></div>
     <div class="marquee-item">🛍️ تسوقي براحة تامة <span>🌟</span></div>
     <div class="marquee-item">👶 بيئة آمنة وحركية <span>🌟</span></div>
@@ -678,28 +701,32 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="directionsModal">
+  <div class="modal-box" id="directionsModalBox">
+    <button class="modal-close" onclick="closeDirectionsModal()">×</button>
+    <h2 class="modal-title" style="margin-bottom: 5px;">أقرب الفروع إليك 📍</h2>
+    <p id="modalLocationStatusText" style="color:var(--muted); font-size: 14px; margin-bottom: 20px;">يتم ترتيب الفروع تلقائياً لتظهر الأقرب لموقعك أولاً.</p>
+    <div class="branches-grid" id="modalBranchesGrid" style="margin-top: 10px;">
+    </div>
+  </div>
+</div>
+
 <script>
-  // ---- إضافة الشعار و 20 إيموجي للخلفية مع حركات غير منتظمة ----
   function initBackgroundEmojis() {
     const bgContainer = document.getElementById('bgShapes');
     const bgEmojis = ['🎉','✨','🎨','🧩','🍭','⚽','🌟','🎁','🤝','🦋','🤸','🏃','🚴'];
-    
-    // إضافة الشعار
     let bgHtml = `<img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" style="position:absolute; width:180px; opacity:0.04; top:20%; left:10%; animation: floatRand 25s infinite alternate ease-in-out;">`;
-    
-    // إضافة 20 إيموجي
     for(let i=0; i<20; i++) {
       let e = bgEmojis[Math.floor(Math.random() * bgEmojis.length)];
       let top = Math.random() * 100;
       let left = Math.random() * 100;
-      let dur = 15 + Math.random() * 20; // بين 15 و 35 ثانية
+      let dur = 15 + Math.random() * 20;
       let delay = Math.random() * 5;
       bgHtml += `<div style="position:absolute; font-size:35px; opacity:0.08; top:${top}%; left:${left}%; animation: floatRand ${dur}s infinite alternate ease-in-out ${delay}s;">${e}</div>`;
     }
     bgContainer.innerHTML = bgHtml;
   }
 
-  // ---- تسلسل حركات الإيموجي في الشاشة الأولى ----
   function initHeroSequence() {
     const seqAnimEl = document.getElementById('heroSeqAnim');
     const seqItems = [
@@ -711,27 +738,19 @@
     function playNext() {
       const currentItem = seqItems[currentIndex];
       seqAnimEl.innerText = currentItem.char;
-      
-      // إعادة تعيين الأنيميشن
       seqAnimEl.style.animation = 'none';
-      void seqAnimEl.offsetWidth; // Trigger reflow
-      
-      // تطبيق الأنيميشن حسب النوع (الدوران أو مجرد المرور)
+      void seqAnimEl.offsetWidth;
       if(currentItem.class === 'tumbling') {
         seqAnimEl.style.animation = 'runAcross 4s linear forwards, tumblingSeq 4s linear forwards';
       } else {
         seqAnimEl.style.animation = 'runAcross 4s linear forwards';
       }
-
       currentIndex = (currentIndex + 1) % seqItems.length;
-      
-      // انتظار 4 ثواني للمرور + ثانية واحدة كفاصل
       setTimeout(playNext, 5000);
     }
     playNext();
   }
 
-  // ---- مؤشر الماوس الطفولي المتغير وتأثير اللمس ----
   const cursorEmoji = document.getElementById('cursorEmoji');
   const emojisList = ['🎪', '🎊', '🎁', '🎤', '🎨', '🧩', '🤪', '⚽', '🌟', '😂'];
   let currentEmojiIndex = 0;
@@ -758,7 +777,6 @@
     }
   });
 
-  // التحكم بشاشة التحميل
   setTimeout(() => { document.getElementById('loadBtn').classList.add('show'); }, 2000);
   function dismissLoad() {
     document.getElementById('loadScreen').classList.add('hidden');
@@ -774,7 +792,6 @@
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // النوافذ المنبثقة
   function openPage(title, desc) {
     document.getElementById('modalTitle').innerText = title;
     document.getElementById('modalDesc').innerText = desc;
@@ -789,14 +806,14 @@
       if (e.target === this) { closePage(); }
   });
 
-  // ---- حساب المسافات والخريطة في قسم الفروع ----
+  // ---- الفروع والمسافات ----
   const branchesData = [
-    { name: "مركز المملكة", lat: 24.7114, lon: 46.6745, gMapsLink: "https://maps.google.com/?q=24.7114,46.6745" },
-    { name: "ذا فيو مول", lat: 24.7570, lon: 46.7323, gMapsLink: "https://maps.google.com/?q=24.7570,46.7323" },
-    { name: "الرياض جاليري", lat: 24.7435, lon: 46.6575, gMapsLink: "https://maps.google.com/?q=24.7435,46.6575" },
-    { name: "شرق بلازا", lat: 24.7533, lon: 46.8174, gMapsLink: "https://maps.google.com/?q=24.7533,46.8174" },
-    { name: "سلام مول", lat: 24.5828, lon: 46.6782, gMapsLink: "https://maps.google.com/?q=24.5828,46.6782" },
-    { name: "القصر مول", lat: 24.6030, lon: 46.6853, gMapsLink: "https://maps.google.com/?q=24.6030,46.6853" }
+    { name: "مركز المملكة", floor: "الدور السفلي", lat: 24.7114, lon: 46.6745 },
+    { name: "ذا فيو مول", floor: "بوابة 4", lat: 24.7570, lon: 46.7323 },
+    { name: "الرياض جاليري", floor: "الدور الثاني", lat: 24.7435, lon: 46.6575 },
+    { name: "شرق بلازا", floor: "في الواجهة", lat: 24.7533, lon: 46.8174 },
+    { name: "سلام مول", floor: "الدور السفلي", lat: 24.5828, lon: 46.6782 },
+    { name: "القصر مول", floor: "الدور الثالث", lat: 24.6030, lon: 46.6853 }
   ];
 
   function getDistance(lat1, lon1, lat2, lon2) {
@@ -808,22 +825,47 @@
     return R * c;
   }
 
-  function renderBranches(isLocationKnown = false) {
-    const grid = document.getElementById('branchesGrid');
+  function renderMainBranches() {
+    const grid = document.getElementById('mainBranchesGrid');
     grid.innerHTML = '';
     
-    branchesData.forEach((branch, index) => {
-      let distText = '';
-      if(isLocationKnown && branch.distance) {
-        distText = `<span class="branch-dist">يبعد ${branch.distance.toFixed(1)} كم 🚗</span>`;
-      }
-
-      const card = document.createElement('div');
-      card.className = `branch-card ${isLocationKnown && index === 0 ? 'active-branch' : ''}`;
-      card.onclick = () => showMapForBranch(branch, card);
+    // الترتيب الأساسي بدون مسافة
+    branchesData.forEach((branch) => {
+      const card = document.createElement('a');
+      card.className = 'branch-card';
+      card.href = 'https://google.com';
+      card.target = '_blank';
       
       card.innerHTML = `
         <div class="branch-overlay"></div>
+        <div class="branch-info">
+          <div class="branch-name">${branch.name}</div>
+          <span class="branch-dist" style="color: var(--yellow-light);">${branch.floor}</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  function renderModalBranches(hasLocation) {
+    const grid = document.getElementById('modalBranchesGrid');
+    grid.innerHTML = '';
+
+    branchesData.forEach((branch) => {
+      let distText = '';
+      if(hasLocation && branch.distance !== undefined) {
+        distText = `<span class="branch-dist">يبعد ${branch.distance.toFixed(1)} كم 🚗</span>`;
+      } else {
+        distText = `<span class="branch-dist" style="color: var(--yellow-light);">${branch.floor}</span>`;
+      }
+
+      const card = document.createElement('a');
+      card.className = 'branch-card';
+      card.href = 'https://share.google/HN1isEqS5eeaUu4Fy';
+      card.target = '_blank';
+      
+      card.innerHTML = `
+        <div class="modal-branch-overlay"></div>
         <div class="branch-info">
           <div class="branch-name">${branch.name}</div>
           ${distText}
@@ -831,33 +873,72 @@
       `;
       grid.appendChild(card);
     });
+  }
 
-    // إظهار خريطة أول فرع (أو الأقرب)
-    if(branchesData.length > 0) {
-      showMapForBranch(branchesData[0], grid.firstChild);
+  function handleDirectionsClick() {
+    const cachedTime = localStorage.getItem('userLocTime');
+    const now = new Date().getTime();
+    
+    // التحقق من مرور 15 دقيقة (15 * 60 * 1000 مللي ثانية)
+    if (cachedTime && (now - cachedTime < 15 * 60 * 1000)) {
+        const userLat = parseFloat(localStorage.getItem('userLat'));
+        const userLon = parseFloat(localStorage.getItem('userLon'));
+        
+        branchesData.forEach(branch => {
+          branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon);
+        });
+        branchesData.sort((a, b) => a.distance - b.distance);
+        document.getElementById('modalLocationStatusText').innerText = "تم ترتيب الفروع بحيث يظهر الأقرب لموقعك الحالي أولاً 📍🚗";
+        renderModalBranches(true);
+        openDirectionsModal();
+    } else {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const userLat = position.coords.latitude;
+              const userLon = position.coords.longitude;
+              
+              localStorage.setItem('userLocTime', now);
+              localStorage.setItem('userLat', userLat);
+              localStorage.setItem('userLon', userLon);
+
+              branchesData.forEach(branch => {
+                branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon);
+              });
+              branchesData.sort((a, b) => a.distance - b.distance);
+              document.getElementById('modalLocationStatusText').innerText = "تم ترتيب الفروع بحيث يظهر الأقرب لموقعك الحالي أولاً 📍🚗";
+              renderModalBranches(true);
+              openDirectionsModal();
+            },
+            (error) => {
+              document.getElementById('modalLocationStatusText').innerText = "تعذر تحديد الموقع، نعرض لك قائمة بفروعنا كاملة.";
+              renderModalBranches(false);
+              openDirectionsModal();
+            }
+          );
+        } else {
+          renderModalBranches(false);
+          openDirectionsModal();
+        }
     }
   }
 
-  function showMapForBranch(branch, cardElement) {
-    // تفعيل الكارد المحدد
-    document.querySelectorAll('.branch-card').forEach(c => c.classList.remove('active-branch'));
-    if(cardElement) cardElement.classList.add('active-branch');
-
-    const mapContainer = document.getElementById('mapContainer');
-    const mapFrame = document.getElementById('mapFrame');
-    const dirBtn = document.getElementById('mapDirBtn');
-    const title = document.getElementById('selectedBranchName');
-
-    mapContainer.style.display = 'block';
-    title.innerText = `الوجهة: ${branch.name}`;
-    
-    // خريطة بسيطة باستخدام iframe جوجل للتمثيل (بدون API Key يظهر مكان عام)
-    mapFrame.src = `https://maps.google.com/maps?q=${branch.lat},${branch.lon}&hl=ar&z=14&output=embed`;
-    dirBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${branch.lat},${branch.lon}`;
+  function openDirectionsModal() {
+    document.getElementById('directionsModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 
-  // ---- مراجعات لا نهائية (20 مراجعة) ----
-  function initTestimonials() {
+  function closeDirectionsModal() {
+    document.getElementById('directionsModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('directionsModal').addEventListener('click', function(e) {
+      if (e.target === this) { closeDirectionsModal(); }
+  });
+
+  // ---- مراجعات البطاقات المتراكبة ----
+  function initTestimonialsStacked() {
     const track = document.getElementById('testimonialsTrack');
     const sampleReviews = [
       { stars: "⭐⭐⭐⭐⭐", text: "المكان مميز وأجيه كثير أحط بنتي فيه وأتمشى ولا أشيل هم، أمانة واهتمام.", name: "زائرة", role: "الرياض جاليري", color: "ta-blue" },
@@ -867,54 +948,96 @@
       { stars: "⭐⭐⭐⭐⭐", text: "أفضل حضانة بالرياض، تريحك وقت التسوق وتخلي الطفل يفرغ طاقته بأمان.", name: "أم سارة", role: "شرق بلازا", color: "ta-yellow" }
     ];
 
-    let html = '';
-    // تكرار إنشاء 20 بطاقة للتمرير اللانهائي وكلها قابلة للضغط
-    for(let i=0; i<20; i++) {
-      let rev = sampleReviews[i % sampleReviews.length];
-      html += `
-        <a href="https://maps.google.com/" target="_blank" class="testimonial-link">
-          <div class="testimonial-card">
+    let currentCardIndex = 0;
+    let cardElements = [];
+
+    sampleReviews.forEach((rev, index) => {
+        let el = document.createElement('div');
+        el.className = 'testimonial-card-stacked';
+        el.innerHTML = `
             <div class="testimonial-stars">${rev.stars}</div>
             <p class="testimonial-text">"${rev.text}"</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar ${rev.color}">👩</div>
               <div><div class="testimonial-name">${rev.name}</div><div class="testimonial-role">${rev.role}</div></div>
             </div>
-          </div>
-        </a>
-      `;
+        `;
+        track.appendChild(el);
+        cardElements.push(el);
+    });
+
+    function updateCardsUI() {
+        cardElements.forEach((card, i) => {
+            let diff = (i - currentCardIndex + cardElements.length) % cardElements.length;
+            card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s, z-index 0s';
+            if (diff === 0) {
+                card.style.transform = 'scale(1) translateY(0) translateZ(0)';
+                card.style.opacity = '1';
+                card.style.zIndex = '10';
+            } else if (diff === 1) {
+                card.style.transform = 'scale(0.95) translateY(20px) translateZ(-50px)';
+                card.style.opacity = '0.8';
+                card.style.zIndex = '9';
+            } else if (diff === 2) {
+                card.style.transform = 'scale(0.9) translateY(40px) translateZ(-100px)';
+                card.style.opacity = '0.5';
+                card.style.zIndex = '8';
+            } else {
+                card.style.transform = 'scale(0.85) translateY(60px) translateZ(-150px)';
+                card.style.opacity = '0';
+                card.style.zIndex = '1';
+            }
+        });
     }
-    track.innerHTML = html;
+
+    updateCardsUI();
+
+    let autoSlideInterval = setInterval(() => {
+        currentCardIndex = (currentCardIndex + 1) % cardElements.length;
+        updateCardsUI();
+    }, 7000);
+
+    // إضافة إمكانية السحب للتقليب
+    let startX = 0;
+    let isDragging = false;
+
+    track.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        clearInterval(autoSlideInterval);
+        cardElements[currentCardIndex].style.transition = 'none';
+        cardElements[currentCardIndex].style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('pointermove', (e) => {
+        if(!isDragging) return;
+        let moveX = e.clientX - startX;
+        let rotate = moveX * 0.05;
+        cardElements[currentCardIndex].style.transform = `translateX(${moveX}px) rotate(${rotate}deg)`;
+    });
+
+    window.addEventListener('pointerup', (e) => {
+        if(!isDragging) return;
+        isDragging = false;
+        let moveX = e.clientX - startX;
+        cardElements[currentCardIndex].style.cursor = 'grab';
+
+        if(Math.abs(moveX) > 80) {
+            currentCardIndex = (currentCardIndex + 1) % cardElements.length;
+        }
+        updateCardsUI();
+        autoSlideInterval = setInterval(() => {
+            currentCardIndex = (currentCardIndex + 1) % cardElements.length;
+            updateCardsUI();
+        }, 7000);
+    });
   }
 
-  // ---- عند تحميل الصفحة ----
   window.addEventListener('load', () => {
     initBackgroundEmojis();
     initHeroSequence();
-    initTestimonials();
-
-    // طلب الموقع بمجرد الدخول
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLat = position.coords.latitude;
-          const userLon = position.coords.longitude;
-          
-          branchesData.forEach(branch => {
-            branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon);
-          });
-          branchesData.sort((a, b) => a.distance - b.distance);
-          document.getElementById('locationStatusText').innerText = "تم ترتيب الفروع بحيث يظهر الأقرب لموقعك الحالي أولاً 📍🚗";
-          renderBranches(true);
-        },
-        (error) => {
-          document.getElementById('locationStatusText').innerText = "تعذر تحديد الموقع تلقائياً، نعرض لك قائمة بفروعنا كاملة.";
-          renderBranches(false);
-        }
-      );
-    } else {
-      renderBranches(false);
-    }
+    renderMainBranches(); 
+    initTestimonialsStacked();
   });
 </script>
 </body>
