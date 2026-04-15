@@ -161,8 +161,10 @@
     left: 25px;
     width: 65px;
     height: 65px;
-    background: var(--white);
-    border: 3px solid var(--blue-dark);
+      background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -416,9 +418,7 @@
 </div>
 
 <div class="floating-maps-btn" onclick="handleDirectionsClick()" title="الاتجاهات">
-  <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--blue-dark)">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-  </svg>
+  <img src="googleLogo.png" alt="خرائط جوجل" style="width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
 </div>
 
 <nav>
