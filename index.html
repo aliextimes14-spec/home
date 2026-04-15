@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -62,7 +62,8 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', sans-serif; overflow-x: hidden; cursor: none; box-shadow: inset 0 0 50px rgba(0,0,0,0.02); }
+  /* تحسينات الآيفون ومنع التشتيت */
+  body { background: var(--bg); color: var(--text); font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', sans-serif; overflow-x: hidden; width: 100%; -webkit-text-size-adjust: 100%; box-shadow: inset 0 0 50px rgba(0,0,0,0.02); }
   
   img { max-width: 100%; height: auto; }
 
@@ -82,11 +83,11 @@
     direction: rtl;
     flex-shrink: 0;
   }
+  /* تكثيف الخط الإنجليزي ليتوازن مع العربي */
   .brand-logo-container .cl-en {
-    font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', cursive;
-    font-weight: 800;
-    letter-spacing: 1px;
-    word-spacing: 1px;
+    font-family: 'Baloo Bhaijaan 2', 'Hacen Casablanca', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.5px;
     flex-shrink: 0;
   }
   .brand-logo-img {
@@ -123,7 +124,17 @@
     100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; }
   }
 
-  .floating-shapes { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
+  /* أنيميشن تفاعل مع الضغط */
+  @keyframes rippleEffect {
+    0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+  }
+  .click-ripple {
+    animation: rippleEffect 0.4s ease-out forwards;
+  }
+
+  .floating-shapes { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; transition: margin-top 0.1s ease-out;}
   @keyframes floatRand {
     0% { transform: translate(0, 0) rotate(0deg); }
     33% { transform: translate(30px, -40px) rotate(120deg); }
@@ -131,7 +142,7 @@
     100% { transform: translate(0, 0) rotate(360deg); }
   }
 
-  nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:center;align-items:center;padding:10px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:10px 48px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
   
   .nav-logo-wrap { 
     text-decoration: none; 
@@ -139,16 +150,17 @@
     flex-direction: column;
     align-items: center; 
     background: rgba(0,0,0,0.85); 
-    padding: 6px 20px; 
+    padding: 6px 24px; 
     border-radius: 50px; 
     border: 2px solid #FFFFFF; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
-  .nav-subtitle {
-    color: var(--white);
-    font-size: 11px;
+  
+  .header-tagline {
+    color: var(--yellow-dark);
     font-family: 'Baloo Bhaijaan 2', sans-serif;
-    margin-top: -3px;
+    font-weight: 800;
+    font-size: clamp(16px, 2vw, 20px);
     letter-spacing: 0.5px;
   }
   
@@ -178,17 +190,6 @@
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   }
-
-  .load-screen { position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,var(--blue-light),var(--red-light),var(--yellow-light),var(--green-light));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity 0.6s,transform 0.6s; }
-  .load-screen.hidden { opacity:0;pointer-events:none;transform:scale(1.04); }
-  .load-sub { font-size:20px; color:var(--text); font-weight:700; text-align: center; padding: 0 20px;}
-  .load-bar-wrap { width:260px;height:10px;background:rgba(0,0,0,0.08);border-radius:10px;overflow:hidden; }
-  .load-bar { height:100%;border-radius:10px;background:linear-gradient(90deg,var(--logo-red),var(--logo-yellow),var(--green),var(--blue));background-size:200% 100%;animation:loadProg 2s cubic-bezier(0.4,0,0.2,1) forwards,shimmer 1.5s linear infinite; }
-  @keyframes loadProg{0%{width:0}100%{width:100%}}
-  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-  .load-btn { background:var(--white);border:3px solid var(--logo-red);color:var(--logo-red);padding:12px 40px;font-family:'Hacen Casablanca','Baloo Bhaijaan 2',cursive;font-size:22px;border-radius:30px;cursor:pointer;transition:all 0.2s;display:none;box-shadow:var(--shadow); }
-  .load-btn.show { display:block; }
-  .load-btn:hover { background:var(--logo-red);color:var(--white);transform:scale(1.05); }
 
   .hero { position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 48px 80px;overflow:hidden;background:linear-gradient(160deg,var(--blue-light) 0%,var(--white) 40%,var(--yellow-light) 80%,var(--green-light) 100%); }
   .hero-clouds { position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse 300px 120px at 15% 20%,rgba(255,255,255,0.9) 0%,transparent 70%),radial-gradient(ellipse 200px 80px at 70% 15%,rgba(255,255,255,0.8) 0%,transparent 70%),radial-gradient(ellipse 250px 100px at 85% 35%,rgba(255,255,255,0.7) 0%,transparent 70%);pointer-events:none; }
@@ -360,20 +361,21 @@
   #directionsModalBox { max-width: 700px; padding: 40px 20px; }
   .modal-branch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.0)); pointer-events: none; }
 
-  /* نافذة معرض الصور السحب */
-  .img-gallery-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 5000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+  /* نافذة معرض الصور السحب - بيضاء بالكامل */
+  .img-gallery-overlay { position: fixed; inset: 0; background: #FFFFFF; z-index: 5000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
   .img-gallery-overlay.active { display: flex; opacity: 1; }
-  .img-gallery-track { display: flex; width: 100vw; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; height: 100%; align-items: center; }
+  .img-gallery-track { display: flex; width: 100vw; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; height: 100%; align-items: center; cursor: pointer; }
   .img-gallery-track::-webkit-scrollbar { display: none; }
-  .img-gallery-item { flex: 0 0 100vw; height: 70vh; scroll-snap-align: center; display: flex; justify-content: center; align-items: center; padding: 20px; }
-  .img-gallery-item div { width: 100%; max-width: 500px; height: 100%; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 100px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); user-select: none; }
+  .img-gallery-item { flex: 0 0 100vw; height: 70vh; scroll-snap-align: center; display: flex; justify-content: center; align-items: center; padding: 20px; cursor: default; }
+  .img-gallery-item div { width: 100%; max-width: 500px; height: 100%; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 100px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); user-select: none; cursor: pointer; border: 2px solid rgba(0,0,0,0.02);}
 
   @media (max-width: 768px) {
-    nav { padding: 10px 15px; }
-    .nav-logo-wrap { padding: 4px 15px; }
-    .brand-logo-container .cl-ar { font-size: 18px; }
-    .brand-logo-container .cl-en { font-size: 14px; }
-    .brand-logo-img { width: 32px; height: 32px; }
+    nav { padding: 10px 15px; flex-direction: column; gap: 5px; justify-content: center; }
+    .nav-logo-wrap { padding: 4px 15px; width: 100%; }
+    .brand-logo-container .cl-ar { font-size: 20px; }
+    .brand-logo-container .cl-en { font-size: 20px; }
+    .brand-logo-img { width: 40px; height: 40px; }
+    .header-tagline { font-size: 14px; margin-top: 2px;}
 
     .hero { padding: 180px 20px 60px; text-align: center; }
     .hero-actions { justify-content: center; gap: 10px; flex-direction: row; }
@@ -406,30 +408,19 @@
 <div class="cursor-emoji" id="cursorEmoji"></div>
 <div class="floating-shapes" id="bgShapes"></div>
 
-<div class="load-screen" id="loadScreen">
-  <div class="brand-logo-container fade-up visible">
-    <div class="cl-ar" style="font-size: 32px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
-    <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 60px; height: 60px;">
-    <div class="cl-en" style="font-size: 24px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
-  </div>
-  <div class="load-sub">✨ تسوقي براحة، ودع المرح لنا ✨</div>
-  <div class="load-bar-wrap"><div class="load-bar"></div></div>
-  <button class="load-btn" id="loadBtn" onclick="dismissLoad()">🚀 ابدأ اللعب!</button>
-</div>
-
 <div class="floating-maps-btn" onclick="handleDirectionsClick()" title="الاتجاهات">
   <img src="IMG_9207.png" alt="خرائط جوجل" style="width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
 </div>
 
 <nav>
-  <a href="#home" class="nav-logo-wrap">
+  <div class="header-tagline" style="visibility: hidden; position: absolute;">الضيافة الترفيهية للأطفال</div> <a href="#home" class="nav-logo-wrap">
     <div class="brand-logo-container">
-      <div class="cl-ar" style="font-size: 22px; color:white;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
-      <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 40px; height: 40px;">
-      <div class="cl-en" style="font-size: 18px; color:white;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
+      <div class="cl-ar" style="font-size: 24px; color:white;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
+      <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 50px; height: 50px;">
+      <div class="cl-en" style="font-size: 24px; color:white;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
     </div>
-    <div class="nav-subtitle">الضيافة الترفيهية للأطفال</div>
   </a>
+  <div class="header-tagline">الضيافة الترفيهية للأطفال</div>
 </nav>
 
 <section class="hero" id="home">
@@ -573,8 +564,7 @@
   <div class="fade-up">
     <h2 class="section-h2">متعة غير محدودة <span style="color:var(--logo-red)">بأسعار</span> رائعة! ✨</h2>
     <p class="section-p">تسوقي براحة بال تامة واقضِ كل مشاويرك بدون أي قلق، فوقت اللعب لدينا مفتوح وغير محدود !</p>
-    
-    <
+  </div>
   <div class="enroll-visual fade-up" style="transition-delay:0.15s">
     <div style="margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
       <span class="tag-pill tag-blue">عمر 1 - 9 سنوات</span>
@@ -634,7 +624,7 @@
         <div class="brand-logo-container" style="justify-content: flex-start;">
           <div class="cl-ar" style="font-size:20px;"><span class="cl-red">أي ام</span> <span class="cl-yellow">سبيشل</span></div>
           <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="Logo" class="brand-logo-img" style="width: 35px; height: 35px;">
-          <div class="cl-en" style="font-size:15px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
+          <div class="cl-en" style="font-size:20px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
         </div>
       </div>
       <p class="footer-desc">الخيار الأول للضيافة الترفيهية داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات تجربة تسوق هادئة ومريحة.</p>
@@ -684,8 +674,6 @@
 <div class="modal-overlay" id="directionsModal">
   <div class="modal-box" id="directionsModalBox">
     <button class="modal-close" onclick="closeDirectionsModal()">×</button>
-    <h2 class="modal-title" style="margin-bottom: 5px;">أقرب الفروع إليك 📍</h2>
-    <p id="modalLocationStatusText" style="color:var(--muted); font-size: 14px; margin-bottom: 20px;">يتم ترتيب الفروع تلقائياً لتظهر الأقرب لموقعك أولاً.</p>
     <div class="branches-grid" id="modalBranchesGrid" style="margin-top: 10px;">
     </div>
   </div>
@@ -707,6 +695,14 @@
     bgContainer.innerHTML = bgHtml;
   }
 
+  // تأثير تحريك الإيموجيات في الخلفية عند النزول والصعود في الصفحة
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('#bgShapes div, #bgShapes img').forEach((el, i) => {
+        const speed = (i % 3) === 0 ? 0.05 : ((i % 3) === 1 ? -0.05 : 0.02);
+        el.style.marginTop = `${window.scrollY * speed}px`;
+    });
+  });
+
   const cursorEmoji = document.getElementById('cursorEmoji');
   let currentEmojiIndex = 0;
   document.addEventListener('mousemove', e => {
@@ -715,31 +711,27 @@
       cursorEmoji.style.top = e.clientY + 'px';
     }
   });
-  document.addEventListener('pointerdown', e => {
-    currentEmojiIndex = (currentEmojiIndex + 1) % bgEmojis.length;
-    if(window.innerWidth > 768) {
-      cursorEmoji.innerText = bgEmojis[currentEmojiIndex];
-    } else {
-      let touchEl = document.createElement('div');
-      touchEl.className = 'touch-emoji';
-      touchEl.innerText = bgEmojis[currentEmojiIndex];
-      touchEl.style.left = e.clientX + 'px';
-      touchEl.style.top = e.clientY + 'px';
-      document.body.appendChild(touchEl);
-      setTimeout(() => touchEl.remove(), 600);
-    }
-  });
 
-  setTimeout(() => { document.getElementById('loadBtn').classList.add('show'); }, 2000);
-  function dismissLoad() {
-    document.getElementById('loadScreen').classList.add('hidden');
-    setTimeout(() => { document.getElementById('loadScreen').style.display = 'none'; }, 600);
-    animateIn();
-  }
-  setTimeout(() => {
-    const ls = document.getElementById('loadScreen');
-    if (!ls.classList.contains('hidden')) { ls.classList.add('hidden'); setTimeout(() => { ls.style.display = 'none'; }, 600); animateIn(); }
-  }, 3500);
+  // تمييز الضغط بالماوس عن اللمس للتفاعل المطلوب (إخفاء الإيموجي للموس)
+  document.addEventListener('pointerdown', e => {
+    // تفاعل مرئي عام مع أي ضغطة (تموج)
+    if (e.target && e.target.classList) {
+        e.target.classList.remove('click-ripple');
+        void e.target.offsetWidth; // Trigger reflow
+        e.target.classList.add('click-ripple');
+    }
+
+    if (e.pointerType === 'mouse') return; // لا تظهر الإيموجيات لمستخدمي الفأرة
+
+    currentEmojiIndex = (currentEmojiIndex + 1) % bgEmojis.length;
+    let touchEl = document.createElement('div');
+    touchEl.className = 'touch-emoji';
+    touchEl.innerText = bgEmojis[currentEmojiIndex];
+    touchEl.style.left = e.clientX + 'px';
+    touchEl.style.top = e.clientY + 'px';
+    document.body.appendChild(touchEl);
+    setTimeout(() => touchEl.remove(), 600);
+  });
 
   function animateIn() { document.querySelectorAll('.fade-up').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*70)); }
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
@@ -817,7 +809,6 @@
         const userLon = parseFloat(localStorage.getItem('userLon'));
         branchesData.forEach(branch => { branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon); });
         branchesData.sort((a, b) => a.distance - b.distance);
-        document.getElementById('modalLocationStatusText').innerText = "تم ترتيب الفروع بحيث يظهر الأقرب لموقعك الحالي أولاً 📍🚗";
         renderModalBranches(true);
         openDirectionsModal();
     } else {
@@ -831,12 +822,10 @@
               localStorage.setItem('userLon', userLon);
               branchesData.forEach(branch => { branch.distance = getDistance(userLat, userLon, branch.lat, branch.lon); });
               branchesData.sort((a, b) => a.distance - b.distance);
-              document.getElementById('modalLocationStatusText').innerText = "تم ترتيب الفروع بحيث يظهر الأقرب لموقعك الحالي أولاً 📍🚗";
               renderModalBranches(true);
               openDirectionsModal();
             },
             (error) => {
-              document.getElementById('modalLocationStatusText').innerText = "تعذر تحديد الموقع، نعرض لك قائمة بفروعنا كاملة.";
               renderModalBranches(false);
               openDirectionsModal();
             }
@@ -868,11 +857,17 @@
       document.body.style.overflow = 'hidden';
   }
   function closeGalleryModal(e) {
+      // إغلاق فقط عند الضغط خارج الصورة
       if(e.target.id === 'galleryModal' || e.target.classList.contains('img-gallery-item')) {
           const gal = document.getElementById('galleryModal');
           gal.style.opacity = '0';
           setTimeout(() => { gal.style.display = 'none'; document.body.style.overflow = ''; }, 300);
       }
+  }
+  function nextGalleryImage(e) {
+      e.stopPropagation(); // منع الإغلاق
+      const track = document.getElementById('galleryTrack');
+      track.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
   }
 
   function initGallery() {
@@ -885,7 +880,7 @@
           {bg: 'var(--blue)', emoji: '🍳'}
       ];
       items.forEach(item => {
-          track.innerHTML += `<div class="img-gallery-item"><div style="background:${item.bg}">${item.emoji}</div></div>`;
+          track.innerHTML += `<div class="img-gallery-item"><div style="background:${item.bg}" onclick="nextGalleryImage(event)">${item.emoji}</div></div>`;
       });
   }
 
@@ -925,6 +920,8 @@
     renderMainBranches(); 
     initTestimonials();
     initGallery();
+    // إقلاع النظام مباشرة بدون شاشة التحميل
+    animateIn();
   });
 </script>
 </body>
