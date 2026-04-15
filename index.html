@@ -124,7 +124,12 @@
     100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; }
   }
 
- 
+  /* أنيميشن تفاعل مع الضغط */
+  @keyframes rippleEffect {
+    0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 204, 0, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+  }
   .click-ripple {
     animation: rippleEffect 0.4s ease-out forwards;
   }
@@ -710,7 +715,10 @@
   // تمييز الضغط بالماوس عن اللمس للتفاعل المطلوب (إخفاء الإيموجي للموس)
   document.addEventListener('pointerdown', e => {
     // تفاعل مرئي عام مع أي ضغطة (تموج)
-   
+    if (e.target && e.target.classList) {
+        e.target.classList.remove('click-ripple');
+        void e.target.offsetWidth; // Trigger reflow
+        e.target.classList.add('click-ripple');
     }
 
     if (e.pointerType === 'mouse') return; // لا تظهر الإيموجيات لمستخدمي الفأرة
