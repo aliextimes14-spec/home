@@ -830,7 +830,7 @@
       });
   }
 
-  function initTestimonials() {
+    function initTestimonials() {
       const track = document.getElementById('testimonialsTrack');
       const sampleReviews = [
         { stars: 5, text: "المكان مميز وأجيه كثير أحط بنتي فيه وأتمشى ولا أشيل هم، أمانة واهتمام.", name: "زائرة", role: "الرياض جاليري", color: "#4285F4" },
@@ -839,6 +839,7 @@
         { stars: 4, text: "الخدمة ممتازة والموظفات بشوشات جداً مع الأطفال، أنصح به بشدة.", name: "زائرة", role: "ذا فيو مول", color: "#FBBC04" },
         { stars: 5, text: "أفضل حضانة بالرياض، تريحك وقت التسوق وتخلي الطفل يفرغ طاقته بأمان.", name: "أم سارة", role: "شرق بلازا", color: "#4285F4" }
       ];
+      
       sampleReviews.forEach(rev => {
           let starsHtml = '';
           for(let i=0; i<rev.stars; i++) starsHtml += '<span>★</span>';
@@ -857,8 +858,11 @@
               </div>
           `;
       });
-  track.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+      // ✅ الحل هنا: إخبار المراقب بمتابعة البطاقات الجديدة التي تم توليدها للتو
+      track.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   }
+
 
   window.addEventListener('load', () => {
     initBackgroundEmojis();
