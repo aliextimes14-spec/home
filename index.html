@@ -62,7 +62,6 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  /* تحسينات الآيفون ومنع التشتيت مدمجة مع تصميم H */
   body { 
       background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
       background-attachment: fixed;
@@ -70,16 +69,14 @@
       font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', sans-serif; 
       overflow-x: hidden; 
       width: 100%; 
-      -webkit-text-size-adjust: 100%; 
+      -webkit-text-size-adjust: 100%;
       box-shadow: inset 0 0 50px rgba(0,0,0,0.02); 
   }
 
-  /* مؤثرات الإضاءة الخلفية للتصميم الزجاجي H */
   .bg-blob-1 { position: fixed; top: -10%; right: -5%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
   .bg-blob-2 { position: fixed; bottom: -20%; left: -10%; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
   .bg-blob-3 { position: fixed; top: 40%; left: 40%; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(234,179,8,0.1) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
 
-  /* توحيد البطاقات للتصميم الزجاجي H */
   .babysitter-box, .map-container, .gm-review-card, .enroll-visual, .enroll-feature, .activity-card, .stat-item, .gallery-cell, .program-card, .about-img-wrap, .modal-box {
       background: rgba(255, 255, 255, 0.45) !important;
       backdrop-filter: blur(16px) !important;
@@ -91,152 +88,62 @@
   img { max-width: 100%; height: auto; }
 
   .brand-logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    direction: ltr;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    display: flex; align-items: center; justify-content: center; gap: 8px; direction: ltr; flex-wrap: nowrap; white-space: nowrap;
   }
-  .brand-logo-container .cl-ar {
-    font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', cursive;
-    font-weight: 800;
-    word-spacing: 2px;
-    direction: rtl;
-    flex-shrink: 0;
-  }
-  /* تكثيف الخط الإنجليزي ليتوازن مع العربي */
-  .brand-logo-container .cl-en {
-    font-family: 'Baloo Bhaijaan 2', 'Hacen Casablanca', sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-  }
-  .brand-logo-img {
-    object-fit: contain;
-    animation: pulseLogo 3s infinite;
-    flex-shrink: 0;
-  }
+  .brand-logo-container .cl-ar { font-family: 'Hacen Casablanca', 'Baloo Bhaijaan 2', cursive; font-weight: 800; word-spacing: 2px; direction: rtl; flex-shrink: 0; }
+  .brand-logo-container .cl-en { font-family: 'Baloo Bhaijaan 2', 'Hacen Casablanca', sans-serif; font-weight: 900; letter-spacing: 0.5px; flex-shrink: 0; }
+  .brand-logo-img { object-fit: contain; animation: pulseLogo 3s infinite; flex-shrink: 0; }
   .cl-red { color: var(--logo-red); }
   .cl-yellow { color: var(--logo-yellow); }
 
-  .cursor-emoji {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 24px;
-    transform: translate(-50%, -50%);
-    display: block;
-    user-select: none;
-  }
-
-  .touch-emoji {
-    position: fixed;
-    font-size: 30px;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 1;
-    animation: touchFade 0.6s ease-out forwards;
-  }
-  @keyframes touchFade {
-    0% { transform: translate(-50%, -50%) scale(0.5) translateY(0); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; }
-  }
-
+  .cursor-emoji { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; font-size: 24px; transform: translate(-50%, -50%); display: block; user-select: none; }
+  .touch-emoji { position: fixed; font-size: 30px; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%) scale(0.5); opacity: 1; animation: touchFade 0.6s ease-out forwards; }
+  @keyframes touchFade { 0% { transform: translate(-50%, -50%) scale(0.5) translateY(0); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1.5) translateY(-30px); opacity: 0; } }
 
   .floating-shapes { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; transition: margin-top 0.1s ease-out;}
-  @keyframes floatRand {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -40px) rotate(120deg); }
-    66% { transform: translate(-20px, 20px) rotate(240deg); }
-    100% { transform: translate(0, 0) rotate(360deg); }
-  }
+  @keyframes floatRand { 0% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(30px, -40px) rotate(120deg); } 66% { transform: translate(-20px, 20px) rotate(240deg); } 100% { transform: translate(0, 0) rotate(360deg); } }
 
-  /* الهيدر مطابق لتصميم H */
   nav { 
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:200;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:10px 48px;
-      background: rgba(15, 23, 42, 0.25);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+      position:fixed; top:0; left:0; right:0; z-index:200; display:flex; justify-content:space-between; align-items:center; padding:10px 48px;
+      background: rgba(15, 23, 42, 0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
-  
-  .nav-logo-wrap { 
-    text-decoration: none; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding: 6px 24px; 
-  }
-  
-  .header-tagline {
-    color: var(--yellow-dark);
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    font-weight: 800;
-    font-size: clamp(16px, 2vw, 20px);
-    letter-spacing: 0.5px;
-  }
-  
+  .nav-logo-wrap { text-decoration: none; display: flex; flex-direction: column; align-items: center; padding: 6px 24px; }
+  .header-tagline { color: var(--yellow-dark); font-family: 'Baloo Bhaijaan 2', sans-serif; font-weight: 800; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.5px; }
   @keyframes pulseLogo { 0%, 100% {transform: scale(1);} 50% {transform: scale(1.05);} }
   
-  /* الزر العائم لخرائط قوقل */
   .floating-maps-btn {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    width: 65px;
-    height: 65px;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    position: fixed; bottom: 25px; left: 25px; width: 65px; height: 65px;
+    background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.6); border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    z-index: 1000; box-shadow: 0 8px 20px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
   }
-  .floating-maps-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-  }
+  .floating-maps-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 25px rgba(0,0,0,0.2); background: rgba(255, 255, 255, 0.4); }
 
-  /* إزالة خلفيات الأقسام الملونة */
   .hero { position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px 48px 80px;overflow:hidden; background: transparent; }
   .hero-clouds { position:absolute;top:0;left:0;right:0;height:100%;background:radial-gradient(ellipse 300px 120px at 15% 20%,rgba(255,255,255,0.9) 0%,transparent 70%),radial-gradient(ellipse 200px 80px at 70% 15%,rgba(255,255,255,0.8) 0%,transparent 70%),radial-gradient(ellipse 250px 100px at 85% 35%,rgba(255,255,255,0.7) 0%,transparent 70%);pointer-events:none; }
   .hero-stars { position:absolute;inset:0;pointer-events:none;overflow:hidden; }
   .star { position:absolute;font-size:clamp(16px,2vw,28px);animation:starFloat 4s ease-in-out infinite; }
-  .star:nth-child(1){top:12%;left:8%;animation-delay:0s}
-  .star:nth-child(2){top:25%;right:12%;animation-delay:1s}
-  .star:nth-child(3){top:55%;left:5%;animation-delay:2s}
-  .star:nth-child(4){bottom:20%;right:6%;animation-delay:0.5s}
-  .star:nth-child(5){top:70%;left:45%;animation-delay:1.5s}
-  .star:nth-child(6){top:35%;left:55%;animation-delay:3s}
+  .star:nth-child(1){top:12%;left:8%;animation-delay:0s} .star:nth-child(2){top:25%;right:12%;animation-delay:1s} .star:nth-child(3){top:55%;left:5%;animation-delay:2s} .star:nth-child(4){bottom:20%;right:6%;animation-delay:0.5s} .star:nth-child(5){top:70%;left:45%;animation-delay:1.5s} .star:nth-child(6){top:35%;left:55%;animation-delay:3s}
   @keyframes starFloat{0%,100%{transform:translateY(0) rotate(0);opacity:0.7}50%{transform:translateY(-14px) rotate(20deg);opacity:1}}
 
   .hero-title { font-family:'Hacen Casablanca','Baloo Bhaijaan 2',cursive;font-size:clamp(46px,8vw,110px);line-height:1.2;color:var(--text);position:relative;z-index:2; margin-top: 30px;}
   .hero-title .t-blue{color:var(--blue-dark)}.hero-title .t-red{color:var(--red-dark)}.hero-title .t-green{color:var(--green-dark)}.hero-title .t-yellow{color:var(--yellow-dark)}
   .hero-subtitle { font-size:clamp(16px,2vw,24px);font-weight:700;color:var(--muted);margin-top:16px;z-index:2;position:relative; }
-  .hero-actions { display:flex;gap:12px;margin-top:36px;flex-wrap:wrap;z-index:2;position:relative; }
-  .hero-actions a { padding:14px 24px;border-radius:28px;font-size:17px;font-weight:bold;text-decoration:none;transition:all 0.2s;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;gap:8px; cursor: pointer; flex: 1 1 auto; text-align: center;}
-  .hero-actions a:hover { transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.15); }
-  .btn-blue{background:var(--blue);color:var(--white)}.btn-red{background:var(--logo-red);color:var(--white)}.btn-green{background:var(--green);color:var(--white)}.btn-yellow{background:var(--logo-yellow);color:var(--text)}
+  
+  .hero-actions { display:flex;gap:15px;margin-top:36px;flex-wrap:wrap;z-index:2;position:relative; }
+  .hero-actions a { 
+      padding:16px 30px; border-radius:30px; font-size:20px; font-weight:900; text-decoration:none; 
+      transition:all 0.3s ease; display:flex; align-items:center; justify-content:center; gap:8px; cursor: pointer; flex: 1 1 auto; text-align: center;
+      background: rgba(255, 255, 255, 0.25) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+  }
+  .hero-actions a:hover { transform:translateY(-5px) scale(1.02); box-shadow:0 12px 25px rgba(0,0,0,0.2) !important; background: rgba(255, 255, 255, 0.4) !important; }
+  .btn-blue { color: var(--blue-dark) !important; }
+  .btn-red { color: var(--logo-red) !important; }
   
   .hero-seq-container { position: absolute; bottom: 30px; left: 0; right: 0; height: 60px; overflow: hidden; z-index: 1; pointer-events: none; }
   #heroSeqAnim { position: absolute; font-size: 50px; right: -80px; }
@@ -246,12 +153,14 @@
   .rainbow-bar { height:10px;background:linear-gradient(90deg,var(--blue) 0%,var(--green) 25%,var(--logo-yellow) 50%,var(--logo-red) 75%,var(--blue) 100%);background-size:200% 100%;animation:rainbowMove 3s linear infinite; }
   @keyframes rainbowMove{0%{background-position:0% 0}100%{background-position:200% 0}}
 
+  /* الأشرطة المتحركة - تم توحيد السرعة وتكرار المحتوى للدوران اللانهائي */
   .marquee-wrap { overflow:hidden; background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(255, 255, 255, 0.6); border-bottom: 1px solid rgba(255, 255, 255, 0.6); padding:14px 0; direction: ltr; }
   .marquee-wrap.red, .marquee-wrap.green, .marquee-wrap.yellow { background: rgba(255, 255, 255, 0.45); }
-  .marquee-track { display:flex;gap:0;animation:marqueeLTR 22s linear infinite;white-space:nowrap; width: max-content; }
+  .marquee-track { display:flex;gap:0;animation:marqueeLTR 22s linear infinite; width: max-content; }
+  .marquee-content { display:flex; gap:0; }
   .marquee-item { font-size:18px; font-weight:bold; color:var(--text); padding:0 30px; display:flex; align-items:center; gap:15px; direction: rtl; }
-  @keyframes marqueeLTR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0%); } }
-  @media (max-width: 768px) { .marquee-track { animation: marqueeLTR 11s linear infinite; } }
+  @keyframes marqueeLTR { 0% { transform: translateX(0%); } 100% { transform: translateX(50%); } }
+  @media (max-width: 768px) { .marquee-track { animation: marqueeLTR 15s linear infinite; } }
 
   .about-section { padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center; background: transparent; }
   .about-img-wrap { position:relative;height:400px;border-radius:40px;overflow:hidden;display:flex;align-items:center;justify-content:center; }
@@ -273,7 +182,6 @@
   .stat-item:nth-child(1) .stat-num{color:var(--blue-dark)}.stat-item:nth-child(2) .stat-num{color:var(--logo-red)}.stat-item:nth-child(3) .stat-num{color:var(--green-dark)}.stat-item:nth-child(4) .stat-num{color:var(--yellow-dark)}
   .stat-label { font-size:14px;font-weight:800;color:var(--text);margin-top:6px; }
 
-  /* قسم جليسة الأطفال الجديد */
   .babysitter-section { padding:80px 48px; background: transparent; text-align: center; }
   .babysitter-box { max-width: 700px; margin: 0 auto; border-radius: 30px; padding: 40px; text-align: right; }
   .babysitter-box p { font-size: 18px; font-weight: bold; color: var(--text); margin-bottom: 20px; text-align: center; }
@@ -322,21 +230,10 @@
   .branch-name { font-size: 18px; font-weight: bold; }
   .branch-dist { font-size: 13px; color: var(--yellow); margin-top: 4px; display: inline-block;}
 
-  .map-container { margin-top: 40px; padding: 20px; border-radius: 30px; display: block;}
-
-  /* المراجعات بتصميم خرائط جوجل متوافقة مع الآيفون */
   .testimonials-section { padding:80px 0; background: transparent; overflow: hidden; }
-  .gm-reviews-container {
-      display: flex; gap: 16px; overflow-x: auto; padding: 20px 48px;
-      scroll-snap-type: x mandatory; scrollbar-width: none;
-      -webkit-overflow-scrolling: touch; margin-top: 20px;
-  }
+  .gm-reviews-container { display: flex; gap: 16px; overflow-x: auto; padding: 20px 48px; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin-top: 20px; }
   .gm-reviews-container::-webkit-scrollbar { display: none; }
-  .gm-review-card {
-      flex: 0 0 320px; border-radius: 12px; padding: 20px;
-      scroll-snap-align: center; text-align: right; direction: rtl;
-      display: flex; flex-direction: column; align-items: flex-start;
-  }
+  .gm-review-card { flex: 0 0 320px; border-radius: 12px; padding: 20px; scroll-snap-align: center; text-align: right; direction: rtl; display: flex; flex-direction: column; align-items: flex-start; }
   .gm-reviewer { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; width: 100%; }
   .gm-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 18px; color: white; font-weight: bold; font-family: sans-serif;}
   .gm-name-col { display: flex; flex-direction: column; align-items: flex-start;}
@@ -358,16 +255,7 @@
   .gallery-cell:nth-child(6){grid-column:4;grid-row:2; background: none;}
   .gallery-cell-label { position:absolute;bottom:10px;left:14px;font-size:13px;font-weight:800;color:var(--muted); }
 
-  footer { 
-      background:rgba(255,255,255,0.45); 
-      backdrop-filter:blur(20px); 
-      -webkit-backdrop-filter:blur(20px); 
-      border-top:1px solid rgba(255,255,255,0.8); 
-      color:var(--text); 
-      padding:64px 48px 32px; 
-      position:relative; 
-      overflow:hidden; 
-  }
+  footer { background:rgba(255,255,255,0.45); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-top:1px solid rgba(255,255,255,0.8); color:var(--text); padding:64px 48px 32px; position:relative; overflow:hidden; }
   footer::before { content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,var(--blue),var(--logo-red),var(--green),var(--logo-yellow)); }
   .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:20px; }
   .footer-desc { font-size:15px;color:var(--text);line-height:1.7; font-family: 'Baloo Bhaijaan 2', sans-serif; margin-top: 15px;}
@@ -382,22 +270,28 @@
   .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
   .fade-up.visible{opacity:1;transform:none}
 
-  /* نافذة الفروع المخصصة */
-  .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 3000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+  /* نافذة الفروع المخصصة - تغطي كامل الشاشة مع فرعين في كل سطر */
+  .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: 3000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
   .modal-overlay.active { opacity: 1; visibility: visible; }
-  .modal-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; color: var(--text); border: none; font-weight: bold; transition: all 0.2s; z-index: 10;}
+  .modal-close { position: absolute; top: 20px; right: 20px; width: 45px; height: 45px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 26px; color: var(--text); border: none; font-weight: bold; transition: all 0.2s; z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
   .modal-close:hover { background: var(--red-light); color: var(--logo-red); }
   
-  #directionsModalBox { max-width: 700px; padding: 40px 20px; }
-  .modal-branch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.0)); pointer-events: none; }
+  #directionsModalBox { width: 100vw; max-width: 100vw; height: 100vh; border-radius: 0; padding: 80px 20px 40px; overflow-y: auto; background: transparent; border: none !important; box-shadow: none !important; }
+  #modalBranchesGrid { display: grid; grid-template-columns: repeat(2, 1fr) !important; gap: 20px; max-width: 1200px; margin: 0 auto; }
+  .modal-branch-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.0)); pointer-events: none; }
 
-  /* نافذة معرض الصور السحب - بيضاء بالكامل */
-  .img-gallery-overlay { position: fixed; inset: 0; background: #FFFFFF; z-index: 5000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; }
+  /* نافذة معرض الصور السحب */
+  .img-gallery-overlay { position: fixed; inset: 0; background: rgba(255,255,255,0.95); z-index: 5000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; cursor: pointer; }
   .img-gallery-overlay.active { display: flex; opacity: 1; }
   .img-gallery-track { display: flex; width: 100vw; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; height: 100%; align-items: center; cursor: pointer; }
   .img-gallery-track::-webkit-scrollbar { display: none; }
-  .img-gallery-item { flex: 0 0 100vw; height: 70vh; scroll-snap-align: center; display: flex; justify-content: center; align-items: center; padding: 20px; cursor: default; }
-  .img-gallery-item div { width: 100%; max-width: 500px; height: 100%; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 100px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); user-select: none; cursor: pointer; border: 2px solid rgba(0,0,0,0.02);}
+  .img-gallery-item { flex: 0 0 100vw; height: 70vh; scroll-snap-align: center; display: flex; justify-content: center; align-items: center; padding: 20px; }
+  .img-gallery-item div { width: 100%; max-width: 500px; height: 100%; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 100px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); user-select: none; cursor: default; border: 2px solid rgba(0,0,0,0.02);}
+
+  /* نقاط نافذة المعرض */
+  .gallery-pagination { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; background: rgba(255, 255, 255, 0.25); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 12px 24px; border-radius: 30px; z-index: 5001; border: 1px solid rgba(255,255,255,0.5); }
+  .gallery-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); transition: 0.3s ease; }
+  .gallery-dot.active { background: #ffffff; box-shadow: 0 0 12px rgba(255,255,255,0.9); transform: scale(1.3); }
 
   @media (max-width: 768px) {
     nav { padding: 10px 15px; flex-direction: column; gap: 5px; justify-content: center; }
@@ -409,7 +303,7 @@
 
     .hero { padding: 180px 20px 60px; text-align: center; }
     .hero-actions { justify-content: center; gap: 10px; flex-direction: row; }
-    .hero-actions a { flex: 1 1 45%; font-size: 15px; padding: 12px 10px; }
+    .hero-actions a { flex: 1 1 45%; font-size: 17px; padding: 14px 10px; }
 
     .about-section, .programs-grid, .enrollment-section, .footer-grid { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; text-align: center;}
     .babysitter-section { padding: 60px 20px; }
@@ -430,6 +324,12 @@
     .footer-grid { text-align: right; gap: 30px; }
     .footer-logo .brand-logo-container { justify-content: flex-start; }
     .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
+
+    /* الحفاظ على فرعين في كل سطر في الجوال */
+    #modalBranchesGrid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+    .branch-card { height: 130px; }
+    .branch-name { font-size: 15px; }
+    .branch-dist { font-size: 12px; }
   }
 </style>
 </head>
@@ -477,8 +377,8 @@
   </div>
 
   <div class="hero-actions fade-up" style="transition-delay:0.3s">
-    <a onclick="openGalleryModal()" class="btn-blue"> معرض الصور</a>
-    <a href="#babysitter" class="btn-red"> جليسة الاطفال</a>
+    <a onclick="openGalleryModal()" class="btn-blue">📸 معرض الصور</a>
+    <a href="#babysitter" class="btn-red">👩🏻‍🍼 جليسة الاطفال</a>
   </div>
 
   <div class="hero-seq-container">
@@ -488,22 +388,56 @@
 
 <div class="rainbow-bar"></div>
 
-<div class="marquee-wrap">
+<div class="marquee-wrap yellow">
   <div class="marquee-track">
-    <div class="marquee-item">🏰 ركن الرمل <span>⭐</span></div>
-    <div class="marquee-item">🎁 هدية لكل طفل <span>⭐</span></div>
-    <div class="marquee-item">🚴 مضمار الدراجات <span>⭐</span></div>
-    <div class="marquee-item">🎭 مسرح وفعاليات <span>⭐</span></div>
-    <div class="marquee-item">🍳 مطبخ صغير <span>⭐</span></div>
-    <div class="marquee-item">🎨 أشغال يدوية <span>⭐</span></div>
-    <div class="marquee-item">🏰  الرمل <span>⭐</span></div>
-    <div class="marquee-item">🎁 هدية   <span>⭐</span></div>
-    <div class="marquee-item">🚴 مضمار  <span>⭐</span></div>
-    <div class="marquee-item">🎭 مسرح  <span>⭐</span></div>
-    <div class="marquee-item">🍳 مطبخ  <span>⭐</span></div>
-    <div class="marquee-item">🎨 أشغال  <span>⭐</span></div>
+    <div class="marquee-content">
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
+        <div class="marquee-item"> تسوقي براحة تامة <span>🛍️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> قهوتك لحظتك الخاصة <span>☕️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
+        <div class="marquee-item"> استمتعي بعشاء هادئ <span>🍴</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> جلسات سبا.. وانتي مطمئنة   <span>🧖🏻‍♀️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> استمتعي بوقتك .. بلا قيود <span>🏃🏻‍♀️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> مرح لطفلك وتجديد لطاقتك  <span>🧘🏻‍♀️</span></div>
+    </div>
+    <div class="marquee-content">
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
+        <div class="marquee-item"> تسوقي براحة تامة <span>🛍️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> قهوتك لحظتك الخاصة <span>☕️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
+        <div class="marquee-item"> استمتعي بعشاء هادئ <span>🍴</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> جلسات سبا.. وانتي مطمئنة   <span>🧖🏻‍♀️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> استمتعي بوقتك .. بلا قيود <span>🏃🏻‍♀️</span></div>
+        <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
+        <div class="marquee-item"> مرح لطفلك وتجديد لطاقتك  <span>🧘🏻‍♀️</span></div>
+    </div>
   </div>
 </div>
+
+<section class="enrollment-section" id="enrollment">
+  <div class="fade-up">
+    <h2 class="section-h2">وقتك الخاص <span style="color:var(--logo-red)">مكافأة</span> تستحقينها! ✨</h2>
+  <div class="section-p" dir="rtl">
+    <p class="section-p" dir="rtl">
+      لأنك تستحقين وقتا لنفسك وسط اهتمامك بطفلك <br>
+      نحن في <span style="color: red; font-weight: bold;">أي آم</span> <span style="color: #facc15; font-weight: bold;">سبيشل</span> نهتم بطفلك في بيئة تفاعليه وآمنه <br>
+      بينما تمنحين نفسك لحظاتك الخاصة وتستعيدين طاقتك
+    </p>
+  </div>
+  </div>
+  <div class="enroll-visual fade-up" style="transition-delay:0.15s">
+    <div style="margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+      <span class="tag-pill tag-red">🦉</span>
+    </div>
+  </div>
+</section>
 
 <div class="stats-bar">
   <div class="stat-item fade-up"><div class="stat-emoji">🛍️</div><div class="stat-num">6</div><div class="stat-label">فروع في كبرى المولات</div></div>
@@ -530,16 +464,28 @@
 
 <div class="marquee-wrap red">
   <div class="marquee-track">
-    <div class="marquee-item">🛒 تسوق براحة <span>🌸</span></div>
-    <div class="marquee-item">🛡️ منطقة آمنة <span>🌸</span></div>
-    <div class="marquee-item">🏃 تفريغ طاقة <span>🌸</span></div>
-    <div class="marquee-item">🎁 هدايا مجانية <span>🌸</span></div>
-    <div class="marquee-item">⏰ وقت ضيافة مفتوح <span>🌸</span></div>
-    <div class="marquee-item">🛒 تسوق براحة <span>🌸</span></div>
-    <div class="marquee-item">👩🏻‍💼  سعوديات مدربات <span>🌸</span></div>
-    <div class="marquee-item">🫧 تعقيم مستمر <span>🌸</span></div>
-    <div class="marquee-item">👩🏻‍🍼 عناية بالرضع <span>🌸</span></div>
-    <div class="marquee-item">🛏️ منطقة للنوم <span>🌸</span></div>
+    <div class="marquee-content">
+        <div class="marquee-item">🛒 تسوق براحة <span>🌸</span></div>
+        <div class="marquee-item">🛡️ منطقة آمنة <span>🌸</span></div>
+        <div class="marquee-item">🏃 تفريغ طاقة <span>🌸</span></div>
+        <div class="marquee-item">🎁 هدايا مجانية <span>🌸</span></div>
+        <div class="marquee-item">⏰ وقت ضيافة مفتوح <span>🌸</span></div>
+        <div class="marquee-item">👩🏻‍💼  سعوديات مدربات <span>🌸</span></div>
+        <div class="marquee-item">🫧 تعقيم مستمر <span>🌸</span></div>
+        <div class="marquee-item">👩🏻‍🍼 عناية بالرضع <span>🌸</span></div>
+        <div class="marquee-item">🛏️ منطقة للنوم <span>🌸</span></div>
+    </div>
+    <div class="marquee-content">
+        <div class="marquee-item">🛒 تسوق براحة <span>🌸</span></div>
+        <div class="marquee-item">🛡️ منطقة آمنة <span>🌸</span></div>
+        <div class="marquee-item">🏃 تفريغ طاقة <span>🌸</span></div>
+        <div class="marquee-item">🎁 هدايا مجانية <span>🌸</span></div>
+        <div class="marquee-item">⏰ وقت ضيافة مفتوح <span>🌸</span></div>
+        <div class="marquee-item">👩🏻‍💼  سعوديات مدربات <span>🌸</span></div>
+        <div class="marquee-item">🫧 تعقيم مستمر <span>🌸</span></div>
+        <div class="marquee-item">👩🏻‍🍼 عناية بالرضع <span>🌸</span></div>
+        <div class="marquee-item">🛏️ منطقة للنوم <span>🌸</span></div>
+    </div>
   </div>
 </div>
 
@@ -556,15 +502,43 @@
   </div>
 </section>
 
-<section class="programs-section" id="programs">
-  <h2 class="section-h2 fade-up">أركان متنوعة تناسب <span style="color:var(--logo-red)">جميع أعمارهم</span> 🎪</h2>
-  <div class="programs-grid">
-    <a class="program-card p-blue fade-up"><div class="program-emoji">🎪</div><span class="program-title">منطقة الرمل والكرات</span><p class="program-desc">مساحة آمنة ونظيفة للاستمتاع بالرمل واللعب بالكرات الملونة</p></a>
-    <a class="program-card p-red fade-up" style="transition-delay:0.1s"><div class="program-emoji">🍳</div><span class="program-title">ركن المهن والمطبخ</span><p class="program-desc">ألعاب تخيلية تنمي مهارات التفاعل واللعب الجماعي</p></a>
-    <a class="program-card p-green fade-up" style="transition-delay:0.2s"><div class="program-emoji">🚴</div><span class="program-title">مضمار الدراجات الحركي</span><p class="program-desc">مساحة مخصصة للحركة وتفريغ الطاقة بكل أمان</p></a>
-    <a class="program-card p-yellow fade-up" style="transition-delay:0.3s"><div class="program-emoji">🎤</div><span class="program-title">مسرح الفعاليات والأنشطة</span><p class="program-desc">فقرات حركية، مسابقات، ورسم على الوجه وتوزيع جوائز</p></a>
+<section class="testimonials-section">
+  <h2 class="section-h2 fade-up" style="text-align:center; padding: 0 20px; position:relative; z-index:20;">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا </h2>
+  <div class="gm-reviews-container fade-up" id="testimonialsTrack"></div>
+</section>
+
+<section class="gallery-section">
+  <h2 class="section-h2 fade-up">أوقات <span style="color:var(--blue-dark)">لا تُنسى</span> من المرح </h2>
+  <div class="gallery-grid">
+    <div class="gallery-cell">🏰<div class="gallery-cell-label">ركن الرمل الممتع</div></div>
+    <div class="gallery-cell">🚴<div class="gallery-cell-label">مضمار الدراجات</div></div>
+    <div class="gallery-cell">🎭<div class="gallery-cell-label">المسرح والفعاليات</div></div>
+    <div class="gallery-cell">🧩<div class="gallery-cell-label">ألعاب المهارات</div></div>
+    <div class="gallery-cell">🍳<div class="gallery-cell-label">المطبخ الصغير</div></div>
+    <div class="gallery-cell">🛏️<div class="gallery-cell-label">ركن النوم والرضاعة</div></div>
   </div>
 </section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-content">
+        <div class="marquee-item">🏰 ركن الرمل <span>⭐</span></div>
+        <div class="marquee-item">🎁 هدية لكل طفل <span>⭐</span></div>
+        <div class="marquee-item">🚴 مضمار الدراجات <span>⭐</span></div>
+        <div class="marquee-item">🎭 مسرح وفعاليات <span>⭐</span></div>
+        <div class="marquee-item">🍳 مطبخ صغير <span>⭐</span></div>
+        <div class="marquee-item">🎨 أشغال يدوية <span>⭐</span></div>
+    </div>
+    <div class="marquee-content">
+        <div class="marquee-item">🏰 ركن الرمل <span>⭐</span></div>
+        <div class="marquee-item">🎁 هدية لكل طفل <span>⭐</span></div>
+        <div class="marquee-item">🚴 مضمار الدراجات <span>⭐</span></div>
+        <div class="marquee-item">🎭 مسرح وفعاليات <span>⭐</span></div>
+        <div class="marquee-item">🍳 مطبخ صغير <span>⭐</span></div>
+        <div class="marquee-item">🎨 أشغال يدوية <span>⭐</span></div>
+    </div>
+  </div>
+</div>
 
 <section class="activities-section" id="activities">
   <h2 class="section-h2 fade-up">مرح <span style="color:var(--green-dark)">لا يتوقف</span> طوال اليوم 🎯</h2>
@@ -580,85 +554,45 @@
   </div>
 </section>
 
-<div class="marquee-wrap green">
-  <div class="marquee-track">
-    <div class="marquee-item">🫧 اسطح معقمة وآمنة <span>🌟</span></div>
-    <div class="marquee-item">👩🏻‍💼 سعوديات متدربات في الاشراف <span>🌟</span></div>
-    <div class="marquee-item">🎫  أوقات عمل متواصلة<span>🌟</span></div>
-    <div class="marquee-item">📅  متاح في جميع الأيام  <span>🌟</span></div>
-    <div class="marquee-item">🔒 معايير أمان عالية  <span>🌟</span></div>
-    <div class="marquee-item">👩🏻‍🏫 مكان للنوم والرضاعة  <span>🌟</span></div>
-    <div class="marquee-item">👦🏻 بيئة اجتماعية وتفاعلية <span>🌟</span></div>
-    <div class="marquee-item">🧩 ألعاب تنمية الذكاء <span>🌟</span></div>
-  </div>
-</div>
-
-<section class="enrollment-section" id="enrollment">
-  <div class="fade-up">
-    <h2 class="section-h2">وقتك الخاص <span style="color:var(--logo-red)">مكافأة</span> تستحقينها! ✨</h2>
-  <div class="section-p" dir="rtl">
-  <p>
- <p class="section-p" dir="rtl">
-<p class="section-p" dir="rtl">
- <p class="section-p" dir="rtl">
-  لأنك تستحقين وقتا لنفسك وسط اهتمامك بطفلك <br>
-  نحن في <span style="color: red; font-weight: bold;">أي آم</span> <span style="color: #facc15; font-weight: bold;">سبيشل</span> نهتم بطفلك في بيئة تفاعليه وآمنه <br>
-  بينما تمنحين نفسك لحظاتك الخاصة وتستعيدين طاقتك
-</p>
-</div>
-  <div class="enroll-visual fade-up" style="transition-delay:0.15s">
-    <div style="margin-top:20px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
-      <span class="tag-pill tag-red">🦉</span>
-    </div>
+<section class="programs-section" id="programs">
+  <h2 class="section-h2 fade-up">أركان متنوعة تناسب <span style="color:var(--logo-red)">جميع أعمارهم</span> 🎪</h2>
+  <div class="programs-grid">
+    <a class="program-card p-blue fade-up"><div class="program-emoji">🎪</div><span class="program-title">منطقة الرمل والكرات</span><p class="program-desc">مساحة آمنة ونظيفة للاستمتاع بالرمل واللعب بالكرات الملونة</p></a>
+    <a class="program-card p-red fade-up" style="transition-delay:0.1s"><div class="program-emoji">🍳</div><span class="program-title">ركن المهن والمطبخ</span><p class="program-desc">ألعاب تخيلية تنمي مهارات التفاعل واللعب الجماعي</p></a>
+    <a class="program-card p-green fade-up" style="transition-delay:0.2s"><div class="program-emoji">🚴</div><span class="program-title">مضمار الدراجات الحركي</span><p class="program-desc">مساحة مخصصة للحركة وتفريغ الطاقة بكل أمان</p></a>
+    <a class="program-card p-yellow fade-up" style="transition-delay:0.3s"><div class="program-emoji">🎤</div><span class="program-title">مسرح الفعاليات والأنشطة</span><p class="program-desc">فقرات حركية، مسابقات، ورسم على الوجه وتوزيع جوائز</p></a>
   </div>
 </section>
+
+<div class="marquee-wrap green">
+  <div class="marquee-track">
+    <div class="marquee-content">
+        <div class="marquee-item">🫧 اسطح معقمة وآمنة <span>🌟</span></div>
+        <div class="marquee-item">👩🏻‍💼 سعوديات متدربات في الاشراف <span>🌟</span></div>
+        <div class="marquee-item">🎫  أوقات عمل متواصلة<span>🌟</span></div>
+        <div class="marquee-item">📅  متاح في جميع الأيام <span>🌟</span></div>
+        <div class="marquee-item">🔒 معايير أمان عالية  <span>🌟</span></div>
+        <div class="marquee-item">👩🏻‍🏫 مكان للنوم والرضاعة  <span>🌟</span></div>
+        <div class="marquee-item">👦🏻 بيئة اجتماعية وتفاعلية <span>🌟</span></div>
+        <div class="marquee-item">🧩 ألعاب تنمية الذكاء <span>🌟</span></div>
+    </div>
+    <div class="marquee-content">
+        <div class="marquee-item">🫧 اسطح معقمة وآمنة <span>🌟</span></div>
+        <div class="marquee-item">👩🏻‍💼 سعوديات متدربات في الاشراف <span>🌟</span></div>
+        <div class="marquee-item">🎫  أوقات عمل متواصلة<span>🌟</span></div>
+        <div class="marquee-item">📅  متاح في جميع الأيام <span>🌟</span></div>
+        <div class="marquee-item">🔒 معايير أمان عالية  <span>🌟</span></div>
+        <div class="marquee-item">👩🏻‍🏫 مكان للنوم والرضاعة  <span>🌟</span></div>
+        <div class="marquee-item">👦🏻 بيئة اجتماعية وتفاعلية <span>🌟</span></div>
+        <div class="marquee-item">🧩 ألعاب تنمية الذكاء <span>🌟</span></div>
+    </div>
+  </div>
+</div>
 
 <section class="partners-section" id="partners">
   <h2 class="section-h2 fade-up" style="text-align:center;">تجدنا في <span style="color:var(--blue-dark)">كبرى مولات الرياض</span> </h2>
-
-  <div class="branches-grid fade-up" id="mainBranchesGrid">
-    </div>
-
-  <div class="map-container fade-up" id="mapContainer">
-    <h3 style="margin-bottom:15px; color:var(--blue-dark); font-size:20px;"> فروعنا في الرياض </h3>
-    <iframe id="mapFrame" width="100%" height="350" style="border:0; border-radius: 20px; box-shadow: var(--shadow);" loading="lazy" src="https://maps.google.com/maps?q=الرياض&hl=ar&z=10&output=embed"></iframe>
-  </div>
+  <div class="branches-grid fade-up" id="mainBranchesGrid"></div>
 </section>
-
-<section class="testimonials-section">
-  <h2 class="section-h2 fade-up" style="text-align:center; padding: 0 20px; position:relative; z-index:20;">ماذا تقول <span style="color:var(--yellow-dark)">الأمهات</span> عنا </h2>
-  <div class="gm-reviews-container fade-up" id="testimonialsTrack">
-    </div>
-</section>
-
-<section class="gallery-section">
-  <h2 class="section-h2 fade-up">أوقات <span style="color:var(--blue-dark)">لا تُنسى</span> من المرح </h2>
-  <div class="gallery-grid">
-    <div class="gallery-cell">🏰<div class="gallery-cell-label">ركن الرمل الممتع</div></div>
-    <div class="gallery-cell">🚴<div class="gallery-cell-label">مضمار الدراجات</div></div>
-    <div class="gallery-cell">🎭<div class="gallery-cell-label">المسرح والفعاليات</div></div>
-    <div class="gallery-cell">🧩<div class="gallery-cell-label">ألعاب المهارات</div></div>
-    <div class="gallery-cell">🍳<div class="gallery-cell-label">المطبخ الصغير</div></div>
-    <div class="gallery-cell">🛏️<div class="gallery-cell-label">ركن النوم والرضاعة</div></div>
-  </div>
-</section>
-
-<div class="marquee-wrap yellow">
-  <div class="marquee-track">
-    <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
-    <div class="marquee-item"> تسوقي براحة تامة <span>🛍️</span></div>
-       <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
-    <div class="marquee-item"> قهوتك لحظتك الخاصة <span>☕️</span></div>
-       <div class="marquee-item">✨ أي آم سبيشل | I am Special✨ </div>
-    <div class="marquee-item"> استمتعي بعشاء هادئ <span>🍴</span></div>
-    <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
-    <div class="marquee-item"> جلسات سبا.. وانتي مطمئنة   <span>🧖🏻‍♀️</span></div>
-       <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
-    <div class="marquee-item"> استمتعي بوقتك .. بلا قيود <span>🏃🏻‍♀️</span></div>
-       <div class="marquee-item">✨ أي آم سبيشل | I am Special ✨</div>
-    <div class="marquee-item"> مرح لطفلك وتجديد لطاقتك  <span>🧘🏻‍♀️</span></div>
-  </div>
-</div>
 
 <footer>
   <div class="footer-grid">
@@ -710,15 +644,15 @@
 </footer>
 
 <div class="img-gallery-overlay" id="galleryModal" onclick="closeGalleryModal(event)">
-   <div class="img-gallery-track" id="galleryTrack">
-      </div>
+   <div class="img-gallery-track" id="galleryTrack" onscroll="updateGalleryDots()"></div>
+   <div class="gallery-pagination" id="galleryDots"></div>
 </div>
 
 <div class="modal-overlay" id="directionsModal">
   <div class="modal-box" id="directionsModalBox">
     <button class="modal-close" onclick="closeDirectionsModal()">×</button>
-    <div class="branches-grid" id="modalBranchesGrid" style="margin-top: 10px;">
-    </div>
+    <h3 style="text-align: center; color: var(--blue-dark); font-size: 24px; margin-bottom: 20px;">اختر الفرع الأقرب إليك</h3>
+    <div class="branches-grid" id="modalBranchesGrid"></div>
   </div>
 </div>
 
@@ -738,14 +672,13 @@
     bgContainer.innerHTML = bgHtml;
   }
 
-  // تأثير تحريك الإيموجيات في الخلفية عند النزول والصعود في الصفحة
   window.addEventListener('scroll', () => {
     document.querySelectorAll('#bgShapes div, #bgShapes img').forEach((el, i) => {
         const speed = (i % 3) === 0 ? 0.05 : ((i % 3) === 1 ? -0.05 : 0.02);
         el.style.marginTop = `${window.scrollY * speed}px`;
     });
   });
-
+  
   const cursorEmoji = document.getElementById('cursorEmoji');
   let currentEmojiIndex = 0;
   document.addEventListener('mousemove', e => {
@@ -755,11 +688,8 @@
     }
   });
 
-  // تمييز الضغط بالماوس عن اللمس للتفاعل المطلوب (إخفاء الإيموجي للموس)
   document.addEventListener('pointerdown', e => {
-  
-    if (e.pointerType === 'mouse') return; // لا تظهر الإيموجيات لمستخدمي الفأرة
-
+    if (e.pointerType === 'mouse') return;
     currentEmojiIndex = (currentEmojiIndex + 1) % bgEmojis.length;
     let touchEl = document.createElement('div');
     touchEl.className = 'touch-emoji';
@@ -774,7 +704,6 @@
   const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // ---- الفروع والمسافات ----
   const branchesData = [
     { name: "مركز المملكة", floor: "الطابق الارضي", lat: 24.7114, lon: 46.6745 },
     { name: "ذا فيو مول", floor: "بوابة 1", lat: 24.7570, lon: 46.7323 },
@@ -883,10 +812,10 @@
     document.body.style.overflow = '';
   }
   document.getElementById('directionsModal').addEventListener('click', function(e) {
-      if (e.target === this) { closeDirectionsModal(); }
+      if (e.target === this || e.target.id === 'directionsModalBox') { closeDirectionsModal(); }
   });
 
-  // ---- نافذة الصور (المعرض) ----
+  // ---- نافذة الصور (المعرض) مع النقاط ----
   function openGalleryModal() {
       const gal = document.getElementById('galleryModal');
       gal.style.display = 'flex';
@@ -894,21 +823,17 @@
       document.body.style.overflow = 'hidden';
   }
   function closeGalleryModal(e) {
-      // إغلاق فقط عند الضغط خارج الصورة
-      if(e.target.id === 'galleryModal' || e.target.classList.contains('img-gallery-item')) {
+      // إغلاق عند الضغط على الخلفية أو التراك (أي شيء عدا الصورة نفسها)
+      if(e.target.id === 'galleryModal' || e.target.classList.contains('img-gallery-item') || e.target.id === 'galleryTrack') {
           const gal = document.getElementById('galleryModal');
           gal.style.opacity = '0';
           setTimeout(() => { gal.style.display = 'none'; document.body.style.overflow = ''; }, 300);
       }
   }
-  function nextGalleryImage(e) {
-      e.stopPropagation(); // منع الإغلاق
-      const track = document.getElementById('galleryTrack');
-      track.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-  }
 
   function initGallery() {
       const track = document.getElementById('galleryTrack');
+      const dotsContainer = document.getElementById('galleryDots');
       const items = [
           {bg: 'var(--blue-light)', emoji: '🏰'},
           {bg: 'var(--red-light)', emoji: '🚴'},
@@ -916,12 +841,24 @@
           {bg: 'var(--yellow-light)', emoji: '🧩'},
           {bg: 'var(--blue)', emoji: '🍳'}
       ];
-      items.forEach(item => {
-          track.innerHTML += `<div class="img-gallery-item"><div style="background:${item.bg}" onclick="nextGalleryImage(event)">${item.emoji}</div></div>`;
+      track.innerHTML = '';
+      dotsContainer.innerHTML = '';
+      items.forEach((item, index) => {
+          // منع انتشار الحدث للصورة حتى لا تنغلق النافذة عند سحبها
+          track.innerHTML += `<div class="img-gallery-item"><div style="background:${item.bg}" onclick="event.stopPropagation()">${item.emoji}</div></div>`;
+          dotsContainer.innerHTML += `<div class="gallery-dot ${index === 0 ? 'active' : ''}"></div>`;
       });
   }
 
-  // ---- المراجعات (تصميم خرائط جوجل) ----
+  function updateGalleryDots() {
+      const track = document.getElementById('galleryTrack');
+      const scrollPos = Math.abs(track.scrollLeft);
+      const activeIndex = Math.round(scrollPos / window.innerWidth);
+      document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+          dot.classList.toggle('active', i === activeIndex);
+      });
+  }
+
   function initTestimonials() {
       const track = document.getElementById('testimonialsTrack');
       const sampleReviews = [
@@ -931,11 +868,9 @@
         { stars: 4, text: "الخدمة ممتازة والموظفات بشوشات جداً مع الأطفال، أنصح به بشدة.", name: "زائرة", role: "ذا فيو مول", color: "#FBBC04" },
         { stars: 5, text: "أفضل حضانة بالرياض، تريحك وقت التسوق وتخلي الطفل يفرغ طاقته بأمان.", name: "أم سارة", role: "شرق بلازا", color: "#4285F4" }
       ];
-
       sampleReviews.forEach(rev => {
           let starsHtml = '';
           for(let i=0; i<rev.stars; i++) starsHtml += '<span>★</span>';
-
           track.innerHTML += `
               <div class="gm-review-card fade-up">
                   <div class="gm-reviewer">
@@ -957,7 +892,6 @@
     renderMainBranches(); 
     initTestimonials();
     initGallery();
-    // إقلاع النظام مباشرة بدون شاشة التحميل
     animateIn();
   });
 </script>
