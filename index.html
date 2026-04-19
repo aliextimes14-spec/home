@@ -637,14 +637,14 @@
 
 <div class="marquee-wrap yellow">
   <div class="marquee-track">
-    <div class="marquee-item">⭐ أي ام سبيشل | I am Special <span>🌟</span></div>
-    <div class="marquee-item">🛍️ تسوقي براحة تامة <span>🌟</span></div>
-    <div class="marquee-item">👶 بيئة آمنة وحركية <span>🌟</span></div>
-    <div class="marquee-item">🎁 هدايا ممتعة <span>🌟</span></div>
-    <div class="marquee-item">⭐ أي ام سبيشل | I am Special <span>🌟</span></div>
-    <div class="marquee-item">🛍️ تسوقي براحة تامة <span>🌟</span></div>
-    <div class="marquee-item">👶 بيئة آمنة وحركية <span>🌟</span></div>
-    <div class="marquee-item">🎁 هدايا ممتعة <span>🌟</span></div>
+    <div class="marquee-item">⭐ أي ام سبيشل | I am Special <span>✨</span></div>
+    <div class="marquee-item">🛍️ تسوقي براحة تامة <span>✨</span></div>
+    <div class="marquee-item">☕️ قهوتك لحظتك الخاصة <span>✨</span></div>
+    <div class="marquee-item">🍴 استمتعي بعشاء هادئ <span>✨</span></div>
+    <div class="marquee-item">⭐ أي ام سبيشل | I am Special <span>✨</span></div>
+    <div class="marquee-item">🧖🏻‍♀️ جلسات سبا.. وانتي مطمئنة   <span>✨</span></div>
+    <div class="marquee-item">🏃🏻‍♀️ استمتعي بوقتك .. بلا قيود <span>✨</span></div>
+    <div class="marquee-item">🧘‍♀️ مرح لطفلك وتجديد لطاقتك  <span>✨</span></div>
   </div>
 </div>
 
@@ -658,10 +658,10 @@
           <div class="cl-en" style="font-size:20px;"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
         </div>
       </div>
-      <p class="footer-desc">الخيار الأول للضيافة الترفيهية داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات تجربة تسوق هادئة ومريحة.</p>
+      <p class="footer-desc">الخيار الأول للضيافة الترفيهية داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات وقت للهدوء أو التسوق.</p>
       
       <div class="seo-text-block">
-        نحن نقدم أفضل حضانة أطفال داخل المولات في الرياض. إذا كنت تبحث عن ضيافة أطفال في مولات الرياض، وضيافة اطفال وقت التسوق في أماكن مثل الرياض جاليري، ذا فيو مول، أو مركز المملكة، فإن أي ام سبيشل هي خيارك الأمثل لترك طفلك يلعب بأمان تام.
+        نحن نقدم أفضل حضانة أطفال داخل المولات في الرياض. إذا كنت تبحث عن ضيافة أطفال في مولات الرياض، وضيافة اطفال وقت التسوق في الرياض جاليري، ذا فيو مول، القصر مول، سلام مول، شرق بلازا، أو مركز المملكة، فإن أي ام سبيشل هي خيارك الأمثل لترك طفلك يلعب بأمان تام.
       </div>
     </div>
     
@@ -692,7 +692,7 @@
   </div>
   
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 أي ام سبيشل (I am Special) للضيافة الترفيهية — جميع الحقوق محفوظة</span>
+    <span class="footer-copy">© 2026 أي ام سبيشل | I am Special للضيافة الترفيهية </span>
     <span style="font-size:20px">❤️💛💚💙</span>
   </div>
 </footer>
@@ -764,10 +764,10 @@
 
   // ---- الفروع والمسافات ----
   const branchesData = [
-    { name: "مركز المملكة", floor: "الدور السفلي", lat: 24.7114, lon: 46.6745 },
+    { name: "مركز المملكة", floor: "الطابق الارضي", lat: 24.7114, lon: 46.6745 },
     { name: "ذا فيو مول", floor: "بوابة 1", lat: 24.7570, lon: 46.7323 },
     { name: "الرياض جاليري", floor: "الدور الثاني", lat: 24.7435, lon: 46.6575 },
-    { name: "شرق بلازا", floor: "في الواجهة", lat: 24.7533, lon: 46.8174 },
+    { name: "شرق بلازا", floor: " الواجهة", lat: 24.7533, lon: 46.8174 },
     { name: "سلام مول", floor: "الدور السفلي", lat: 24.5828, lon: 46.6782 },
     { name: "القصر مول", floor: "الدور الثالث", lat: 24.6030, lon: 46.6853 }
   ];
@@ -806,7 +806,7 @@
     branchesData.forEach((branch) => {
       let distText = '';
       if(hasLocation && branch.distance !== undefined) {
-        distText = `<span class="branch-dist">يبعد ${branch.distance.toFixed(1)} كم 🚗</span>`;
+        distText = `<span class="branch-dist">يبعد ${branch.distance.toFixed(1)} كم </span>`;
       } else {
         distText = `<span class="branch-dist" style="color: var(--yellow-light);">${branch.floor}</span>`;
       }
