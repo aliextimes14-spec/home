@@ -273,11 +273,11 @@
   .img-gallery-item div { width: 100%; max-width: 500px; height: 100%; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 100px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); user-select: none; cursor: pointer; border: 2px solid rgba(255,255,255,0.4); position: relative;}
   
   /* نقاط التحديد لمعرض الصور */
-  .gallery-dots-container { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 4px 8px; border-radius: 20px; pointer-events: none;}
-  .gallery-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; transition: background 0.3s; }
+  .gallery-dots-container { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 4px 8px; border-radius: 20px; pointer-events: none;}
+  .gallery-dot { width: 8px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 50%; transition: background 0.3s; }
   .gallery-dot.active { background: #ffffff; }
 
-  @media (max-width: 8px) {
+  @media (max-width: 740px) {
     nav { padding: 10px 15px; flex-direction: column; gap: 5px; justify-content: center; }
     .nav-logo-wrap { padding: 4px 15px; width: 100%; }
     .brand-logo-container .cl-ar { font-size: 20px; }
