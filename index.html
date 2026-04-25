@@ -69,6 +69,18 @@
         { "@type": "LocalBusiness", "name": "فرع شرق بلازا", "address": { "@type": "PostalAddress", "addressLocality": "شرق بلازا، الرياض" } },
         { "@type": "LocalBusiness", "name": "فرع القصر مول", "address": { "@type": "PostalAddress", "addressLocality": "القصر مول، الرياض" } },
         { "@type": "LocalBusiness", "name": "فرع سلام مول", "address": { "@type": "PostalAddress", "addressLocality": "سلام مول، الرياض" } }
+      ],
+      "employee": [
+        { "@type": "Person", "name": "محمد عبدالعزيز الحبيبب", "jobTitle": "الادارة التنفيذية" },
+        { "@type": "Person", "name": "عبدالرحمن اسماعيل", "jobTitle": "ادارة العمليات" },
+        { "@type": "Person", "name": "هاجر القاسمي", "jobTitle": "مديرة فرع مركز المملكة" },
+        { "@type": "Person", "name": "فاطمة السبيعي", "jobTitle": "مديرة فرع شرق بلازا" },
+        { "@type": "Person", "name": "اسمهان الغامدي", "jobTitle": "ادارة ذا ڤيو مول" },
+        { "@type": "Person", "name": "فاطمه الحارثي", "jobTitle": "ادارة ذا ڤيو مول" },
+        { "@type": "Person", "name": "فاطمه جعفري", "jobTitle": "مديرة فرع الرياض جاليري" },
+        { "@type": "Person", "name": "هند المطيري", "jobTitle": "ادارة سلام مول" },
+        { "@type": "Person", "name": "نوف هزازي", "jobTitle": "ادارة سلام مول" },
+        { "@type": "Person", "name": "منيره الهزري", "jobTitle": "مديرة فرع القصر مول" }
       ]
     },
     {
@@ -114,12 +126,14 @@
 
 <link rel="icon" href="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" type="image/png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700;900&display=swap" rel="stylesheet"></noscript>
-
 <style>
+  @font-face {
+    font-family: 'Baloo 2';
+    src: url('baloo2.ttf') format('truetype');
+    font-weight: 400 900;
+    font-display: swap;
+  }
+
   :root {
     --blue:       #5BB8FF;
     --blue-light: #D6EEFF;
@@ -148,7 +162,7 @@
   body {
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
     color: var(--text);
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
+    font-family: 'Baloo 2', sans-serif;
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
@@ -190,7 +204,6 @@
   .activity-card,
   .stat-item,
   .gallery-cell,
-  .program-card,
   .modal-box {
     background: rgba(255,255,255,0.55);
     border: 1px solid rgba(255,255,255,0.8);
@@ -202,8 +215,8 @@
   }
 
   .brand-logo-container { display:flex; align-items:center; justify-content:center; gap:8px; direction:ltr; flex-wrap:nowrap; white-space:nowrap; }
-  .brand-logo-container .cl-ar { font-family:'Baloo Bhaijaan 2',cursive; font-weight:800; word-spacing:2px; direction:rtl; flex-shrink:0; }
-  .brand-logo-container .cl-en { font-family:'Baloo Bhaijaan 2',sans-serif; font-weight:900; letter-spacing:0.5px; flex-shrink:0; }
+  .brand-logo-container .cl-ar { font-family:'Baloo 2',cursive; font-weight:800; word-spacing:2px; direction:rtl; flex-shrink:0; }
+  .brand-logo-container .cl-en { font-family:'Baloo 2',sans-serif; font-weight:900; letter-spacing:0.5px; flex-shrink:0; }
 
   .brand-logo-img {
     object-fit:contain;
@@ -236,7 +249,7 @@
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
   }
   .nav-logo-wrap { text-decoration:none; display:flex; flex-direction:column; align-items:center; padding:6px 24px; }
-  .header-tagline { color:var(--yellow-dark); font-family:'Baloo Bhaijaan 2',sans-serif; font-weight:800; font-size:clamp(16px,2vw,20px); letter-spacing:0.5px; }
+  .header-tagline { color:var(--yellow-dark); font-family:'Baloo 2',sans-serif; font-weight:800; font-size:clamp(16px,2vw,20px); letter-spacing:0.5px; }
 
   .floating-maps-btn {
     position:fixed; bottom:25px; left:25px; width:65px; height:65px;
@@ -261,7 +274,7 @@
   .star:nth-child(6){top:35%;left:55%;animation-delay:3s}
   @keyframes starFloat{0%,100%{transform:translateY(0) rotate(0);opacity:0.7}50%{transform:translateY(-14px) rotate(20deg);opacity:1}}
 
-  .hero-title { font-family:'Baloo Bhaijaan 2',cursive; font-size:clamp(46px,8vw,110px); line-height:1.2; color:var(--text); position:relative; z-index:2; margin-top:30px; font-weight:900; min-height:200px; }
+  .hero-title { font-family:'Baloo 2',cursive; font-size:clamp(46px,8vw,110px); line-height:1.2; color:var(--text); position:relative; z-index:2; margin-top:30px; font-weight:900; min-height:200px; }
   .hero-title .t-blue{color:var(--blue-dark)}.hero-title .t-red{color:var(--red-dark)}.hero-title .t-green{color:var(--green-dark)}.hero-title .t-yellow{color:var(--yellow-dark)}
   .hero-subtitle { font-size:clamp(16px,2vw,24px); font-weight:700; color:var(--muted); margin-top:16px; z-index:2; position:relative; }
 
@@ -340,15 +353,6 @@
   .babysitter-list li { display:flex; align-items:center; gap:12px; margin-bottom:12px; font-weight:600; }
   .babysitter-list span { font-size:22px; flex-shrink:0; }
 
-  .programs-section { padding:80px 48px; background:transparent; }
-  .programs-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
-  .program-card { border-radius:32px; padding:36px; position:relative; overflow:hidden; text-decoration:none; transition:transform 0.3s, box-shadow 0.3s; min-height:320px; display:flex; flex-direction:column; justify-content:flex-end; cursor:pointer; color:var(--text) !important; }
-  .program-card:hover { transform:translateY(-8px); box-shadow:0 24px 60px rgba(0,0,0,0.15); }
-  .program-emoji { font-size:60px; position:absolute; top:24px; right:24px; animation:floatEmoji 3s ease-in-out infinite; will-change:transform; }
-  @keyframes floatEmoji{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
-  .program-title { font-size:clamp(24px,3.5vw,36px); line-height:1.2; font-weight:bold; }
-  .program-desc { font-size:15px; font-weight:700; opacity:0.9; margin-top:10px; }
-
   .activities-section { padding:80px 48px; background:transparent; }
   .activities-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:40px; }
   .activity-card { border-radius:24px; padding:24px 16px; text-align:center; cursor:pointer; transition:transform 0.25s, box-shadow 0.25s; position:relative; overflow:hidden; }
@@ -373,6 +377,32 @@
   .branch-info { position:absolute; bottom:15px; right:15px; color:white; text-align:right; pointer-events:none; text-shadow:0 2px 4px rgba(0,0,0,0.5); }
   .branch-name { font-size:18px; font-weight:bold; }
   .branch-dist { font-size:13px; color:var(--yellow); margin-top:4px; display:inline-block; }
+
+  /* Team Section Styles - Apple Glassmorphism */
+  .team-section { padding:80px 48px; background:transparent; }
+  .team-exec { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; margin-top:40px; }
+  .team-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:20px; }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transform: translateZ(0); /* Hardware acceleration */
+    will-change: transform;
+  }
+  .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(31, 38, 135, 0.08);
+    background: rgba(255, 255, 255, 0.55);
+  }
+  .team-exec .glass-card { width: 100%; max-width: 320px; }
+  .team-role { font-size: 15px; color: var(--blue-dark); font-weight: 800; margin-bottom: 8px; }
+  .team-name { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.4; }
 
   .testimonials-section { padding:80px 0; background:transparent; overflow:hidden; }
   .gm-reviews-container { display:flex; gap:16px; overflow-x:auto; padding:20px 48px; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; margin-top:20px; }
@@ -415,12 +445,12 @@
     margin-top: 30px;
   }
   .quick-links-list a {
-    padding: 14px 30px;
+    padding: 8px 20px;
     background: var(--white);
     border-radius: 50px;
     color: var(--blue-dark);
     font-weight: 800;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
@@ -449,7 +479,7 @@
   @media (min-width: 1024px) {
     .footer-grid { grid-template-columns:2.5fr 1fr 1fr 1.5fr; }
   }
-  .footer-desc { font-size:15px; color:var(--text); line-height:1.7; font-family:'Baloo Bhaijaan 2',sans-serif; margin-top:15px; }
+  .footer-desc { font-size:15px; color:var(--text); line-height:1.7; font-family:'Baloo 2',sans-serif; margin-top:15px; }
   .footer-col h3 { font-size:18px; margin-bottom:14px; }
   .footer-col.c-blue h3{color:var(--blue-dark)}.footer-col.c-red h3{color:var(--red-dark)}.footer-col.c-green h3{color:var(--green-dark)}
   .footer-col a { display:block; color:var(--text); text-decoration:none; font-size:15px; font-weight:600; margin-bottom:10px; transition:color 0.2s; cursor:pointer; }
@@ -514,8 +544,7 @@
     .hero-actions { justify-content:center; gap:10px; flex-direction:row; }
     .hero-actions a { flex:1 1 45%; font-size:16px; padding:12px 10px; }
 
-    .about-section, .enrollment-section { grid-template-columns:1fr; gap:40px; padding:60px 20px; text-align:center; }
-    .programs-grid { grid-template-columns:1fr; gap:20px; padding:60px 20px; }
+    .about-section, .enrollment-section, .team-section { grid-template-columns:1fr; gap:40px; padding:60px 20px; text-align:center; }
     .babysitter-section { padding:60px 20px; }
     .about-img-wrap { height:300px; }
 
@@ -755,43 +784,44 @@
   </div>
 </section>
 
-<div class="marquee-wrap seasonal" aria-hidden="true" role="presentation">
-  <div class="marquee-track">
-    <div class="marquee-item">استوديو التلوين</div>
-    <div class="marquee-item">ورشة الفن التشكيلي</div>
-    <div class="marquee-item">ورشة القص واللصق</div>
-    <div class="marquee-item">الصناعات الخرزية</div>
-    <div class="marquee-item">مغامرة البحث عن الكنز</div>
-    <div class="marquee-item">تجربة التلوين بالأصابع</div>
-    <div class="marquee-item">مختبر السلايم</div>
-    <div class="marquee-item">ورشة البناء الهندسي</div>
-    <div class="marquee-item">فن تشكيل الشرائط</div>
-    <div class="marquee-item">رحلة حول العالم</div>
-    <div class="marquee-item">المحقق الصغير</div>
-    <div class="marquee-item">فعالية الفواكة الاستوائية</div>
-    <div class="marquee-item">استكشاف الفضاء</div>
-    <div class="marquee-item">فنون الدفاع عن النفس</div>
-    <div class="marquee-item">ورشة روبوتكس</div>
-    <div class="marquee-item">استوديو التلوين</div>
-    <div class="marquee-item">ورشة الفن التشكيلي</div>
-    <div class="marquee-item">ورشة القص واللصق</div>
-    <div class="marquee-item">الصناعات الخرزية</div>
-    <div class="marquee-item">مغامرة البحث عن الكنز</div>
-    <div class="marquee-item">تجربة التلوين بالأصابع</div>
-    <div class="marquee-item">مختبر السلايم</div>
-    <div class="marquee-item">ورشة البناء الهندسي</div>
-    <div class="marquee-item">فن تشكيل الشرائط</div>
-    <div class="marquee-item">رحلة حول العالم</div>
-    <div class="marquee-item">المحقق الصغير</div>
-    <div class="marquee-item">فعالية الفواكة الاستوائية</div>
-    <div class="marquee-item">ريادة الفضاء</div>
-    <div class="marquee-item">فنون الدفاع عن النفس</div>
-    <div class="marquee-item">ورشة روبوتكس</div>
-  </div>
-</div>
-
 <section class="activities-section" id="activities" aria-labelledby="activities-title">
   <h2 id="activities-title" class="section-h2 fade-up">ألعاب أطفال وأنشطة <span style="color:var(--green-dark)">لا تتوقف</span> طوال اليوم 🎯</h2>
+  
+  <div class="marquee-wrap seasonal fade-up" aria-hidden="true" role="presentation" style="margin-top: 30px; margin-bottom: 30px; border-radius: 20px;">
+    <div class="marquee-track">
+      <div class="marquee-item">استوديو التلوين</div>
+      <div class="marquee-item">ورشة الفن التشكيلي</div>
+      <div class="marquee-item">ورشة القص واللصق</div>
+      <div class="marquee-item">الصناعات الخرزية</div>
+      <div class="marquee-item">مغامرة البحث عن الكنز</div>
+      <div class="marquee-item">تجربة التلوين بالأصابع</div>
+      <div class="marquee-item">مختبر السلايم</div>
+      <div class="marquee-item">ورشة البناء الهندسي</div>
+      <div class="marquee-item">فن تشكيل الشرائط</div>
+      <div class="marquee-item">رحلة حول العالم</div>
+      <div class="marquee-item">المحقق الصغير</div>
+      <div class="marquee-item">فعالية الفواكة الاستوائية</div>
+      <div class="marquee-item">استكشاف الفضاء</div>
+      <div class="marquee-item">فنون الدفاع عن النفس</div>
+      <div class="marquee-item">ورشة روبوتكس</div>
+      <div class="marquee-item">استوديو التلوين</div>
+      <div class="marquee-item">ورشة الفن التشكيلي</div>
+      <div class="marquee-item">ورشة القص واللصق</div>
+      <div class="marquee-item">الصناعات الخرزية</div>
+      <div class="marquee-item">مغامرة البحث عن الكنز</div>
+      <div class="marquee-item">تجربة التلوين بالأصابع</div>
+      <div class="marquee-item">مختبر السلايم</div>
+      <div class="marquee-item">ورشة البناء الهندسي</div>
+      <div class="marquee-item">فن تشكيل الشرائط</div>
+      <div class="marquee-item">رحلة حول العالم</div>
+      <div class="marquee-item">المحقق الصغير</div>
+      <div class="marquee-item">فعالية الفواكة الاستوائية</div>
+      <div class="marquee-item">ريادة الفضاء</div>
+      <div class="marquee-item">فنون الدفاع عن النفس</div>
+      <div class="marquee-item">ورشة روبوتكس</div>
+    </div>
+  </div>
+
   <div class="activities-grid">
     <div class="activity-card fade-up"><span class="activity-emoji" aria-hidden="true">🎨</span><h3 class="activity-name">أشغال يدوية</h3><div class="activity-time">متوفر دائماً</div><div class="activity-bar"></div></div>
     <div class="activity-card fade-up" style="transition-delay:0.05s"><span class="activity-emoji" aria-hidden="true">🤸🏻</span><h3 class="activity-name">رقص وحركة</h3><div class="activity-time">مسابقات على المسرح</div><div class="activity-bar"></div></div>
@@ -804,35 +834,52 @@
   </div>
 </section>
 
-<section class="programs-section" id="programs" aria-labelledby="programs-title">
-  <h2 id="programs-title" class="section-h2 fade-up">أركان متنوعة تناسب <span style="color:var(--logo-red)">جميع أعمارهم</span> 🎪</h2>
-  <div class="programs-grid">
-    <a class="program-card p-blue fade-up" role="article">
-      <div class="program-emoji" aria-hidden="true">🎪</div>
-      <h3 class="program-title">منطقة الرمل والكرات</h3>
-      <p class="program-desc">مساحة آمنة ونظيفة للاستمتاع بالرمل واللعب بالكرات الملونة ضمن ألعاب أطفال متكاملة</p>
-    </a>
-    <a class="program-card p-red fade-up" style="transition-delay:0.1s" role="article">
-      <div class="program-emoji" aria-hidden="true">🍳</div>
-      <h3 class="program-title">ركن المهن والمطبخ</h3>
-      <p class="program-desc">ألعاب تخيلية تنمي مهارات التفاعل واللعب الجماعي كجزء من أنشطة الأطفال التعليمية</p>
-    </a>
-    <a class="program-card p-green fade-up" style="transition-delay:0.2s" role="article">
-      <div class="program-emoji" aria-hidden="true">🚴</div>
-      <h3 class="program-title">مضمار الدراجات الحركي</h3>
-      <p class="program-desc">مساحة مخصصة للحركة وتفريغ الطاقة بكل أمان ضمن مكان لعب أطفال آمن</p>
-    </a>
-    <a class="program-card p-yellow fade-up" style="transition-delay:0.3s" role="article">
-      <div class="program-emoji" aria-hidden="true">🎤</div>
-      <h3 class="program-title">مسرح الفعاليات والأنشطة</h3>
-      <p class="program-desc">فقرات حركية، مسابقات، ورسم على الوجه وتوزيع جوائز كجزء من ترفيه الأطفال</p>
-    </a>
-  </div>
-</section>
-
 <section class="partners-section" id="partners" aria-labelledby="partners-title">
   <h2 id="partners-title" class="section-h2 fade-up" style="text-align:center;">تجدنا في <span style="color:var(--blue-dark)">كبرى مولات الرياض</span></h2>
   <div class="branches-grid fade-up" id="mainBranchesGrid" role="list" aria-label="فروعنا في مولات الرياض"></div>
+</section>
+
+<section class="team-section" id="team" aria-labelledby="team-title">
+  <h2 id="team-title" class="section-h2 fade-up" style="text-align:center;">فريقنا <span style="color:var(--blue-dark)">المتميز</span> 🌟</h2>
+  <p class="section-p fade-up" style="text-align:center; max-width:600px; margin:0 auto;">نفخر بكوادرنا الوطنية التي تدير عملياتنا وتضمن تقديم أعلى مستويات الجودة والأمان لأطفالكم.</p>
+  
+  <div class="team-exec fade-up">
+     <div class="glass-card">
+        <div class="team-role">الادارة التنفيذية</div>
+        <div class="team-name">محمد عبدالعزيز الحبيبب</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">ادارة العمليات</div>
+        <div class="team-name">عبدالرحمن اسماعيل</div>
+     </div>
+  </div>
+
+  <div class="team-grid fade-up">
+     <div class="glass-card">
+        <div class="team-role">مركز المملكة</div>
+        <div class="team-name">هاجر القاسمي</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">شرق بلازا</div>
+        <div class="team-name">فاطمة السبيعي</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">ذا ڤيو مول</div>
+        <div class="team-name">اسمهان الغامدي<br>فاطمه الحارثي</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">الرياض جاليري</div>
+        <div class="team-name">فاطمه جعفري</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">سلام مول</div>
+        <div class="team-name">هند المطيري<br>نوف هزازي</div>
+     </div>
+     <div class="glass-card">
+        <div class="team-role">القصر مول</div>
+        <div class="team-name">منيره الهزري</div>
+     </div>
+  </div>
 </section>
 
 <section class="quick-links-section fade-up" aria-labelledby="quick-links-title">
@@ -840,10 +887,10 @@
   <nav aria-label="الروابط السريعة الانتقالية" class="quick-links-nav">
      <ul class="quick-links-list">
         <li><a href="#home" title="العودة للصفحة الرئيسية">الرئيسية</a></li>
-        <li><a href="#programs" title="تعرف على أركان الأطفال">أركان الأطفال</a></li>
         <li><a href="#babysitter" title="خدمة جليسة الأطفال">جليسة الأطفال</a></li>
         <li><a href="#activities" title="الأنشطة والألعاب المتاحة">الأنشطة والألعاب</a></li>
         <li><a href="#partners" title="مواقع فروعنا في الرياض">فروعنا</a></li>
+        <li><a href="#team" title="فريق العمل لدينا">فريقنا</a></li>
      </ul>
   </nav>
 </section>
