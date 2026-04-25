@@ -58,6 +58,11 @@
       "priceRange": "$$",
       "areaServed": "الرياض",
       "hasMap": "https://maps.google.com",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1050"
+      },
       "department": [
         { "@type": "LocalBusiness", "name": "فرع الرياض جاليري", "address": { "@type": "PostalAddress", "addressLocality": "الرياض جاليري، الرياض" } },
         { "@type": "LocalBusiness", "name": "فرع ذا فيو مول", "address": { "@type": "PostalAddress", "addressLocality": "ذا فيو مول، الرياض" } },
@@ -134,7 +139,6 @@
     --white:      #FFFFFF;
     --bg:         #FAFCFF;
     --text:       #3A3A5C;
-    /* FIX 3: تحسين لون muted لنسبة تباين 4.5:1 على الأقل */
     --muted:      #5A5A7A;
     --shadow:     0 4px 15px rgba(0,0,0,0.04);
   }
@@ -151,7 +155,6 @@
     -webkit-text-size-adjust: 100%;
   }
 
-  /* FIX 4: تثبيت الشاشة - إزالة الـblobs المتحركة كلياً واستبدالها بخلفية ثابتة */
   .bg-blob-1,
   .bg-blob-2,
   .bg-blob-3 {
@@ -160,7 +163,6 @@
     z-index: -1;
     pointer-events: none;
     filter: blur(60px);
-    /* إزالة animation نهائياً لتثبيت الشاشة ومنع GPU overdraw */
   }
   .bg-blob-1 {
     top: -10%; right: -5%; width: 420px; height: 420px;
@@ -183,7 +185,6 @@
     50%      { filter: drop-shadow(0 0 8px rgba(255,204,0,0.6)); }
   }
 
-  /* FIX 5: تقليل backdrop-filter - تطبيقه على العناصر الأساسية فقط */
   .babysitter-box,
   .gm-review-card,
   .enroll-visual,
@@ -196,7 +197,6 @@
     border: 1px solid rgba(255,255,255,0.8);
     box-shadow: 0 8px 32px 0 rgba(31,38,135,0.05);
   }
-  /* backdrop-filter فقط على العناصر المرئية في الـviewport الأولي */
   .modal-box {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -215,7 +215,6 @@
   .cl-red    { color: var(--logo-red); }
   .cl-yellow { color: var(--logo-yellow); }
 
-  /* FIX 6: cursor emoji - إخفاؤه على الجوال */
   .cursor-emoji { position:fixed; top:0; left:0; pointer-events:none; z-index:9999; font-size:24px; transform:translate(-50%,-50%); display:none; user-select:none; }
   @media (hover: hover) and (pointer: fine) {
     .cursor-emoji { display:block; }
@@ -224,7 +223,6 @@
   .touch-emoji { position:fixed; font-size:30px; pointer-events:none; z-index:9999; transform:translate(-50%,-50%) scale(0.5); opacity:1; animation:touchFade 0.6s ease-out forwards; }
   @keyframes touchFade { 0%{transform:translate(-50%,-50%) scale(0.5) translateY(0);opacity:1} 100%{transform:translate(-50%,-50%) scale(1.5) translateY(-30px);opacity:0} }
 
-  /* FIX 7: تثبيت floating-shapes - بدون scroll handler وبدون animation */
   .floating-shapes { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
 
   /* NAV */
@@ -264,7 +262,6 @@
   .star:nth-child(6){top:35%;left:55%;animation-delay:3s}
   @keyframes starFloat{0%,100%{transform:translateY(0) rotate(0);opacity:0.7}50%{transform:translateY(-14px) rotate(20deg);opacity:1}}
 
-  /* FIX 8: تحديد حجم ثابت للعنوان لمنع CLS */
   .hero-title { font-family:'Baloo Bhaijaan 2',cursive; font-size:clamp(46px,8vw,110px); line-height:1.2; color:var(--text); position:relative; z-index:2; margin-top:30px; font-weight:900; min-height:200px; }
   .hero-title .t-blue{color:var(--blue-dark)}.hero-title .t-red{color:var(--red-dark)}.hero-title .t-green{color:var(--green-dark)}.hero-title .t-yellow{color:var(--yellow-dark)}
   .hero-subtitle { font-size:clamp(16px,2vw,24px); font-weight:700; color:var(--muted); margin-top:16px; z-index:2; position:relative; }
@@ -289,7 +286,6 @@
   .rainbow-bar { height:10px; background:linear-gradient(90deg,var(--blue) 0%,var(--green) 25%,var(--logo-yellow) 50%,var(--logo-red) 75%,var(--blue) 100%); background-size:200% 100%; animation:rainbowMove 3s linear infinite; }
   @keyframes rainbowMove{0%{background-position:0% 0}100%{background-position:200% 0}}
 
-  /* FIX 9: Marquee - GPU layer منفصلة */
   .marquee-wrap {
     overflow:hidden;
     background:rgba(255,255,255,0.5);
@@ -303,8 +299,8 @@
     white-space:nowrap; width:max-content;
     will-change: transform;
   }
-  .marquee-wrap.yellow .marquee-track { animation-duration:8s !important; }
-  .marquee-wrap.seasonal .marquee-track { animation-duration:35s !important; }
+  .marquee-wrap.yellow .marquee-track { animation-duration:5s !important; }
+  .marquee-wrap.seasonal .marquee-track { animation-duration:15s !important; }
   .marquee-item { font-size:18px; font-weight:bold; color:var(--text); padding:0 30px; display:flex; align-items:center; gap:15px; direction:rtl; }
   @keyframes marqueeRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0%)} }
 
@@ -322,14 +318,12 @@
   .about-badge-wrap { position:absolute; bottom:20px; right:20px; background:var(--white); border-radius:20px; padding:10px 18px; box-shadow:var(--shadow); }
   .about-badge-wrap span { font-size:15px; font-weight:bold; color:var(--blue-dark); }
 
-  /* FIX 10: تحسين ألوان tag-pill لنسبة تباين أعلى */
   .tag-pill { display:inline-block; padding:6px 14px; border-radius:20px; font-size:13px; font-weight:800; margin:4px; }
   .tag-blue{background:var(--blue-light);color:#1a6ea8}
   .tag-red{background:var(--red-light);color:#c0001f}
   .tag-green{background:var(--green-light);color:#1f8c3e}
   .tag-yellow{background:var(--yellow-light);color:#8a6200}
 
-  /* FIX 11: تسلسل العناوين الصحيح h1 > h2 > h3 (لا h4 في footer بدون h3) */
   .section-h2 { font-size:clamp(32px,5vw,50px); line-height:1.2; margin-bottom:16px; }
   .section-p { font-size:16px; line-height:1.8; color:var(--muted); margin-bottom:24px; }
 
@@ -374,7 +368,6 @@
 
   .partners-section { padding:80px 48px; background:transparent; text-align:center; }
   .branches-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:15px; margin-top:40px; }
-  /* FIX 12: تحديد أبعاد ثابتة لبطاقات الفروع لمنع CLS */
   .branch-card { display:block; text-decoration:none; position:relative; height:160px; border-radius:20px; overflow:hidden; background-size:cover; background-position:center; cursor:pointer; border:3px solid transparent; transition:transform 0.3s, border-color 0.3s, box-shadow 0.3s; background-color: #e2e8f0; }
   .branch-card:hover { transform:translateY(-5px); border-color:var(--green); box-shadow:0 12px 24px rgba(0,0,0,0.12); }
   .branch-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.5),rgba(0,0,0,0)); pointer-events:none; }
@@ -396,7 +389,6 @@
   .gm-text { font-size:15px; color:#3c4043; line-height:1.6; font-family:sans-serif; }
 
   .gallery-section { padding:80px 48px; background:transparent; }
-  /* FIX 13: تحديد أبعاد ثابتة للـgallery لمنع CLS */
   .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,180px); gap:12px; margin-top:30px; }
   .gallery-cell { border-radius:24px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:transform 0.3s; font-size:50px; background:rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.8); box-shadow:0 8px 32px 0 rgba(31,38,135,0.05); }
   .gallery-cell:hover { transform:scale(1.03); z-index:2; }
@@ -416,9 +408,11 @@
     position:relative; overflow:hidden;
   }
   footer::before { content:''; position:absolute; top:0; left:0; right:0; height:8px; background:linear-gradient(90deg,var(--blue),var(--logo-red),var(--green),var(--logo-yellow)); }
-  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:20px; }
+  .footer-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px; margin-bottom:20px; }
+  @media (min-width: 1024px) {
+    .footer-grid { grid-template-columns:2.5fr 1fr 1fr 1.5fr; }
+  }
   .footer-desc { font-size:15px; color:var(--text); line-height:1.7; font-family:'Baloo Bhaijaan 2',sans-serif; margin-top:15px; }
-  /* FIX 14: تغيير h4 إلى h3 في الفوتر لتسلسل صحيح */
   .footer-col h3 { font-size:18px; margin-bottom:14px; }
   .footer-col.c-blue h3{color:var(--blue-dark)}.footer-col.c-red h3{color:var(--red-dark)}.footer-col.c-green h3{color:var(--green-dark)}
   .footer-col a { display:block; color:var(--text); text-decoration:none; font-size:15px; font-weight:600; margin-bottom:10px; transition:color 0.2s; cursor:pointer; }
@@ -433,7 +427,6 @@
   .social-icons a:hover { transform:translateY(-3px); background:var(--blue-light); color:var(--blue-dark); box-shadow:0 4px 10px rgba(0,0,0,0.1); }
   .social-icons svg { width:18px; height:18px; fill:currentColor; }
 
-  /* FIX 15: fade-up بدون JavaScript - CSS فقط عبر animation-delay */
   .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
   .fade-up.visible { opacity:1; transform:none; }
 
@@ -449,11 +442,44 @@
   .img-gallery-overlay.active { display:flex; opacity:1; }
   .img-gallery-track { display:flex; width:100vw; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; height:100%; align-items:center; cursor:pointer; }
   .img-gallery-track::-webkit-scrollbar { display:none; }
-  .img-gallery-item { flex:0 0 100vw; height:70vh; scroll-snap-align:center; display:flex; justify-content:center; align-items:center; padding:20px; cursor:default; position:relative; }
-  .img-gallery-item div { width:100%; max-width:500px; height:100%; border-radius:20px; display:flex; justify-content:center; align-items:center; font-size:100px; box-shadow:0 15px 40px rgba(0,0,0,0.1); user-select:none; cursor:pointer; border:2px solid rgba(255,255,255,0.4); position:relative; }
-  .gallery-dots-container { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); display:flex; gap:8px; background:rgba(255,255,255,0.2); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); padding:4px 8px; border-radius:20px; pointer-events:none; }
-  .gallery-dot { width:8px; height:8px; background:rgba(255,255,255,0.5); border-radius:50%; transition:background 0.3s; }
-  .gallery-dot.active { background:#ffffff; }
+  .img-gallery-item { flex:0 0 100vw; height:100vh; scroll-snap-align:center; display:flex; justify-content:center; align-items:center; padding:20px; cursor:default; position:relative; }
+  
+  .img-gallery-item div { 
+    width: 100%; 
+    max-width: 500px; 
+    aspect-ratio: 1; 
+    height: auto; 
+    max-height: 80vh; 
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 100px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
+    user-select: none; 
+    cursor: pointer; 
+    border: 2px solid rgba(255,255,255,0.4); 
+    position: relative; 
+    overflow: hidden;
+  }
+  
+  .gallery-image-title {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--text);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    white-space: nowrap;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
 
   /* RESPONSIVE */
   @media (max-width:740px) {
@@ -469,7 +495,7 @@
     .hero-actions { justify-content:center; gap:10px; flex-direction:row; }
     .hero-actions a { flex:1 1 45%; font-size:16px; padding:12px 10px; }
 
-    .about-section, .enrollment-section, .footer-grid { grid-template-columns:1fr; gap:40px; padding:60px 20px; text-align:center; }
+    .about-section, .enrollment-section { grid-template-columns:1fr; gap:40px; padding:60px 20px; text-align:center; }
     .programs-grid { grid-template-columns:1fr; gap:20px; padding:60px 20px; }
     .babysitter-section { padding:60px 20px; }
     .about-img-wrap { height:300px; }
@@ -492,7 +518,7 @@
     .footer-bottom { flex-direction:column; text-align:center; justify-content:center; }
 
     .marquee-track { animation-duration:15s !important; }
-    .marquee-wrap.yellow .marquee-track { animation-duration:18s !important; }
+    .marquee-wrap.yellow .marquee-track { animation-duration:10s !important; }
     .marquee-wrap.seasonal .marquee-track { animation-duration: 25s !important; }
   }
 
@@ -503,20 +529,10 @@
       transition-duration: 0.01ms !important;
     }
   }
-
-  /* FIX 16: skip to main content للمعالم */
-  .skip-link {
-    position:absolute; top:-40px; left:0; background:var(--blue-dark); color:white;
-    padding:8px 16px; z-index:10000; border-radius:0 0 8px 0; text-decoration:none; font-weight:bold;
-    transition:top 0.2s;
-  }
-  .skip-link:focus { top:0; }
 </style>
 
 </head>
 <body>
-
-<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
 
 <div class="bg-blob-1" aria-hidden="true"></div>
 <div class="bg-blob-2" aria-hidden="true"></div>
@@ -526,7 +542,7 @@
 <div class="floating-shapes" id="bgShapes" aria-hidden="true"></div>
 
 <button class="floating-maps-btn" onclick="handleDirectionsClick()" title="أقرب فرع ألعاب أطفال في الرياض" aria-label="ابحث عن أقرب فرع">
-  <img src="IMG_9207.png" alt="" aria-hidden="true" width="40" height="40" style="object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+  <img src="IMG_9207.png" alt="أيقونة الخريطة" aria-hidden="true" width="40" height="40" style="object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
 </button>
 
 <nav role="banner" aria-label="القائمة الرئيسية">
@@ -661,41 +677,6 @@
   <div class="gm-reviews-container fade-up" id="testimonialsTrack" role="list" aria-label="آراء العملاء"></div>
 </section>
 
-<div class="marquee-wrap seasonal" aria-hidden="true" role="presentation">
-  <div class="marquee-track">
-    <div class="marquee-item">استوديو الألوان الذكية</div>
-    <div class="marquee-item">مختبر النحت الإبداعي</div>
-    <div class="marquee-item">مرسم فن القص والتكوين</div>
-    <div class="marquee-item">ورشة تصميم الحُلي الصغيرة</div>
-    <div class="marquee-item">مغامرة المستكشف الصغير</div>
-    <div class="marquee-item">تجربة الفن الحسي</div>
-    <div class="marquee-item">مختبر التفاعلات اللزجة</div>
-    <div class="marquee-item">ورشة الهندسة المعمارية</div>
-    <div class="marquee-item">استوديو الرسم بالنسيج</div>
-    <div class="marquee-item">رحلة حول العالم</div>
-    <div class="marquee-item">أكاديمية التحري الذكي</div>
-    <div class="marquee-item">مختبر الغذاء الصحي الصغير</div>
-    <div class="marquee-item">أكاديمية رواد الفضاء</div>
-    <div class="marquee-item">ورشة الخزف الاحترافي</div>
-    <div class="marquee-item">مختبر الاكتشاف الهندسي</div>
-    <div class="marquee-item">استوديو الألوان الذكية</div>
-    <div class="marquee-item">مختبر النحت الإبداعي</div>
-    <div class="marquee-item">مرسم فن القص والتكوين</div>
-    <div class="marquee-item">ورشة تصميم الحُلي الصغيرة</div>
-    <div class="marquee-item">مغامرة المستكشف الصغير</div>
-    <div class="marquee-item">تجربة الفن الحسي</div>
-    <div class="marquee-item">مختبر التفاعلات اللزجة</div>
-    <div class="marquee-item">ورشة الهندسة المعمارية</div>
-    <div class="marquee-item">استوديو الرسم بالنسيج</div>
-    <div class="marquee-item">رحلة حول العالم</div>
-    <div class="marquee-item">أكاديمية التحري الذكي</div>
-    <div class="marquee-item">مختبر الغذاء الصحي الصغير</div>
-    <div class="marquee-item">أكاديمية رواد الفضاء</div>
-    <div class="marquee-item">ورشة الخزف الاحترافي</div>
-    <div class="marquee-item">مختبر الاكتشاف الهندسي</div>
-  </div>
-</div>
-
 <section class="gallery-section" aria-labelledby="gallery-title">
   <h2 id="gallery-title" class="section-h2 fade-up">أمان يمنحك <span style="color:var(--blue-dark)">الاطمئنان</span>! </h2>
   <div class="gallery-grid">
@@ -707,6 +688,41 @@
     <div class="gallery-cell" role="img" aria-label="نكثف الاشراف بكثافة الاطفال">👩🏻‍💼<div class="gallery-cell-label">نكثف الاشراف بكثافة الاطفال</div></div>
   </div>
 </section>
+
+<div class="marquee-wrap seasonal" aria-hidden="true" role="presentation">
+  <div class="marquee-track">
+    <div class="marquee-item">استوديو التلوين</div>
+    <div class="marquee-item">ورشة الفن التشكيلي</div>
+    <div class="marquee-item">ورشة القص واللصق</div>
+    <div class="marquee-item">الصناعات الخرزية</div>
+    <div class="marquee-item">مغامرة البحث عن الكنز</div>
+    <div class="marquee-item">تجربة التلوين بالأصابع</div>
+    <div class="marquee-item">مختبر السلايم</div>
+    <div class="marquee-item">ورشة البناء الهندسي</div>
+    <div class="marquee-item">فن تشكيل الشرائط</div>
+    <div class="marquee-item">رحلة حول العالم</div>
+    <div class="marquee-item">المحقق الصغير</div>
+    <div class="marquee-item">فعالية الفواكة الاستوائية</div>
+    <div class="marquee-item">ريادة الفضاء</div>
+    <div class="marquee-item">فنون الدفاع عن النفس</div>
+    <div class="marquee-item">ورشة روبوتكس</div>
+    <div class="marquee-item">استوديو التلوين</div>
+    <div class="marquee-item">ورشة الفن التشكيلي</div>
+    <div class="marquee-item">ورشة القص واللصق</div>
+    <div class="marquee-item">الصناعات الخرزية</div>
+    <div class="marquee-item">مغامرة البحث عن الكنز</div>
+    <div class="marquee-item">تجربة التلوين بالأصابع</div>
+    <div class="marquee-item">مختبر السلايم</div>
+    <div class="marquee-item">ورشة البناء الهندسي</div>
+    <div class="marquee-item">فن تشكيل الشرائط</div>
+    <div class="marquee-item">رحلة حول العالم</div>
+    <div class="marquee-item">المحقق الصغير</div>
+    <div class="marquee-item">فعالية الفواكة الاستوائية</div>
+    <div class="marquee-item">ريادة الفضاء</div>
+    <div class="marquee-item">فنون الدفاع عن النفس</div>
+    <div class="marquee-item">ورشة روبوتكس</div>
+  </div>
+</div>
 
 <section class="activities-section" id="activities" aria-labelledby="activities-title">
   <h2 id="activities-title" class="section-h2 fade-up">ألعاب أطفال وأنشطة <span style="color:var(--green-dark)">لا تتوقف</span> طوال اليوم 🎯</h2>
@@ -832,14 +848,12 @@
 </div>
 
 <script>
-  /* FIX: تقليل background shapes لتثبيت الشاشة */
   function initBackgroundEmojis() {
     const bgContainer = document.getElementById('bgShapes');
     let bgHtml = `<img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="" aria-hidden="true" style="position:absolute;width:180px;opacity:0.4;filter:blur(28px);top:20%;left:10%;">`;
     bgContainer.innerHTML = bgHtml;
   }
 
-  /* FIX: cursor - RAF محسّن */
   const cursorEmoji = document.getElementById('cursorEmoji');
   cursorEmoji.textContent = '🪄';
   let rafCursor = null;
@@ -853,7 +867,6 @@
     });
   }
 
-  /* touch effect */
   let currentEmojiIndex = 0;
   document.addEventListener('pointerdown', e => {
     if (e.pointerType === 'mouse') return;
@@ -869,7 +882,6 @@
     setTimeout(() => touchEl.remove(), 600);
   });
 
-  /* FIX: IntersectionObserver للـfade-in - بدون إعادة ترتيب Layout */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -990,7 +1002,6 @@
     if (e.target.id === 'businessModal')   closeBusinessModal();
   };
 
-  /* FIX: Keyboard support للـmodals */
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeDirectionsModal();
@@ -1025,21 +1036,14 @@
       { bg: 'var(--blue)',         emoji: '🍳', label: 'المطبخ الصغير' }
     ];
     const frag = document.createDocumentFragment();
-    items.forEach((item, idx) => {
-      const dotsHtml = `<div class="gallery-dots-container" aria-hidden="true">${items.map((_, i) => `<div class="gallery-dot${i===idx?' active':''}"></div>`).join('')}</div>`;
+    items.forEach((item) => {
       const wrapper = document.createElement('div');
       wrapper.className = 'img-gallery-item';
       wrapper.onclick = closeGalleryModal;
-      wrapper.innerHTML = `<div style="background:${item.bg}" onclick="nextGalleryImage(event)" role="img" aria-label="${item.label}">${item.emoji}${dotsHtml}</div>`;
+      wrapper.innerHTML = `<div style="background:${item.bg}" onclick="nextGalleryImage(event)" role="img" aria-label="${item.label}">${item.emoji}<div class="gallery-image-title">${item.label}</div></div>`;
       frag.appendChild(wrapper);
     });
     track.appendChild(frag);
-    track.addEventListener('scroll', () => {
-      const index = Math.round(track.scrollLeft / window.innerWidth);
-      document.querySelectorAll('.gallery-dots-container').forEach(c => {
-        c.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === index));
-      });
-    }, { passive: true });
   }
 
   function initTestimonials() {
@@ -1061,23 +1065,26 @@
       card.innerHTML = `
         <div class="gm-reviewer">
           <div class="gm-avatar" style="background:${rev.color}" aria-hidden="true">${rev.name.charAt(0)}</div>
-          <div class="gm-name-col">
-            <span class="gm-name" itemprop="author">${rev.name}</span>
+          <div class="gm-name-col" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span class="gm-name" itemprop="name">${rev.name}</span>
             <span class="gm-meta">${rev.role} · مرشد محلي</span>
           </div>
         </div>
         <div class="gm-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" aria-label="تقييم ${rev.stars} من 5">
           <meta itemprop="ratingValue" content="${rev.stars}">
+          <meta itemprop="bestRating" content="5">
           ${'<span aria-hidden="true">★</span>'.repeat(rev.stars)}
         </div>
-        <div class="gm-text" itemprop="reviewBody">${rev.text}</div>`;
+        <div class="gm-text" itemprop="reviewBody">${rev.text}</div>
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness" style="display:none;">
+          <span itemprop="name">أي آم سبيشل</span>
+        </div>`;
       frag.appendChild(card);
     });
     track.appendChild(frag);
     track.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   }
 
-  /* FIX: requestIdleCallback للمهام الثانوية */
   window.addEventListener('load', () => {
     initBackgroundEmojis();
     renderMainBranches();
