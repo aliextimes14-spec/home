@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>ألعاب أطفال في المول | أي آم سبيشل الرياض</title>
 
@@ -33,7 +33,7 @@
       "alternateName": "I am Special",
       "description": "ألعاب أطفال وضيافة ترفيهية آمنة داخل كبرى مولات الرياض. أنشطة تعليمية وحركية للأطفال من 0 إلى 10 سنوات تحت إشراف مشرفات سعوديات مدربات.",
       "url": "https://iamspecial.sa",
-      "logo": "https://iamspecial.sa/2A3521A9-7E2C-47C5-A13C-349CC090A87B.png",
+      "logo": "https://iamspecial.sa/SpeSvg.xml",
       "image": "https://iamspecial.sa/1.png",
       "telephone": "+966537333567",
       "email": "info@iamspecial.sa",
@@ -122,7 +122,7 @@
 }
 </script>
 
-<link rel="icon" href="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" type="image/png">
+<link rel="icon" href="SpeSvg.xml" type="image/svg+xml">
 
 <style>
   @font-face {
@@ -190,7 +190,7 @@
     background: radial-gradient(circle, rgba(234,179,8,0.25) 0%, transparent 70%);
   }
 
-  img, svg { max-width: 100%; height: auto; }
+  img { max-width: 100%; height: auto; }
 
   @keyframes pulseLogo { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
   @keyframes logoGlow {
@@ -422,6 +422,7 @@
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     transform: translateZ(0);
+    /* Hardware acceleration */
     will-change: transform;
   }
   .glass-card:hover {
@@ -526,7 +527,7 @@
   .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
   .fade-up.visible { opacity:1; transform:none; }
 
-  .modal-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.4); backdrop-filter:blur(15px); -webkit-backdrop-filter:blur(15px); z-index:3000; display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; visibility:hidden; transition:opacity 0.3s, visibility 0.3s; }
+  .modal-overlay { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(255,255,255,0.4); backdrop-filter:blur(15px); -webkit-backdrop-filter:blur(15px); z-index:3000; display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; visibility:hidden; transition:opacity 0.3s, visibility 0.3s; overscroll-behavior: contain; }
   .modal-overlay.active { opacity:1; visibility:visible; }
   .modal-close { position:absolute; top:15px; right:15px; width:36px; height:36px; background:rgba(255,255,255,0.5); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:22px; color:var(--text); border:none; font-weight:bold; transition:background 0.2s, color 0.2s; z-index:10; }
   .modal-close:hover { background:var(--red-light); color:var(--logo-red); }
@@ -534,23 +535,19 @@
   .modal-branches-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; margin-top:10px; }
   .modal-branch-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.4),rgba(0,0,0,0.0)); pointer-events:none; }
 
-  .img-gallery-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.6); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5000; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; flex-direction:column; }
+  .img-gallery-overlay { position:fixed; inset:0; background:rgba(255,255,255,0.6); backdrop-filter:blur(25px); -webkit-backdrop-filter:blur(25px); z-index:5000; display:none; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; flex-direction:column; overscroll-behavior: contain; }
   .img-gallery-overlay.active { display:flex; opacity:1; }
   .img-gallery-track { display:flex; width:100vw; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; height:100%; align-items:center; cursor:pointer; }
   .img-gallery-track::-webkit-scrollbar { display:none; }
   .img-gallery-item { flex:0 0 100vw; height:100vh; scroll-snap-align:center; display:flex; justify-content:center; align-items:center; padding:20px; cursor:default; position:relative; }
   
-  .img-gallery-item div { 
+  .img-gallery-item img { 
     width: 100%; 
     max-width: 500px; 
-    aspect-ratio: 1; 
     height: auto;
     max-height: 80vh; 
     border-radius: 20px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 100px; 
+    object-fit: cover;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
     user-select: none;
     cursor: pointer; 
@@ -618,7 +615,7 @@
 <div class="floating-shapes" id="bgShapes" aria-hidden="true"></div>
 
 <button class="floating-maps-btn" onclick="handleDirectionsClick()" title="أقرب فرع ألعاب أطفال في الرياض" aria-label="ابحث عن أقرب فرع">
-  <img src="IMG_9207.png" alt="أيقونة الخريطة للملاحة" aria-hidden="true" width="40" height="40" style="object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+  <img src="IMG_9207.png" alt="أيقونة الخريطة لتحديد المواقع الأقرب" aria-hidden="true" width="40" height="40" style="object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
 </button>
 
 <nav class="main-nav" role="banner" aria-label="القائمة الرئيسية">
@@ -626,16 +623,7 @@
   <a href="#home" class="nav-logo-wrap" aria-label="الصفحة الرئيسية - أي آم سبيشل ألعاب أطفال">
     <div class="brand-logo-container">
       <div class="cl-ar" style="font-size:24px;color:white;" aria-hidden="true"><span class="cl-red">أي آم</span> <span class="cl-yellow">سبيشل</span></div>
-      
-      <svg class="brand-logo-img" width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="شعار أي آم سبيشل">
-        <g stroke="#ffffff" stroke-width="8" stroke-linejoin="round">
-          <path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
-          <path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
-          <path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/>
-          <path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/>
-        </g>
-      </svg>
-      
+      <img src="SpeSvg.xml" alt="شعار أي آم سبيشل - ألعاب أطفال الرياض" class="brand-logo-img" width="50" height="50">
       <div class="cl-en" style="font-size:24px;color:white;" aria-hidden="true"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
     </div>
   </a>
@@ -699,7 +687,9 @@
 <section class="about-section fade-up" aria-labelledby="about-title" style="text-align:center;display:block;padding-bottom:20px;">
   <h2 id="about-title" class="section-h2">أنت <span style="color:var(--blue-dark)">تتسوقين</span>.. وهم <span style="color:var(--logo-red)">يستمتعون</span></h2>
   <p class="section-p" style="max-width:800px;margin:0 auto 24px;">
-    نحن الوجهة المفضلة للأمهات والآباء الباحثين عن ألعاب أطفال آمنة داخل المجمعات التجارية! نوفر بيئة حركية غنية بـأنشطة أطفال تعليمية وترفيهية تتيح للأطفال تفريغ طاقاتهم وتنمية مهاراتهم، في مكان لعب أطفال نظيف ومعقم يضمن لك راحة البال التامة أثناء التسوق.
+    نحن الوجهة المفضلة للأمهات والآباء الباحثين عن ألعاب أطفال آمنة داخل المجمعات التجارية!
+    نوفر بيئة حركية غنية بـأنشطة أطفال تعليمية وترفيهية تتيح للأطفال تفريغ طاقاتهم وتنمية مهاراتهم،
+    في مكان لعب أطفال نظيف ومعقم يضمن لك راحة البال التامة أثناء التسوق.
   </p>
   <div>
     <span class="tag-pill tag-blue"> إشراف مكثف</span>
@@ -736,7 +726,8 @@
   <div class="fade-up">
     <h2 id="enroll-title" class="section-h2">لأنك تستحقين وقتاً <span style="color:var(--logo-red)">لنفسك</span>! ✨</h2>
     <p class="section-p" dir="rtl">
-      لأنك تستحقين وقتاً لنفسك وسط اهتمامك بطفلك، نحن في <span style="color:red;">أي آم</span> <span style="color:#c8a000;">سبيشل</span> نهتم بطفلك في بيئة مليئة بـألعاب الأطفال التعليمية بينما تمنحين نفسك لحظاتك الخاصة.
+      لأنك تستحقين وقتاً لنفسك وسط اهتمامك بطفلك،
+      نحن في <span style="color:red;">أي آم</span> <span style="color:#c8a000;">سبيشل</span> نهتم بطفلك في بيئة مليئة بـألعاب الأطفال التعليمية بينما تمنحين نفسك لحظاتك الخاصة.
     </p>
   </div>
 </section>
@@ -910,24 +901,18 @@
       <div class="footer-logo">
         <div class="brand-logo-container" style="justify-content:center;">
           <div class="cl-ar" style="font-size:20px;" aria-hidden="true"><span class="cl-red">أي آم</span> <span class="cl-yellow">سبيشل</span></div>
-          
-          <svg class="brand-logo-img" width="35" height="35" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="شعار أي آم سبيشل">
-            <g stroke="#ffffff" stroke-width="8" stroke-linejoin="round">
-              <path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
-              <path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
-              <path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/>
-              <path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/>
-            </g>
-          </svg>
-
+          <img src="SpeSvg.xml" alt="شعار مؤسسة أي آم سبيشل لضيافة الأطفال" class="brand-logo-img" width="35" height="35">
           <div class="cl-en" style="font-size:20px;" aria-hidden="true"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
         </div>
       </div>
   
-      <p class="footer-desc">الخيار الأول للضيافة الترفيهية وألعاب الأطفال داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات وقت للهدوء أو التسوق.</p>
+      <p class="footer-desc">الخيار الأول للضيافة الترفيهية وألعاب الأطفال داخل المجمعات التجارية.
+نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات وقت للهدوء أو التسوق.</p>
       <div class="seo-text-block">
-        أي آم سبيشل هي وجهتك الأولى لـألعاب أطفال داخل المولات في الرياض. نوفر أنشطة أطفال تعليمية وترفيهية في بيئة آمنة ومعقمة تحت إشراف مدرّب. إذا كنت تبحثين عن حضانة أطفال في المول أو مكان لعب أطفال آمن في الرياض جاليري، ذا فيو مول، القصر مول، سلام مول، شرق بلازا، أو مركز المملكة — فأي آم سبيشل هي خيارك المثالي.
-      </div>
+        أي آم سبيشل هي وجهتك الأولى لـألعاب أطفال داخل المولات في الرياض.
+نوفر أنشطة أطفال تعليمية وترفيهية في بيئة آمنة ومعقمة تحت إشراف مدرّب.
+إذا كنت تبحثين عن حضانة أطفال في المول أو مكان لعب أطفال آمن في الرياض جاليري، ذا فيو مول، القصر مول، سلام مول، شرق بلازا، أو مركز المملكة — فأي آم سبيشل هي خيارك المثالي.
+</div>
     </div>
 
 <nav class="footer-col c-red" aria-label="فروعنا">
@@ -991,9 +976,7 @@
 <script>
   function initBackgroundEmojis() {
     const bgContainer = document.getElementById('bgShapes');
-    
-    // Background logo replaced with inline SVG
-    let bgHtml = `<svg aria-hidden="true" style="position:absolute;width:180px;height:180px;opacity:0.4;filter:blur(28px);top:20%;left:10%;" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g stroke="#ffffff" stroke-width="8" stroke-linejoin="round"><path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/><path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/><path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/><path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/></g></svg>`;
+    let bgHtml = `<img src="SpeSvg.xml" alt="خلفية شعار مؤسسة أي آم سبيشل" aria-hidden="true" style="position:absolute;width:180px;opacity:0.4;filter:blur(28px);top:20%;left:10%;">`;
     bgContainer.innerHTML = bgHtml;
   }
 
@@ -1038,12 +1021,17 @@
   function initRotator() {
     const items = document.querySelectorAll('#seasonalRotator .rotator-item');
     if (items.length === 0) return;
+    
     let currentIndex = 0;
+    
     setInterval(() => {
       items[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % items.length;
-      items[currentIndex].classList.add('active');
-    }, 2000);
+      
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % items.length;
+        items[currentIndex].classList.add('active');
+      }, 1000); 
+    }, 3500); 
   }
 
   const branchesData = [
@@ -1155,6 +1143,7 @@
     if (e.target.id === 'galleryModal')    closeGalleryModal();
     if (e.target.id === 'businessModal')   closeBusinessModal();
   };
+  
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeDirectionsModal();
@@ -1169,11 +1158,13 @@
     requestAnimationFrame(() => { gal.style.opacity = '1'; });
     document.body.style.overflow = 'hidden';
   }
+  
   function closeGalleryModal() {
     const gal = document.getElementById('galleryModal');
     gal.style.opacity = '0';
     setTimeout(() => { gal.style.display = 'none'; document.body.style.overflow = ''; }, 300);
   }
+  
   function nextGalleryImage(e) {
     e.stopPropagation();
     document.getElementById('galleryTrack').scrollBy({ left: window.innerWidth, behavior: 'smooth' });
@@ -1182,18 +1173,19 @@
   function initGallery() {
     const track = document.getElementById('galleryTrack');
     const items = [
-      { bg: 'var(--blue-light)',   emoji: '🏰', label: 'ركن الرمل الممتع' },
-      { bg: 'var(--red-light)',    emoji: '🚴', label: 'مضمار دراجات أطفال' },
-      { bg: 'var(--green-light)',  emoji: '🎭', label: 'مسرح أنشطة الأطفال' },
-      { bg: 'var(--yellow-light)', emoji: '🧩', label: 'أنشطة أطفال تعليمية' },
-      { bg: 'var(--blue)',         emoji: '🍳', label: 'المطبخ الصغير' }
+      { src: '001.jpeg', alt: 'أطفال يلعبون في منطقة الأنشطة الترفيهية بفرع ذا فيو مول' },
+      { src: '002.jpeg', alt: 'فعاليات الأطفال الممتعة في فرع الرياض جاليري' },
+      { src: '003.jpeg', alt: 'أنشطة ترفيهية وتعليمية للأطفال في القصر مول' },
+      { src: '004.webp', alt: 'منطقة لعب الأطفال الآمنة في سلام مول' },
+      { src: '005.webp', alt: 'ألعاب تنمية المهارات في فرع مركز المملكة' }
     ];
+    
     const frag = document.createDocumentFragment();
     items.forEach((item) => {
       const wrapper = document.createElement('div');
       wrapper.className = 'img-gallery-item';
       wrapper.onclick = closeGalleryModal;
-      wrapper.innerHTML = `<div style="background:${item.bg}" onclick="nextGalleryImage(event)" role="img" aria-label="${item.label}">${item.emoji}</div>`;
+      wrapper.innerHTML = `<img src="${item.src}" alt="${item.alt}" onclick="nextGalleryImage(event)" loading="lazy">`;
       frag.appendChild(wrapper);
     });
     track.appendChild(frag);
@@ -1215,6 +1207,7 @@
       { stars: 5, text: "التجربه روعه وانا اتعامل معهم بأطفالي من اكثر من ٣ سنوات تعامل راقي جدا واهتمام بالاطفال ونظافة المكان والطاقم الجميل المتدربين بطريقة التعامل مع الاطفال", name: "فهدر المرشد", role: "سلام مول", color: "#34A853" },
       { stars: 5, text: "مررره حنونين على الأطفال والألعاب الجماعية مره حلوه بنتي جلست ثلاث ساعات ورفضت تطلع وأول مره أخليها بلحالها و شكرا ً للموظفات العسولات", name: "حفصة", role: "سلام مول", color: "#c8a000" }
     ];
+    
     const frag = document.createDocumentFragment();
     reviews.forEach(rev => {
       const card = document.createElement('div');
