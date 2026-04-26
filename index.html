@@ -176,11 +176,13 @@
     filter: blur(60px);
   }
   .bg-blob-1 {
-    top: -10%; right: -5%; width: 420px; height: 420px;
+    top: -10%; right: -5%;
+    width: 420px; height: 420px;
     background: radial-gradient(circle, rgba(59,130,246,0.35) 0%, transparent 70%);
   }
   .bg-blob-2 {
-    bottom: -20%; left: -10%; width: 520px; height: 520px;
+    bottom: -20%;
+    left: -10%; width: 520px; height: 520px;
     background: radial-gradient(circle, rgba(236,72,153,0.25) 0%, transparent 70%);
   }
   .bg-blob-3 {
@@ -188,7 +190,7 @@
     background: radial-gradient(circle, rgba(234,179,8,0.25) 0%, transparent 70%);
   }
 
-  img { max-width: 100%; height: auto; }
+  img, svg { max-width: 100%; height: auto; }
 
   @keyframes pulseLogo { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
   @keyframes logoGlow {
@@ -280,7 +282,8 @@
   .hero-actions a {
     padding:14px 24px; border-radius:50px; font-size:18px; text-decoration:none;
     transition:transform 0.2s, box-shadow 0.2s;
-    display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; flex:1 1 auto; text-align:center;
+    display:flex; align-items:center; justify-content:center;
+    gap:8px; cursor:pointer; flex:1 1 auto; text-align:center;
     background:rgba(255,255,255,0.35);
     box-shadow:0 8px 20px rgba(0,0,0,0.15);
     border:1px solid rgba(255,255,255,0.5);
@@ -418,7 +421,7 @@
     padding: 24px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    transform: translateZ(0); /* Hardware acceleration */
+    transform: translateZ(0);
     will-change: transform;
   }
   .glass-card:hover {
@@ -541,7 +544,7 @@
     width: 100%; 
     max-width: 500px; 
     aspect-ratio: 1; 
-    height: auto; 
+    height: auto;
     max-height: 80vh; 
     border-radius: 20px; 
     display: flex; 
@@ -549,7 +552,7 @@
     align-items: center; 
     font-size: 100px; 
     box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
-    user-select: none; 
+    user-select: none;
     cursor: pointer; 
     border: 2px solid rgba(255,255,255,0.4); 
     position: relative; 
@@ -623,7 +626,16 @@
   <a href="#home" class="nav-logo-wrap" aria-label="الصفحة الرئيسية - أي آم سبيشل ألعاب أطفال">
     <div class="brand-logo-container">
       <div class="cl-ar" style="font-size:24px;color:white;" aria-hidden="true"><span class="cl-red">أي آم</span> <span class="cl-yellow">سبيشل</span></div>
-      <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="شعار أي آم سبيشل" class="brand-logo-img" width="50" height="50">
+      
+      <svg class="brand-logo-img" width="50" height="50" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="شعار أي آم سبيشل">
+        <g stroke="#ffffff" stroke-width="8" stroke-linejoin="round">
+          <path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
+          <path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
+          <path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/>
+          <path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/>
+        </g>
+      </svg>
+      
       <div class="cl-en" style="font-size:24px;color:white;" aria-hidden="true"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
     </div>
   </a>
@@ -687,9 +699,7 @@
 <section class="about-section fade-up" aria-labelledby="about-title" style="text-align:center;display:block;padding-bottom:20px;">
   <h2 id="about-title" class="section-h2">أنت <span style="color:var(--blue-dark)">تتسوقين</span>.. وهم <span style="color:var(--logo-red)">يستمتعون</span></h2>
   <p class="section-p" style="max-width:800px;margin:0 auto 24px;">
-    نحن الوجهة المفضلة للأمهات والآباء الباحثين عن ألعاب أطفال آمنة داخل المجمعات التجارية!
-    نوفر بيئة حركية غنية بـأنشطة أطفال تعليمية وترفيهية تتيح للأطفال تفريغ طاقاتهم وتنمية مهاراتهم،
-    في مكان لعب أطفال نظيف ومعقم يضمن لك راحة البال التامة أثناء التسوق.
+    نحن الوجهة المفضلة للأمهات والآباء الباحثين عن ألعاب أطفال آمنة داخل المجمعات التجارية! نوفر بيئة حركية غنية بـأنشطة أطفال تعليمية وترفيهية تتيح للأطفال تفريغ طاقاتهم وتنمية مهاراتهم، في مكان لعب أطفال نظيف ومعقم يضمن لك راحة البال التامة أثناء التسوق.
   </p>
   <div>
     <span class="tag-pill tag-blue"> إشراف مكثف</span>
@@ -726,8 +736,7 @@
   <div class="fade-up">
     <h2 id="enroll-title" class="section-h2">لأنك تستحقين وقتاً <span style="color:var(--logo-red)">لنفسك</span>! ✨</h2>
     <p class="section-p" dir="rtl">
-      لأنك تستحقين وقتاً لنفسك وسط اهتمامك بطفلك،
-      نحن في <span style="color:red;">أي آم</span> <span style="color:#c8a000;">سبيشل</span> نهتم بطفلك في بيئة مليئة بـألعاب الأطفال التعليمية بينما تمنحين نفسك لحظاتك الخاصة.
+      لأنك تستحقين وقتاً لنفسك وسط اهتمامك بطفلك، نحن في <span style="color:red;">أي آم</span> <span style="color:#c8a000;">سبيشل</span> نهتم بطفلك في بيئة مليئة بـألعاب الأطفال التعليمية بينما تمنحين نفسك لحظاتك الخاصة.
     </p>
   </div>
 </section>
@@ -901,10 +910,20 @@
       <div class="footer-logo">
         <div class="brand-logo-container" style="justify-content:center;">
           <div class="cl-ar" style="font-size:20px;" aria-hidden="true"><span class="cl-red">أي آم</span> <span class="cl-yellow">سبيشل</span></div>
-          <img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="شعار أي آم سبيشل" class="brand-logo-img" width="35" height="35">
+          
+          <svg class="brand-logo-img" width="35" height="35" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="شعار أي آم سبيشل">
+            <g stroke="#ffffff" stroke-width="8" stroke-linejoin="round">
+              <path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
+              <path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/>
+              <path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/>
+              <path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/>
+            </g>
+          </svg>
+
           <div class="cl-en" style="font-size:20px;" aria-hidden="true"><span class="cl-red">I</span> <span class="cl-yellow">am</span> <span class="cl-red">S</span><span class="cl-yellow">pe</span><span class="cl-red">c</span><span class="cl-yellow">ia</span><span class="cl-red">l</span></div>
         </div>
       </div>
+  
       <p class="footer-desc">الخيار الأول للضيافة الترفيهية وألعاب الأطفال داخل المجمعات التجارية. نوفر بيئة حركية آمنة تمنح الأطفال السعادة وتمنح الآباء والأمهات وقت للهدوء أو التسوق.</p>
       <div class="seo-text-block">
         أي آم سبيشل هي وجهتك الأولى لـألعاب أطفال داخل المولات في الرياض. نوفر أنشطة أطفال تعليمية وترفيهية في بيئة آمنة ومعقمة تحت إشراف مدرّب. إذا كنت تبحثين عن حضانة أطفال في المول أو مكان لعب أطفال آمن في الرياض جاليري، ذا فيو مول، القصر مول، سلام مول، شرق بلازا، أو مركز المملكة — فأي آم سبيشل هي خيارك المثالي.
@@ -972,7 +991,9 @@
 <script>
   function initBackgroundEmojis() {
     const bgContainer = document.getElementById('bgShapes');
-    let bgHtml = `<img src="2A3521A9-7E2C-47C5-A13C-349CC090A87B.png" alt="" aria-hidden="true" style="position:absolute;width:180px;opacity:0.4;filter:blur(28px);top:20%;left:10%;">`;
+    
+    // Background logo replaced with inline SVG
+    let bgHtml = `<svg aria-hidden="true" style="position:absolute;width:180px;height:180px;opacity:0.4;filter:blur(28px);top:20%;left:10%;" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g stroke="#ffffff" stroke-width="8" stroke-linejoin="round"><path fill="#FF0000" d="M170 60 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h30 c20 0 20 30 0 30 h-30 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-120 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/><path fill="#2196F3" d="M290 120 h120 c0 20 30 20 30 0 c0 -20 30 -20 30 0 v120 c-20 0 -20 30 0 30 c20 0 20 30 0 30 h-120 c0 -20 -30 -20 -30 0 c0 20 -30 20 -30 0 v-30 c20 0 20 -30 0 -30 c-20 0 -20 -30 0 -30 z"/><path fill="#4CAF50" d="M120 260 v120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 h120 c0 -20 30 -20 30 0 c0 20 30 20 30 0 v-120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-30 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 h-120 z"/><path fill="#FFC107" d="M290 300 h120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 v120 c-20 0 -20 -30 0 -30 c20 0 20 -30 0 -30 h-120 c0 20 -30 20 -30 0 c0 -20 -30 -20 -30 0 v-120 c20 0 20 30 0 30 c-20 0 -20 30 0 30 z"/></g></svg>`;
     bgContainer.innerHTML = bgHtml;
   }
 
@@ -1003,7 +1024,7 @@
     document.body.appendChild(touchEl);
     setTimeout(() => touchEl.remove(), 600);
   });
-
+  
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1033,7 +1054,7 @@
     { name: "القصر مول",      floor: "الدور الثالث",     lat: 24.6030, lon: 46.6853, img: "5.png", modalImg: "003.jpeg", alt: "ألعاب أطفال القصر مول الرياض" },
     { name: "سلام مول",       floor: "الدور السفلي",     lat: 24.5828, lon: 46.6782, img: "6.png", modalImg: "004.webp", alt: "ضيافة أطفال سلام مول الرياض" }
   ];
-
+  
   function getDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -1134,7 +1155,6 @@
     if (e.target.id === 'galleryModal')    closeGalleryModal();
     if (e.target.id === 'businessModal')   closeBusinessModal();
   };
-
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       closeDirectionsModal();
@@ -1142,7 +1162,7 @@
       closeBusinessModal();
     }
   });
-
+  
   function openGalleryModal() {
     const gal = document.getElementById('galleryModal');
     gal.style.display = 'flex';
